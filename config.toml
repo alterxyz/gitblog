@@ -10,6 +10,6 @@ taxonomies = [
 even_title = "alterxyz's Blog"
 even_menu = [
     {url = "$BASE_URL", name = "Home"},
-    {url = "$BASE_URL/tags/LLM/", name = "LLM"},
-    {url = "$BASE_URL/tags/PromptEngineering/", name = "Prompt Engineering"},
+    {url = "$BASE_URL/tags/llm/", name = "LLM"},
+    {url = "$BASE_URL/tags/promptengineering/", name = "Prompt Engineering"},
 ]
