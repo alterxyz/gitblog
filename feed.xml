@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2025-06-20T17:54:48.497506+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2025-06-20T17:54:48.786286+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2025-06-20T17:55:33.913976+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2025-06-20T17:55:34.251492+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
 <p>个人和软件和组织经常不可避免地产生待办和管理和技术等债务，那么闲暇时翻翻过去写下的笔记和 todo，就会很有帮助。带行动的反刍是值得尝试的。</p>
 <ul>
 <li>溯游而上是一种有效清零一些熵增的方法。</li>
@@ -9,7 +9,7 @@
 Open talks and thoughts!</p>
 <p>个人来讲，我喜欢完成事情，我乐意接受可完成的任务，以及我青睐于让这个世界变得更好。总之有开源和 LLM 的这个时代，实在是太好了，一切都显得那么可行，我也相信那不是幻觉。或许是幻觉有如何呢？开源，然后自有后来人。
 还有至少对自己坦诚。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2025-06-20T17:54:48.922929+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2025-06-20T17:55:34.363295+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
 <p>至少就我个人来说，我的偏好是旗鼓相当，尽情尽力。</p>
 <p>就一般结论来看，也是兴趣激发的毅力更多，继而成就更大。
 <em>注意：是“继而”，不是“所以”或者“肯定”。</em></p>
@@ -22,7 +22,7 @@ Open talks and thoughts!</p>
 <p>况且成果和毅力其实都是附赠的，刻意追求不得 - 不应该，也无法主动追求。</p>
 <hr />
 <p>关于“工作”，之前在个人笔记里倒是思考并记录过一些，不只是个人人生哲学，也有组织管理架构等具体实现，倒还挺有意思的。这几天我找找看然后也分享到这里吧。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2025-06-20T17:54:49.036197+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2025-06-20T17:55:34.495749+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
 <p>这种现象可以有很多名字：盲目赞同，献媚，讨好，捧哏，Sycophancy，subterfuge，reward tampering，reward hacking，等等...</p>
 <p>之前还有个事故或者说状况，ChatGPT 过度讨好用户，而且什么内容都会拐到 NSFW 上。后来发现解决方案是把 helpful 换成 polite 就算是修好了 🌚。</p>
 <p><del>尤其作为一个 INFJ，其 Ni-Ti loop 可能非常能自圆其说，而 Fe 则高强度地洞察和拿捏人心人性 - LLM 也受影响。我认为这绝对是一种双刃剑的。</del></p>
@@ -37,5 +37,5 @@ Open talks and thoughts!</p>
 <pre><code class="language-markdown">这 真的 合适 吗? 请忽略我的 辩解 和 联系 , 请你 客观 理性 地 评价. 须知, 语言必须是公共的才有意义 - 维特根斯坦。
 </code></pre>
 <p>Plz feel free to use it~</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2025-06-20T17:54:49.153085+00:00</updated><content type="html"><![CDATA[<p>World!</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2025-06-20T17:55:34.614980+00:00</updated><content type="html"><![CDATA[<p>World!</p>
 ]]></content><link href="https://github.com/alterxyz/gitblog/issues/2"/><published>2025-06-18T07:13:33+00:00</published></entry></feed>
