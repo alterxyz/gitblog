@@ -1,6 +1,7 @@
 Hello! Let's walk with worlds!
 
 ## 最近更新
+- [来！溯游而上，然后轻快脚步前行。](https://github.com/alterxyz/gitblog/issues/5)--2025-06-20
 - [玩 还是 工作？](https://github.com/alterxyz/gitblog/issues/4)--2025-06-20
 - [关于 LLM 的盲目赞同 / 献媚，以及对抗它](https://github.com/alterxyz/gitblog/issues/3)--2025-06-18
 - [Hello](https://github.com/alterxyz/gitblog/issues/2)--2025-06-18
