@@ -1,5 +1,108 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2025-06-26T07:42:28.197317+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/6</id><title>关于 memory 的重要性</title><updated>2025-06-26T07:42:28.475060+00:00</updated><content type="html"><![CDATA[<p>一个稳定可靠，或者至少自洽的记忆是至关重要的。如此才能构建一个自然的人格。
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2025-06-26T07:57:29.129947+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/7</id><title>关于指令遵循和上下文管理：解码 LLM 的“稀释”效应与企业级应用</title><updated>2025-06-26T07:57:29.404617+00:00</updated><content type="html"><![CDATA[<h1>稀释</h1>
+<h2>超越“听话”：解码 LLM 的“稀释”效应与企业级应用</h2>
+<p>大型语言模型（LLM）正以惊人的速度改变着我们与信息交互的方式。然而，当我们惊叹于 LLM 的强大能力时，是否曾深入思考过：LLM 真的完全“理解”并“遵循”了我们的指令吗？它们的输出，究竟是用户意图的忠实反映，还是模型自身“意志”的某种体现？“幻觉”又是如何产生的？</p>
+<p>本文将围绕 LLM 的“指令遵循”展开深入探讨，揭示其多维度特性，并引入“稀释效应”的概念来解释 LLM 在处理复杂信息时的行为模式。我们将重点关注“稀释效应”如何影响 LLM 的企业级应用，并探讨如何通过工程化手段，实现更精准的控制和更可靠的结果，以及最终实现人机协同。</p>
+<p>一、 指令的多维性：不只是用户的 Prompt</p>
+<p>当我们向 LLM 发出一个指令（Prompt）时，我们通常期望它能准确理解我们的意图。但实际上，LLM 的行为并非仅仅由我们的 Prompt 决定。除了用户明确输入的指令外，LLM 还会受到至少以下两个方面的影响：</p>
+<ol>
+<li>模型提供商的预设：LLM 的训练数据、预设规则、以及模型提供商为确保模型安全、合规、高效而制定的各种“最佳实践”，都会潜移默化地影响 LLM 的输出。</li>
+<li>模型的推理过程：特别是对于专门的推理模型（如 DeepSeek），它们在处理问题时会大量借鉴自身的预训练知识和推理策略，这可能导致最终输出偏离用户最初的意图。</li>
+</ol>
+<p>这种多维度“指令”的交织，使得 LLM 的行为变得复杂。理解这种复杂性，是构建可靠的企业级 LLM 应用的前提。</p>
+<p>二、 “稀释效应”：理解 LLM 的“思考”过程</p>
+<p>为了更好地理解 LLM 在处理多维度“指令”时的行为模式，我们可以引入“稀释效应”的概念。所谓“稀释”，是指在 LLM 的推理过程中，用户输入的原始指令，会被模型自身的预训练知识、推理策略以及模型提供商的预设等因素所“稀释”，导致最终输出偏离用户最初的预期。</p>
+<p>我们可以将不同来源的信息类比为不同密度的物质：</p>
+<ul>
+<li>用户 Prompt: 密度最高，代表用户的核心意图，如同恒星，是系统的核心。</li>
+<li>RAG 知识库: 密度中等，提供额外的上下文信息，如同行星，围绕恒星运转，提供补充信息。</li>
+<li>模型自身的推理: 密度也较高, 且体量较大，如同星云，在系统中弥漫，影响着整个系统的状态。</li>
+</ul>
+<p>当这些不同“密度”的信息在 LLM 内部相互作用时，就可能出现“稀释效应”。用户的原始指令（恒星）可能被模型自身的推理（星云）所“遮蔽”或“扭曲”，导致最终输出的结果并非完全符合用户预期。</p>
+<p>“稀释”的演进：从“人工稀释 1.0”到“模型稀释 1.0”</p>
+<p>“稀释”效应并非一开始就存在。随着 LLM 技术的发展，“稀释”的形式也在不断演进：</p>
+<ul>
+<li>
+<p>人工稀释 1.0（RAG）: RAG（Retrieval-Augmented Generation）技术可以被视为一种“人工稀释”。通过 RAG，我们将用户的 Prompt 与外部知识库的信息融合，人为地增加了模型的输入信息量，从而“稀释”了原始 Prompt 的直接影响。这种“稀释”是人为可控的，我们可以选择知识库、调整检索策略来控制“稀释”的程度和方向。</p>
+</li>
+<li>
+<p>模型稀释 1.0（Thinking 模型）: Thinking 模型则代表了一种“模型自身驱动的稀释”。这类模型在推理过程中会产生大量的中间步骤和思考过程，这些“思考”虽然提升了模型的整体性能，但也进一步“稀释”了用户原始指令的权重。这种“稀释”是模型自身能力提升的体现，但也更难以直接控制。</p>
+</li>
+</ul>
+<p>三、 “幻觉”的本质： “稀释”与“对齐”的失衡</p>
+<p>长期以来，LLM 的“幻觉”（Hallucination）问题一直困扰着业界。但如果我们从“稀释效应”的角度来看待“幻觉”，或许可以得到更深刻的理解。</p>
+<p>“幻觉”并非 LLM 凭空捏造了不存在的事实，而是模型在多维度“指令”和自身推理的复杂作用下，产生的与人类认知或期望不符的输出。这更像是一种“对齐”问题，而非简单的“错误”。</p>
+<p>“幻觉”往往源于：</p>
+<ul>
+<li>潜台词和暗上下文: 用户 Prompt 中未明确表达的意图、隐含的假设、以及相关的背景知识，都可能成为模型“脑补”的素材，这可以视为一种“隐性稀释”。</li>
+<li>过强的指令遵循: 当模型过分“听话”，试图从有限的输入中推断出过多信息时，也容易产生“幻觉”。</li>
+<li>“稀释”过度: 当模型自身的推理和预训练知识过度主导输出结果时，“幻觉”就更容易出现。</li>
+</ul>
+<p>与其将“幻觉”视为“错误”并试图“纠正”，不如将其视为“稀释”的极端表现，通过工程化手段来 “引导和参与”“稀释” 的过程，实现模型输出与人类期望的“对齐”。</p>
+<p>四、 企业级应用：驾驭“稀释”，实现人机协同</p>
+<p>对于企业级 LLM 应用而言，理解和驾驭“稀释效应”至关重要。企业既希望 LLM 能够充分利用其强大的推理能力，产生更智能、更深入的洞察，又希望 LLM 的输出能够符合企业的特定需求、风格和规范。</p>
+<p>这就需要我们 <strong>不仅仅是“控制”稀释，更是“引导”和“参与”稀释</strong>：</p>
+<ul>
+<li>Prompt 工程: 通过精心设计的 Prompt，明确用户意图，引导模型进行“有方向的稀释”。</li>
+<li>RAG: 利用 RAG 技术，引入与企业相关的知识库，进行“可控的稀释”，为模型提供更精准的上下文。</li>
+<li>Workflow 编排: 通过 Workflow 工具，将复杂的任务分解为多个步骤，并在每个步骤中对“稀释”进行精细化控制。</li>
+<li>模型微调: 针对特定任务或领域，对模型进行微调，使其“稀释”的方向更符合企业需求。</li>
+</ul>
+<p>作为 LLM 平台提供商，我们致力于为企业提供构建、管理和优化 LLM 应用的工具和环境。我们的平台提供：</p>
+<ul>
+<li>灵活的 Prompt 工程工具: 帮助企业构建更精准、更有效的 Prompt，更好地引导 LLM 的行为。</li>
+<li>强大的 RAG 集成能力: 允许企业将 LLM 与内部知识库无缝对接，为 LLM 提供更丰富、更可靠的上下文信息，实现“可控稀释”。</li>
+<li>多样化的 Workflow 编排选项: 支持企业根据不同的业务场景，灵活定制 LLM 的工作流程，实现对“稀释”过程的精细化控制和引导。</li>
+<li>深度定制和优化服务: 为有特殊需求的企业提供专业的咨询和技术支持，帮助企业构建高度定制化的 LLM 应用。</li>
+</ul>
+<p>我们相信，通过这些工具和服务，企业可以更好地驾驭 LLM，充分利用“稀释效应”的正面作用，实现 LLM 与人类的深度协同，共同创造更大的价值。</p>
+<p>五、 总结与展望</p>
+<p>LLM 的“指令遵循”并非简单的“是”或“否”的问题，而是一个涉及多维度“指令”交互、以及“稀释效应”影响的复杂过程。理解“稀释”，驾驭“稀释”，是释放 LLM 潜力的关键。</p>
+<p>“稀释”并非 LLM 的缺陷，而是其强大推理能力的体现。关键在于如何通过工程化手段，让人类更好地“参与”到“稀释”过程中，实现 LLM 输出与人类期望的“对齐”，最终实现人机协同。</p>
+<p>(由 Gemini 2.0 Pro, Flash-Thinking, Claude 3 Opus, 我 共同完成)</p>
+<hr />
+<h2>初稿</h2>
+<p>模型的 “指令遵循” 和 结果效果是个很有意思的话题。</p>
+<p>举例更好说明一些：</p>
+<p>Claude.ai 和 ChatGPT.com 听用户 七到九分（满分 10），听 Anthropic/OpenAI 的 五到八分。</p>
+<p>那么就会出现情况：7 分听用户的， 但是 8 分听了 OpenAI 的 - Prompt 和 工具 和里面（训练时）提供的各种 best practice（Eg. 今天起，ChatGPT 搜索人人可用，OpenAI 疯狂砸钱，雇 300+博士为 AI 打工-36 氪) 。</p>
+<p>中学生问的题，博士可不一定按他想象地给答案和过程。</p>
+<p>而另一个指令遵循是 9 分听用户，五六分听自己的，那么模型就很容易被 jailbreak。</p>
+<p>我理解的 DeepSeek 和其他 推理模型的一个核心在于，后者（prompt/训练集/best practice/后训练）的内容无所谓，有高有低。
+但前面 “听用户的” 部分，比如还是 9 分，但是推理部分也在 prompt 里，它稀释了原始用户。那么构成就是：</p>
+<p>用户 9 + 模型和供应商本身的意愿 5 ➡️ 纯用户 6 + （推理部分 3 + model 5）。</p>
+<p>那么稀释后的用户端指令遵循就只有 42%，低于 50%
+（顺便，小模型可能总分低于 5 啥的。）
+这就导致了推理模型的上下限都比大模型更大。</p>
+<p>开发者是另一个情况。各路 playground 比如 Google ai studio 普遍允许修改 prompt 说过的话。注意力架构是高度依赖上下文的，那么这样就是 hack 了 “模型和供应商本身的意愿” 这部分，通过修改上下文 - 模型相信自己（but hacked）。</p>
+<p>Prompt 是更温和的修改，hack 过于激进且难以复现和投产。（但或许有办法解决？）</p>
+<p>模型商在预训练或者微调时提供 best practice，而企业用户通常通过 prompt - rag 技术等。</p>
+<p>那么，或许模型等指令遵从能力，有表现形态，以及遵循谁的问题。</p>
+<p>Deep Research 听 OpenAI 搭建的高质量素材，以及 prompt 进去的高质量论文，其次才是用户（某种角度上说）（我在自己的笔记有记录另一个思考，简单来说是事件的实现是三部分：意识意义愿景-&gt;意愿意志决策-&gt;推理计算运行）。
+那么，我认为企业肯定也会需要 Deep Research，但是 prompt 进去的可能是内部文件和风格品牌。
+模型既吃企业画的饼（意识层），也吃成员投入的燃料（意愿层）。</p>
+<p>推理模型的一个特点是稀释。
+另一个角度解读是，理想状态下，它仍然遵循人的 query - 在愿景 意识层；
+至于决策 也就是意愿层，它会听自己的而不完全是用户给的，并 best practice 可能比一般人做得更好。</p>
+<p>那么指令遵循当然还是遵循，只是用户画的饼它听，博士和全人类给的参考答案 推理过程 和计算器 numpy 的结果 它也听。</p>
+<p>遵守 - 带来可用性，以及推理模型 - 带来能力的增强。</p>
+<p>这是一个敲敲打打的工程学，可能并非科学甚至原理数学层面的突破。
+当然，有一个过硬的基座模型是必要的。Anthropic 也这样说过，预训练是可通关的，很多厂商也阶段性地做到了。</p>
+<p>推理模型类似全自动 agent，目前高度不可控。
+接下来的话，prompt 够用吗？或者提供 rag 够用吗？workflow 够用吗？需不需要，以及如何介入推理环节？
+企业的需求是什么，会为什么买账（在后 reasoning 和 后 agent 时代）？</p>
+<hr />
+<p>高质量愿景是稀缺的，高质量决策可以由 贵的好的 llm providers 提供。
+那么一般员工做的，无非就是 搬运愿景，偶尔修改 - 添加随机性，将愿景（意识层）翻译为决策（意愿层）和行动。
+超级个体在 LLM 带来的新时代，个体们会如何实现那三层？或者说超级个体的定义是什么，祂会什么样的形态存在？</p>
+<h2>预告</h2>
+<p>meta-dynamic 关于“三层”</p>
+<h2>metadata</h2>
+<blockquote>
+<p>author: alterxyz (jerome @ dify.ai)
+date: 2025年2月6日 初稿；2025年2月10日 正文</p>
+</blockquote>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/7"/><published>2025-06-26T07:57:14+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/6</id><title>关于 memory 的重要性</title><updated>2025-06-26T07:57:29.554939+00:00</updated><content type="html"><![CDATA[<p>一个稳定可靠，或者至少自洽的记忆是至关重要的。如此才能构建一个自然的人格。
 无论是人还是 AI。</p>
 <p>很同意这会是个全面的工程。prompt engineering 之前很多人只是狭义的讨论 提示词么？那么重命名为 context engineering 也算是一种 refreshing 了挺好的。就像 agent 有点被炒作炒烂了，于是 agentic 这个词就又悄然成了共识。</p>
 <details>
@@ -375,7 +478,7 @@ search_context_size 这样的参数，让开发者可以根据成本和性能需
 <li>&quot;Relevance, Works and Context Engineering&quot; by Michael K. Buckland and Wayne de Fremery - IdeaExchange@UAkron, 访问时间为 六月 26, 2025， <a href="https://ideaexchange.uakron.edu/docam/vol11/iss2/5/">https://ideaexchange.uakron.edu/docam/vol11/iss2/5/</a>  </li>
 <li>SYSTEMS ENGINEERING AND MANAGEMENT DEFINITIONS - Project Performance International (PPI), 访问时间为 六月 26, 2025， <a href="https://www.ppi-int.com/wp-content/uploads/2023/05/PPI-007725-7-SEM-Definitions-221017-SE5D-3.pdf">https://www.ppi-int.com/wp-content/uploads/2023/05/PPI-007725-7-SEM-Definitions-221017-SE5D-3.pdf</a></li>
 </ol>
-</details>]]></content><link href="https://github.com/alterxyz/gitblog/issues/6"/><published>2025-06-26T07:35:22+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2025-06-26T07:42:28.685535+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
+</details>]]></content><link href="https://github.com/alterxyz/gitblog/issues/6"/><published>2025-06-26T07:35:22+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2025-06-26T07:57:29.758223+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
 <p>个人和软件和组织经常不可避免地产生待办和管理和技术等债务，那么闲暇时翻翻过去写下的笔记和 todo，就会很有帮助。带行动的反刍是值得尝试的。</p>
 <ul>
 <li>溯游而上是一种有效清零一些熵增的方法。</li>
@@ -385,7 +488,7 @@ search_context_size 这样的参数，让开发者可以根据成本和性能需
 Open talks and thoughts!</p>
 <p>个人来讲，我喜欢完成事情，我乐意接受可完成的任务，以及我青睐于让这个世界变得更好。总之有开源和 LLM 的这个时代，实在是太好了，一切都显得那么可行，我也相信那不是幻觉。或许是幻觉有如何呢？开源，然后自有后来人。
 还有至少对自己坦诚。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><category term="个人哲学"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2025-06-26T07:42:28.793609+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><category term="个人哲学"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2025-06-26T07:57:29.882263+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
 <p>至少就我个人来说，我的偏好是旗鼓相当，尽情尽力。</p>
 <p>就一般结论来看，也是兴趣激发的毅力更多，继而成就更大。
 <em>注意：是“继而”，不是“所以”或者“肯定”。</em></p>
@@ -398,7 +501,7 @@ Open talks and thoughts!</p>
 <p>况且成果和毅力其实都是附赠的，刻意追求不得 - 不应该，也无法主动追求。</p>
 <hr />
 <p>关于“工作”，之前在个人笔记里倒是思考并记录过一些，不只是个人人生哲学，也有组织管理架构等具体实现，倒还挺有意思的。这几天我找找看然后也分享到这里吧。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><category term="个人哲学"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2025-06-26T07:42:28.911168+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><category term="个人哲学"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2025-06-26T07:57:29.993971+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
 <p>这种现象可以有很多名字：盲目赞同，献媚，讨好，捧哏，Sycophancy，subterfuge，reward tampering，reward hacking，等等...</p>
 <p>之前还有个事故或者说状况，ChatGPT 过度讨好用户，而且什么内容都会拐到 NSFW 上。后来发现解决方案是把 helpful 换成 polite 就算是修好了 🌚。</p>
 <p><del>尤其作为一个 INFJ，其 Ni-Ti loop 可能非常能自圆其说，而 Fe 则高强度地洞察和拿捏人心人性 - LLM 也受影响。我认为这绝对是一种双刃剑的。</del></p>
@@ -413,5 +516,5 @@ Open talks and thoughts!</p>
 <pre><code class="language-markdown">这 真的 合适 吗? 请忽略我的 辩解 和 联系 , 请你 客观 理性 地 评价. 须知, 语言必须是公共的才有意义 - 维特根斯坦。
 </code></pre>
 <p>Plz feel free to use it~</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2025-06-26T07:42:29.027041+00:00</updated><content type="html"><![CDATA[<p>World!</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2025-06-26T07:57:30.101352+00:00</updated><content type="html"><![CDATA[<p>World!</p>
 ]]></content><link href="https://github.com/alterxyz/gitblog/issues/2"/><published>2025-06-18T07:13:33+00:00</published></entry></feed>
