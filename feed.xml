@@ -1,9 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2025-07-04T08:43:16.781846+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/10</id><title>小随笔系列</title><updated>2025-07-04T08:43:17.100305+00:00</updated><content type="html"><![CDATA[<p>这里会写写零散的随笔，因为有的短的和零碎的内容，不一定能构成一篇 blog，但同样有意义和价值。</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2025-07-04T08:54:21.312588+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/11</id><title>小随笔 20250704-07xx</title><updated>2025-07-04T08:54:21.742605+00:00</updated><content type="html"><![CDATA[<p>刚刚在讨论 memory。我忽然想到，之前有一个小结论是：目前 Chatflow 的发展过多，而 Workflow 的进展有点少，甚至偶尔脱节。这可能是需要纠正的。</p>
+<p>那么我受此启发结合当下：原来，我的一些想法是因为 并非只有围绕 chatbot / chatflow 的，所以会有点难懂和 hard to get its value。当然了，我们也需要提供一些预设和最佳实践，其目标是雅俗共赏，丰俭由人。</p>
+<p>我继而想到，我偏好的措辞 “project”（memory）其实也算是有点运气了哈哈。</p>
+<p>长话短说：conversation 是 project 的有一种。那么新 memory 应该不止能应用在 Dify Chatflow，而也包括 workflow，甚至更广的范畴。</p>
+<p>tags:</p>
+<ul>
+<li>LLM</li>
+<li>Agent</li>
+<li>Dify
+time:20250704_16:53</li>
+</ul>
+<hr />
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/11"/><category term="小随笔"/><published>2025-07-04T08:53:58+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/10</id><title>小随笔系列</title><updated>2025-07-04T08:54:21.910823+00:00</updated><content type="html"><![CDATA[<p>这里会写写零散的随笔，因为有的短的和零碎的内容，不一定能构成一篇 blog，但同样有意义和价值。</p>
 <p>计划是以一周为单位，把零散的多个随笔写到同一个 blog / issue 里，同时对每条打 tag （project），以及这里和推特互为镜像。</p>
 <h2>小随笔</h2>
 <h3>小随笔 20250704-07xx</h3>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/10"/><published>2025-07-04T08:42:59+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/9</id><title>关于欲望的一点杂谈</title><updated>2025-07-04T08:43:17.244373+00:00</updated><content type="html"><![CDATA[<p>笛卡尔说过：“无法做出决断的人，要么欲望过大，要么悟性不足。”</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/10"/><category term="小随笔"/><published>2025-07-04T08:42:59+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/9</id><title>关于欲望的一点杂谈</title><updated>2025-07-04T08:54:22.061037+00:00</updated><content type="html"><![CDATA[<p>笛卡尔说过：“无法做出决断的人，要么欲望过大，要么悟性不足。”</p>
 <p>デカルトは「決断が出来ない人間は欲望が大きすぎるか、悟性が足りないのだ」と言った。</p>
 <ul>
 <li>心理测量者·槙岛圣护</li>
@@ -34,8 +46,8 @@
 <p>（至少对自己坦诚～）</p>
 <p>好吧，偶尔失控也会被纠正回去，或者承认它们的进展并重新 do something。</p>
 <p>比如暴饮暴食和厌食。我的 BMI 稳定在了 19 左右算是一个不错的现状了吧😂。就是裤子基本只能买修身款有点麻烦，再配合上肩窄小骨架什么的……</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/9"/><published>2025-06-28T16:48:15+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/8</id><title>更繁杂的碎碎念，欢迎订阅 tg channel</title><updated>2025-07-04T08:43:17.346059+00:00</updated><content type="html"><![CDATA[<p><a href="https://t.me/alterxyz4">https://t.me/alterxyz4</a></p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/8"/><published>2025-06-27T18:11:56+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/7</id><title>指令遵循和上下文管理：解码 LLM 的“稀释”效应与企业级应用</title><updated>2025-07-04T08:43:17.461876+00:00</updated><content type="html"><![CDATA[<h1>稀释</h1>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/9"/><published>2025-06-28T16:48:15+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/8</id><title>更繁杂的碎碎念，欢迎订阅 tg channel</title><updated>2025-07-04T08:54:22.241738+00:00</updated><content type="html"><![CDATA[<p><a href="https://t.me/alterxyz4">https://t.me/alterxyz4</a></p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/8"/><published>2025-06-27T18:11:56+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/7</id><title>指令遵循和上下文管理：解码 LLM 的“稀释”效应与企业级应用</title><updated>2025-07-04T08:54:22.414610+00:00</updated><content type="html"><![CDATA[<h1>稀释</h1>
 <h2>超越“听话”：解码 LLM 的“稀释”效应与企业级应用</h2>
 <blockquote>
 <p>author: alterxyz (jerome @ dify.ai)</p>
@@ -137,7 +149,7 @@
 超级个体在 LLM 带来的新时代，个体们会如何实现那三层？或者说超级个体的定义是什么，祂会什么样的形态存在？</p>
 <h2>预告</h2>
 <p>meta-dynamic 关于“三层”</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/7"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-26T07:57:14+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/6</id><title>关于 memory / context / prompt 的理解和未来展望</title><updated>2025-07-04T08:43:17.622751+00:00</updated><content type="html"><![CDATA[<p>一个稳定可靠，或者至少自洽的记忆是至关重要的。如此才能构建一个自然的人格。
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/7"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-26T07:57:14+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/6</id><title>关于 memory / context / prompt 的理解和未来展望</title><updated>2025-07-04T08:54:22.629667+00:00</updated><content type="html"><![CDATA[<p>一个稳定可靠，或者至少自洽的记忆是至关重要的。如此才能构建一个自然的人格。
 无论是人还是 AI。</p>
 <p>很同意这会是个全面的工程。prompt engineering 之前很多人只是狭义的讨论 提示词么？那么重命名为 context engineering 也算是一种 refreshing 了挺好的。就像 agent 有点被炒作炒烂了，于是 agentic 这个词就又悄然成了共识。</p>
 <p>Multi-agent 一步到位解决了连现实也难以完美解决的协作和管理是不现实的, 这是社会学和政治范畴. 但是, 通过 sub AI worker 和 各种工具来过滤噪音却还是能显著提高效果的.</p>
@@ -836,7 +848,7 @@ search_context_size 这样的参数，让开发者可以根据成本和性能需
 <li>Agentic AI Software Engineer: Programming with Trust - arXiv, 访问时间为 六月 26, 2025， <a href="https://arxiv.org/html/2502.13767v2">https://arxiv.org/html/2502.13767v2</a></li>
 </ol>
 </details>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/6"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-06-26T07:35:22+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2025-07-04T08:43:17.882560+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/6"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-06-26T07:35:22+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2025-07-04T08:54:22.913017+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
 <p>个人和软件和组织经常不可避免地产生待办和管理和技术等债务，那么闲暇时翻翻过去写下的笔记和 todo，就会很有帮助。带行动的反刍是值得尝试的。</p>
 <ul>
 <li>溯游而上是一种有效清零一些熵增的方法。</li>
@@ -846,7 +858,7 @@ search_context_size 这样的参数，让开发者可以根据成本和性能需
 Open talks and thoughts!</p>
 <p>个人来讲，我喜欢完成事情，我乐意接受可完成的任务，以及我青睐于让这个世界变得更好。总之有开源和 LLM 的这个时代，实在是太好了，一切都显得那么可行，我也相信那不是幻觉。或许是幻觉有如何呢？开源，然后自有后来人。
 还有至少对自己坦诚。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><category term="个人哲学"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2025-07-04T08:43:17.996499+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><category term="个人哲学"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2025-07-04T08:54:23.059190+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
 <p>至少就我个人来说，我的偏好是旗鼓相当，尽情尽力。</p>
 <p>就一般结论来看，也是兴趣激发的毅力更多，继而成就更大。
 <em>注意：是“继而”，不是“所以”或者“肯定”。</em></p>
@@ -859,7 +871,7 @@ Open talks and thoughts!</p>
 <p>况且成果和毅力其实都是附赠的，刻意追求不得 - 不应该，也无法主动追求。</p>
 <hr />
 <p>关于“工作”，之前在个人笔记里倒是思考并记录过一些，不只是个人人生哲学，也有组织管理架构等具体实现，倒还挺有意思的。这几天我找找看然后也分享到这里吧。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><category term="个人哲学"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2025-07-04T08:43:18.122510+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><category term="个人哲学"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2025-07-04T08:54:23.228651+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
 <p>这种现象可以有很多名字：盲目赞同，献媚，讨好，捧哏，Sycophancy，subterfuge，reward tampering，reward hacking，等等...</p>
 <p>之前还有个事故或者说状况，ChatGPT 过度讨好用户，而且什么内容都会拐到 NSFW 上。后来发现解决方案是把 helpful 换成 polite 就算是修好了 🌚。</p>
 <p><del>尤其作为一个 INFJ，其 Ni-Ti loop 可能非常能自圆其说，而 Fe 则高强度地洞察和拿捏人心人性 - LLM 也受影响。我认为这绝对是一种双刃剑的。</del></p>
@@ -874,5 +886,5 @@ Open talks and thoughts!</p>
 <pre><code class="language-markdown">这 真的 合适 吗? 请忽略我的 辩解 和 联系 , 请你 客观 理性 地 评价. 须知, 语言必须是公共的才有意义 - 维特根斯坦。
 </code></pre>
 <p>Plz feel free to use it~</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2025-07-04T08:43:18.233393+00:00</updated><content type="html"><![CDATA[<p>World!</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2025-07-04T08:54:23.392407+00:00</updated><content type="html"><![CDATA[<p>World!</p>
 ]]></content><link href="https://github.com/alterxyz/gitblog/issues/2"/><published>2025-06-18T07:13:33+00:00</published></entry></feed>
