@@ -1,7 +1,5 @@
 # [Willingness System 与元动力学：一个关于"世界"的哲学框架与 runtime](https://github.com/alterxyz/gitblog/issues/15)
 
-# Willingness System 与元动力学：一个关于世界运行时的哲学框架
-
 *Jerome, 2025.11*
 
 ## 前言
