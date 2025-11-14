@@ -1,7 +1,7 @@
 Hello! Let's walk with worlds!
 
 ## 最近更新
-- [Willingness System 与元动力学：一个关于"世界"的哲学框架与 runtime](https://github.com/alterxyz/gitblog/issues/15)--2025-11-14
+- [Willingness System 与元动力学：一个关于 世界 的哲学框架与 runtime](https://github.com/alterxyz/gitblog/issues/15)--2025-11-14
 - [资源分享](https://github.com/alterxyz/gitblog/issues/14)--2025-09-21
 - [我如何使用 ChatAIs 的 一瞥](https://github.com/alterxyz/gitblog/issues/13)--2025-08-10
 - [关于古风古制的一点个人看法和偏好](https://github.com/alterxyz/gitblog/issues/12)--2025-08-04
