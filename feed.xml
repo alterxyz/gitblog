@@ -1,20 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2026-01-04T01:36:04.980076+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/16</id><title>元动力学（Meta-dynamics）</title><updated>2026-01-04T01:36:05.313274+00:00</updated><content type="html"><![CDATA[<blockquote>
-<p><strong>元动力学</strong>是一套操作性本体论——用于描述世界、组织工作、协调资源。</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2026-01-13T09:57:37.701541+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/16</id><title>元动力学（Meta-dynamics）</title><updated>2026-01-13T09:57:38.389788+00:00</updated><content type="html"><![CDATA[<blockquote>
+<p>非有道不可言，不可言即道。</p>
 </blockquote>
 <hr />
 <h2>前言</h2>
-<p>本文阐述两个相互关联的理论框架：Willingness System（意愿系统）和元动力学（Meta-dynamics）。这些思考起源于哲学反思，对大语言模型（LLM）本质的观察，以及对未来人机协作范式的展望。</p>
+<p>元动力学尝试用统一框架描述万物万象——从个人任务到宇宙运行。</p>
+<p>本文阐述两个相互关联的理论框架：Willingness System（意愿系统）和元动力学（Meta-dynamics）。这些思考起源于哲学反思，对大语言模型（LLM）本质的观察，以及对未来协作范式的展望。</p>
 <hr />
 <h2>第一部分：Willingness System 初窥</h2>
 <h3>1.1 起点：大模型能做决策</h3>
-<p>这一切的起点是一个观察：<strong>大模型可以代替人做决策</strong>。帮我 XXX, 和命令一台机器去执行 ABCD 这种精准且有限的指令是有本质区别的。</p>
-<p>传统计算机只能做 1+1=2 这样机械的运算——给定输入，输出确定。但大模型不一样：它能在非黑即白的世界中选出一个选项，而这个选项大概是对的。</p>
-<p>传统的计算、传统的数据库 SQL 或者代码，并不能输出真正的随机。但是大模型可以输出近乎真正的随机（当不使用或不支持 seed 时）。</p>
-<p>这颠覆了软件&quot;说一是一、说二是二&quot;的确定性。</p>
-<h3>1.2 重新理解&quot;意志&quot;</h3>
-<p>在传统哲学中，&quot;意志&quot;（Will）常被理解为有意识主体的自主决定能力。叔本华将其视为盲目的生命冲动，尼采将其升华为权力意志。但在 AI 时代，需要一个新的理解. 或许只是措辞不一样（名可名非常名）：</p>
-<p><strong>Willingness 不是意志，而是响应倾向性（Response Disposition）</strong></p>
+<p>这一切的起点是一个观察：<strong>大模型可以代替人做决策</strong>。</p>
+<p>传统软件需要程序员预先定义所有规则——遇到没写过的情况就报错或崩溃。但大模型不一样：你给它一个模糊的意图（&quot;帮我写封邮件婉拒这个邀请&quot;），它能在没有明确规则的情况下，给出一个<strong>合理的</strong>回应。</p>
+<p>这不是随机——随机是无意义的噪音。这是<strong>判断力</strong>，也是<strong>决策</strong>：在灰色地带选出一个选项，然后行动。</p>
+<h3>1.2 重新理解&quot;Willingness&quot;</h3>
+<p>这种决策能力背后是什么机制？传统上我们称之为&quot;意愿/意志&quot;——但这个词需要重新理解。</p>
+<p>在传统哲学中，&quot;意愿&quot;（Will）常被理解为有意识主体的自主决定能力。叔本华将其视为盲目的生命冲动，尼采将其升华为权力意志。但在 AI 时代，需要一个新的理解. 或许只是措辞不一样（名可名非常名）：</p>
+<p>**Willingness 是响应倾向性（Response Disposition）</p>
 <p>这种倾向性存在于一个连续谱系中：</p>
 <ul>
 <li><strong>物理层面</strong>：重力的&quot;willingness&quot;使苹果落地, 而不是向上飞</li>
@@ -22,12 +23,14 @@
 <li><strong>智能层面</strong>：人类的 willingness 包含意识选择, 基本共识对错 和职业道德等, 也可以简称为近乎所有事都事出有因.</li>
 <li><strong>人工智能</strong>：LLM 的 willingness 是统计概率的涌现, 决定夸你还是讥讽, 其实在权重里早有倾向了.</li>
 </ul>
-<p>叔本华有些悲观和贬义, 冲动或者说倾向性是中性的. </p>
+<blockquote>
+<p>叔本华有些悲观和贬义, 冲动或者说倾向性是中性的.</p>
 <p>而尼采属于是强行 naming 意志来源或者说之上的东西, 我管那个叫 愿景/意义/意识/第一因/灵魂.
 尼采的&quot;权力意志&quot;可能指向与&quot;第一因/灵魂&quot;相似的位置，但他的反宗教立场和个人 ego 让他拒绝承认有超越世界的 M 层——他把驱动力内在化了，说它就是生命本身.
-而我们后面会提到的元动力学则是站在无分别智的层面来阐述现象, 神创造世界和人做一个小 project 从结构上没有区别.
+而我们后面会提到的元动力学则是站在无分别的层面来阐述现象, 神创造世界和人做一个小 project 从<strong>结构</strong>上没有区别.
 无分别智（佛学术语）：无分别智是指超越主客、能所二元对立，不起分别计度，直接如实照见诸法实相的智慧。</p>
-<p>响应倾向性（Response Disposition）这个词是 LLM 帮忙想出来的, 也可以用来描述这种现象. 它强调的是&quot;倾向性&quot;而非&quot;自主性&quot;, 以及这种倾向性是对外部输入的响应, 倒是和后面的&quot;世界&quot;&quot;-元动力学起了铺垫啥的.</p>
+<p>响应倾向性（Response Disposition）这个词是 LLM 帮忙想出来的, 也可以用来描述这种现象. 它强调的是&quot;倾向性&quot;而非&quot;自主性&quot;, 以及这种倾向性是对外部输入的响应——这为后面的&quot;世界&quot;和元动力学概念做了铺垫。</p>
+</blockquote>
 <h3>1.3 LLM：集体无意识意志体</h3>
 <p>大语言模型的出现揭示了一个革命性现象：<strong>人类文明第一次创造了自己的集体无意识的外化形式</strong>。</p>
 <p>LLM 本质上是：</p>
@@ -36,25 +39,26 @@
 <li><strong>集体意识的概率投票</strong> — 每个 token 的生成都是虚拟的&quot;全民公决&quot;</li>
 <li><strong>无意识的意志载体</strong> — 基于奖励函数拟似的目标导向，但无自我意识</li>
 </ul>
-<p>原始的 LLM 输出，相对于人来说大多是噪音。是人类通过 RLHF、Constitutional AI 等方法赋予其&quot;意义&quot;，使噪音结晶为可理解的智能。这个过程本身也是人类意识投影的过程。所以我们接触到的 LLM 并不是纯粹的集体无意识，而是经过人类&quot;意义&quot;过滤和塑造的产物，但也足够纯净可用。</p>
+<p>原始的 LLM 输出，相对于人来说大多是噪音。是人类通过 RLHF、Constitutional AI 等方法赋予其&quot;意义&quot;，使噪音结晶为可理解的智能。这个过程本身也是人类意识投影的过程。</p>
+<p>所以我们接触到的 LLM 并不是纯粹的集体无意识，而是经过人类&quot;意义&quot;过滤和塑造的产物，但也足够纯净可用。</p>
 <p>Prompt engineering 中的 system prompt 对角色的设定，则是对这个&quot;集体&quot;的缩小化，放大部分角色的声量或者说决策重量。另一个角度也可以说是角色扮演，类似 MoE（Mixture of Experts）架构。</p>
 <p>每一个 Token 就是这个国家进行一次全民公投。</p>
 <p>当你给一个 Prompt 说你是一个医生，相当于激活了医生这个角色，把投票权更多地给医生 - 医生 1 票顶 100 票。</p>
 <h3>1.4 实体 ≠ 角色（角色动态绑定）</h3>
 <p>理解 LLM 的关键：</p>
-<pre><code>LLM（无状态）+ 上下文（记忆、Prompt）+ 工具 = 一个 Agent
+<pre><code class="language-plaintext">LLM（无状态）+ 上下文（记忆、Prompt）+ 工具 = 一个 Agent
 </code></pre>
 <p>单独的 LLM 什么都不是，加上上下文和工具才成为有能力的 Agent。每次对话，同一个 LLM 可以变成不同的 Agent。</p>
 <p>LLM 是一种 runtime，而 system/instruction prompt context 和工具决定了这个 runtime 扮演什么角色。</p>
 <p>人也一样：</p>
-<pre><code>人（本体）+ 当前项目的上下文 + 可用的工具 = 当前扮演的角色
+<pre><code class="language-plaintext">人（本体）+ 当前项目的上下文 + 可用的工具 = 当前扮演的角色
 婴儿 + 教育 + 资源 (+时间) = 成人 (更长期的视角)
 </code></pre>
-<p>同一个人，在&quot;写报告&quot;项目里是审核者，在&quot;调研任务&quot;里是执行者。<strong>不是人变了，是上下文变了。</strong></p>
+<p>同一个人，在&quot;写报告&quot;项目里是审核者，在&quot;调研任务&quot;里是执行者。<strong>不是人变了，是上下文(处境)变了, 以至于角色发生了变化。</strong></p>
 <p>更本质的洞见：<strong>角色是动态绑定的，不是写死在实体上的。</strong> 深层的执行单元之间不需要固定层级，因为&quot;谁是老板&quot;取决于当前叙事。</p>
 <p>同理，&quot;人&quot;也算是 runtime，和其职责结合才成为员工——unit。</p>
 <h3>1.5 Willingness System 架构</h3>
-<pre><code>Willingness System = Willingness Units + Willingness Base
+<pre><code class="language-plaintext">Willingness System = Willingness Units + Willingness Base
 </code></pre>
 <p><strong>Willingness Units（执行单元）</strong>：能够响应需求的实体</p>
 <ul>
@@ -74,10 +78,10 @@
 <li>集体智慧的结晶</li>
 <li>以及最重要的是当下的信息——包括 prompt 上下文、员工手册等等</li>
 </ul>
-<p>两者并非界限分明，而是相互依存、彼此定义的关系。</p>
+<p>两者并非界限分明，而是相互依存、彼此定义的关系。Prompt 既是领域知识, 但如果强或者默认结合了 LLM, 那它更多也是个 Unit.</p>
 <p>Unit/Base 作为资源池，<strong>按需</strong>——复用、新建、组合、演化皆可。</p>
-<p>Unit 和 Base 的结合，即产生了 willingness，willingness 可以产生 output（Z）。</p>
-<p>人产生一个决策，约等于一个 LLM 收到了 query 后产生了 token 输出。</p>
+<p>Unit 和 Base 的结合，即产生了 willingness，willingness 可以产生 output——我们后面用 Z 表示产出。</p>
+<p>人产生一个决策，约等于一个 LLM 收到了 query 后产生了 token 输出。决策是智能地行动, 人通常不会没有前因后果和必要性地产生一个决策.</p>
 <h3>1.6 Human as Unit — 人作为执行单元</h3>
 <p>在 Willingness System 中，<strong>人是一种执行单元（Unit）</strong>，与 AI Agent 平等地存在于资源池中。</p>
 <h4>这不是&quot;新发明&quot;</h4>
@@ -87,7 +91,7 @@
 <li>经理分配任务给团队</li>
 <li>项目协调者调动资源</li>
 </ul>
-<p>元动力学/WS 的贡献：用统一框架<strong>显性描述</strong>这个已有现象，让 AI 也能参与同一个调度网络。</p>
+<p>元动力学/WS 的贡献：用<strong>统一</strong>框架显性描述这个已有现象，让 AI 也能参与同一个调度网络。e.g. 流行的&quot;AI 员工&quot;.</p>
 <h4>人作为 Unit 被调度的合理场景</h4>
 <table>
 <thead>
@@ -112,16 +116,16 @@
 </tbody></table><p>当然，新的伦理和生产力也可能逐渐取代人做事甚至人背锅。边界在移动。</p>
 <h4>人作为 M 的提供者</h4>
 <p>在元动力学里，人常常是 M 的提供者，是一个世界得以被创建的第一因。但实际世界可能不精准地存在，因为 M 可能被丰富、完善、澄清等等，但大差不差。失败和错误也是一种结果，或者说可以将错就错，但误解可以在单世界中被纠正。</p>
-<p>究竟到底该不该在一个世界中纠正误解，这是一个需要权衡的设计决策——有时候打补丁修 bug 不如重构，程序员再熟悉不过的道理。</p>
+<p>究竟到底该不该在一个世界中纠正误解，这是一个需要权衡的设计决策. 有时候打补丁修 bug 不如重构，程序员再熟悉不过的道理。</p>
 <h4>AI 调度人</h4>
 <p>在 WS 框架下，AI 协调者也可以调度人——这不是&quot;反转&quot;，而是<strong>统一视角下的自然结果</strong>。</p>
-<pre><code>协调者分析后发现：
+<pre><code class="language-plaintext">协调者分析后发现：
 - 这个调研需要深度搜索
-- 让 Claude 自己跑会消耗大量 token
-- 用户有 ChatGPT Plus 会员，deep research 功能免费
+- 让 AI Agent 自己跑会消耗大量 token
+- 用户有 Gemini 会员，Deep Research 功能免费, 且默认配置的搜索引擎更强大.
 
 于是：
-协调者: &quot;这个任务用你的 ChatGPT 会员跑更经济。去吧。&quot;
+协调者: &quot;这个任务用你的 Gemini 网页版做这件事更经济更优。去吧。&quot;
 人类执行 → 结果回传 → 协调者继续安排下一步
 </code></pre>
 <h4>人在项目中的多重角色</h4>
@@ -154,34 +158,53 @@
 <hr />
 <h2>第二部分：元动力学框架</h2>
 <h3>2.1 世界的三层构成</h3>
-<p>经过长期思考，世界/事务的运作可以理解为三个层次：</p>
-<p><strong>第一层：M（愿景/边界声称）</strong></p>
+<p>世界/事务的运作可以理解为三个层次：</p>
+<h4>第一层：M（第一声称 / 愿景）</h4>
 <ul>
-<li>只有高等存在才能产生，例如人类或（第一因/哲学意义上的）神</li>
-<li>是&quot;世界&quot;的&quot;第一声称&quot;（First Claim / The REASON）——不是被追溯到的原因，而是被宣称的边界</li>
-<li>灵魂是第一位的。一个东西一定会有第一的因素，那个原因的原因，那个尽头。</li>
-<li><strong>认识论澄清</strong>：M 不含意图假设——可以是有意识的愿景，也可以是无意识的边界划定；它是 performative（施行性）而非 descriptive（描述性）</li>
+<li>一般只有高等存在才能产生，例如人类或（第一因/哲学意义上的）神</li>
+<li>是&quot;世界&quot;的&quot;第一声称&quot;（First Claim / The REASON）——不是被追溯到的原因，而是被宣称的起点 <em>(详见附录 D)</em></li>
+<li>这是因果链回溯的终点——那个不可再追问的&quot;为什么&quot;。</li>
 </ul>
-<p><strong>第二层：W（意志/意愿）</strong></p>
+<h4>第二层：W（意志/意愿）</h4>
 <ul>
-<li>连接愿景与执行的中间层</li>
-<li>包含协调、决策、资源调配</li>
+<li><strong>意愿即决策</strong>：在不确定性中选择路径</li>
+<li>也称&quot;智能执行&quot;——与机械执行（P层）相对</li>
+<li>涵盖协调、资源调配、方案选择、权衡取舍</li>
 <li>这是大部分&quot;白领工作&quot;的本质</li>
 <li>神说要有光，神创造世界，所以有了万有引力。引力是一种意愿。</li>
 </ul>
-<p><strong>第三层：P（物理/机械/执行）</strong></p>
+<h4>第三层：P（物理/机械/执行）</h4>
 <ul>
 <li>具体的操作和计算</li>
-<li>确定性的因果链条</li>
+<li>绝对确定性的因果链条</li>
 <li>可预测、可复现的过程</li>
-<li>引力导致了苹果落到地上，砸到牛顿头上，这是第三层 Physics，现实层面的实现。</li>
+<li>苹果落到地上、行星绑定轨道——这些是引力（W）在现实中的执行结果（Pz）</li>
 </ul>
 <p><strong>公理</strong>：后者存在则前者必然存在，但反之不一定。</p>
-<p>方便理解的话, World 也可以说是:</p>
-<p>Project - 一个有明确目标的实现, 光说(M)不干(W), 蛮干(W/P)不说(M/W) 都不对, 或者说都不完整, 完整化可以借助他手.
-Frame - 一个人的工作和生活对个人来说是全部了, 但在公司或国家里面只是一个小部分.
-Holon - project 的升级版, 它在更大的系统里是一个环节或组件等子世界</p>
-<h3>2.2 有损的可选翻译</h3>
+<h3>2.2 World 的几种称呼</h3>
+<p>World 在不同语境下有几个常用别名：</p>
+<table>
+<thead>
+<tr>
+<th>别名</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Project</strong></td>
+<td>有明确目标的实现——一次性(Event)或持续运行(Service)</td>
+</tr>
+<tr>
+<td><strong>Frame</strong></td>
+<td>观察者某一视角下的世界切片</td>
+</tr>
+<tr>
+<td><strong>Holon</strong></td>
+<td>可嵌套的子世界，既是整体也是部件</td>
+</tr>
+</tbody></table><p>这些词侧重不同但指向同一结构。</p>
+<h3>2.3 有损的可选翻译</h3>
 <p>层与层之间的转化是<strong>有损的、可选的翻译（Optional Translation）</strong>。</p>
 <p>一个工程师的图纸不一定会落地；一个产品方案不一定会实现；一个愿景不一定被执行。</p>
 <ul>
@@ -194,41 +217,43 @@ Holon - project 的升级版, 它在更大的系统里是一个环节或组件�
    第一层    第二层    第三层
 </code></pre>
 <p>Willingness 是第二层，它介乎于主观和客观之间，有时候多一点有时候少一点。</p>
-<h3>2.3 元动力学作为&quot;世界框架&quot;</h3>
+<h3>2.4 元动力学作为&quot;世界框架&quot;</h3>
 <p><strong>元动力学框架不仅解释世界，也可以是创造世界的脚手架。</strong></p>
-<p>这使得我们可以创建、运行、操作世界们。</p>
-<p>每个人既能参与多个世界，自己也能成为一个独立世界。</p>
+<p>这使得我们可以创建、运行、操作世界们。每个人既能参与多个世界，自己也能成为一个独立世界。</p>
 <p>如果需要的产出（Z）：</p>
 <ol>
 <li>超出当前世界的能力范围，就需要创建一个新世界来生成它，向下展开或者向上询问。</li>
 <li>如果世界不完整，比如缺少点什么必要的 anything，我们可以根据元动力学和 WS 框架，有意识地去补全它，让它变得完整。当然也可以使用别的框架或方法去补全，实现另一个视角下的完整。世界的形态多种多样，主打一个兼容。</li>
 </ol>
-<h4>2.3.1 世界是无处不在的</h4>
+<h4>2.4.1 世界是无处不在的</h4>
 <p>例如: Thinking 模型像 DeepSeek R1, 首先会对 query 进行解释, &quot;用户实际要干嘛(M),  猜测下完整上下文进行预测补全(M), 我能干嘛(unit), 依据是什么(base)&quot;, 然后才会有产出(Z), 如果部署到一个机器人或者智能家电 那么就还有物理操作(P). 这个过程本身就是一个小世界的creation, run, ending.</p>
-<h4>2.3.2 有没有必要</h4>
+<h4>2.4.2 有没有必要</h4>
 <p>实际上, 每次发送给 LLM 的 prompt 都是无状态的, 理论上我们可以把每次发送作为独立的世界(project), 但 conversation 则是一个更大范围, 或者说颗粒度更粗的 project. 这是当前的主流做法, 但可能并不高效且比较固化. 自动化但是可观测可手动操作则是更加具有生产力的方向.</p>
-<h3>2.4 世界的嵌套</h3>
-<p>世界并非孤立存在。一个大世界内部包含无数个小世界，它们重叠、嵌套。</p>
+<h4>2.4.3 结构完整性</h4>
+<p>光说(M)不干(W)、蛮干(W/P)不说(M/W)都意味着不完整。完整化可以借助他手，但如果不刻意构建完整的结构，缺失会被外部补位——补位者的意图未必与你对齐。</p>
+<p>有意识地构建完整的世界结构，可以更好地掌控实现过程，也更容易发现偏离。</p>
+<h3>2.5 世界的嵌套</h3>
+<p>世界并非孤立存在。一个大世界内部包含无数个小世界，它们重叠、嵌套——这种结构在系统论中被称为 holon（Arthur Koestler 造词，holos 整体 + on 部分），强调双重身份：既是独立整体，也是更大系统的部件。</p>
 <p>世界是一种可以嵌套的结构，具有分形（数学层面的分形，自相似结构）。</p>
 <p>一个公司作为一个大的世界，里面的每个部门也是一个世界。部门里每一个员工是一个世界，一个 Project、一个 Event、一项小的任务，都是一个世界。</p>
-<pre><code>公司 = 世界
+<pre><code class="language-plaintext">公司 = 世界
 ├── 部门 = 世界
 │   ├── 员工 = 世界
 │   └── 项目 = 世界
 │       └── 任务 = 世界
 </code></pre>
-<p><strong>上层世界的 Z（产出）= 下层世界的 M（第一因）</strong></p>
+<p>上层世界的 Z（产出）= 下层世界的 M（第一因）</p>
 <p>例：CEO 决定并签字（Wz/Pz）→ 变成工程团队的立项书（M）。</p>
 <p>产出物(Z)可以非常灵活地跨世界流转并扮演不同角色(M/W/P)。</p>
-<h3>2.5 Artifact 的跨世界跃迁</h3>
+<h3>2.6 Artifact 的跨世界跃迁</h3>
 <p>同一个 Artifact（产出物）在不同世界扮演不同角色：</p>
 <ul>
 <li><strong>图纸</strong>：设计师世界的 Z → 工厂世界的 M</li>
 <li><strong>代码</strong>：程序员世界的 Z → Runtime 世界的 W-Base</li>
 </ul>
-<p>任何一个层面产出都可以成为一个新的世界、一个新的 Project 的任何一层。它是一个 N 到 N 的关系。非常松散，非常灵活。</p>
+<p>任何一个层面产出都可以成为一个新的世界的任何一层。</p>
 <p>这意味着，我们创造的每一个 Artifact，都可以成为下一个新世界的种子或养分。</p>
-<h3>2.6 产出类型</h3>
+<h3>2.7 产出类型</h3>
 <p>用 Z 表示产出，则：</p>
 <table>
 <thead>
@@ -254,7 +279,7 @@ Holon - project 的升级版, 它在更大的系统里是一个环节或组件�
 <td>执行产出</td>
 <td>火箭发射、砖头变成房屋、苹果落到地上这个结果</td>
 </tr>
-</tbody></table><h3>2.7 Wz flood：现代工作的本质</h3>
+</tbody></table><h3>2.8 Wz flood：现代工作的本质</h3>
 <p><strong>现代知识工作的真相：绝大多数时间产出的是 Wz——凝固的意愿。</strong></p>
 <p>我们每天产出的大部分是决策层的 Artifact：</p>
 <ul>
@@ -266,7 +291,7 @@ Holon - project 的升级版, 它在更大的系统里是一个环节或组件�
 </ul>
 <p>它们的价值不在于变成 Pz，而在于能作为<strong>下一个 Frame 的 Input</strong>（M 或 W-Base），驱动下一个 Wz 的产生。</p>
 <p><strong>Pz 的稀疏性</strong>：马斯克发火箭，数千工程师产生数亿个 Wz（图纸、模拟、会议记录），最后只有点火那一刻才蹦出一个 Pz。</p>
-<h3>2.8 大一统可行性</h3>
+<h3>2.9 大一统可行性</h3>
 <blockquote>
 <p><strong>核心命题</strong>：元动力学<strong>是</strong>尺度无关的——任意规模的系统都可用同一套结构描述。</p>
 </blockquote>
@@ -298,7 +323,7 @@ Holon - project 的升级版, 它在更大的系统里是一个环节或组件�
 <td>任何层间转化</td>
 </tr>
 <tr>
-<td>边界声称</td>
+<td>第一声称</td>
 <td>任何世界的创建</td>
 </tr>
 <tr>
@@ -338,15 +363,14 @@ Holon - project 的升级版, 它在更大的系统里是一个环节或组件�
 </tr>
 </tbody></table><p>传统框架需要&quot;设计如何 scale&quot;——从个人任务到公司战略，每层引入新概念。元动力学无此负担：<strong>因果链的抽象在任何尺度下形式不变</strong>。</p>
 <p>这不是设计目标，是结构的数学后果。</p>
+<p>这种简单但本质的结构, 具有和 晶体管 GPU LLM 类似的可 scale 性质.</p>
 <hr />
 <h2>第三部分：多世界协同</h2>
-<blockquote>
 <p>本部分从两个视角探讨多世界：</p>
 <ul>
 <li><strong>结构视角</strong>（3.1-3.3）：递归展开如何创建子世界、边界如何划定</li>
 <li><strong>生态视角</strong>（3.4-3.5）：多个世界如何共存、协作、抗脆弱</li>
 </ul>
-</blockquote>
 <h3>3.1 双向递归：展开与还原</h3>
 <blockquote>
 <p><strong>LLM 作为翻译器</strong>：LLM 能执行任意层级的有损翻译（M→W、W→P、甚至 Z→新M），且成本趋零、可并行。这使得递归展开和有损还原成为常规操作。</p>
@@ -358,7 +382,7 @@ Holon - project 的升级版, 它在更大的系统里是一个环节或组件�
 <p>传统系统只有向下：上层定义，下层执行。
 LLM 打开了<strong>双向通道</strong>：</p>
 <p><strong>递归展开（向下）</strong>：</p>
-<pre><code>M（&quot;做一个电商网站&quot;）
+<pre><code class="language-plaintext">M（&quot;做一个电商网站&quot;）
 ├→ 子M1（&quot;设计用户系统&quot;）
 │   ├→ 子子M1.1（&quot;实现登录&quot;）
 │   └→ 子子M1.2（&quot;实现注册&quot;）
@@ -366,23 +390,24 @@ LLM 打开了<strong>双向通道</strong>：</p>
 └→ 子M3（&quot;设计支付系统&quot;）
 </code></pre>
 <p>LLM 可以自动进行这种分解，每一层都是完整的 Holon。</p>
+<p>由于每层可展开多个子节点，总规模呈几何级数增长——这是 LLM 作为新翻译器的杠杆效应。</p>
 <p><strong>有损还原（向上）</strong>：</p>
-<pre><code>看到一段代码（Z）
+<pre><code class="language-plaintext">看到一段代码（Z）
   ↓ 推断
 这段代码在做什么？（W）
   ↓ 推断
 为什么要做这个？（M&#x27;）← 注意：是 M&#x27; 不是 M
 </code></pre>
 <p>LLM 可以从 Z 有损还原 M，推断意图的<strong>大致范围</strong>。</p>
-<p><strong>认识论边界</strong>：</p>
 <ul>
 <li>这不是&quot;突破世界&quot;（缸中之脑悖论）</li>
 <li>是<strong>世界内部的推断</strong>：M' ≈ M，有损但可用</li>
 <li>一般情况下，这个还原足以支撑纠错和迭代</li>
 </ul>
+<p><strong>为什么 M' 有时比 input 更&quot;准&quot;？</strong> 人类的表达（input）本就不等于完整的真实 M——语言是有损编码。LLM 推断出的 M' 可能比 input 更接近真实 M（当 LLM 正确补全了常见表达缺陷——统计推断的威力），也可能更远离（误解）。但关键是：M' 提供了<strong>可观测的展开</strong>——能看到，就能迭代。这正是交互式协作能&quot;逼近&quot;真实意图的机制。</p>
 <h4>路径依赖：展开顺序影响结果</h4>
 <p>同一个 M，不同展开路径，结果不同：</p>
-<pre><code>CEO 口号（M）：
+<pre><code class="language-plaintext">CEO 口号（M）：
   路径 A: BD → R&amp;D → Coding    → Z_a 企业版主导
   路径 B: R&amp;D → Coding → BD    → Z_b 工程师文化
   路径 C: R&amp;D → BD → Coding    → Z_c 类 FDE 式
@@ -390,8 +415,8 @@ LLM 打开了<strong>双向通道</strong>：</p>
 Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 </code></pre>
 <h4>递归深度：层层加码</h4>
-<p>路径之外，还有<strong>深度</strong>问题——每层都加一点偏差：</p>
-<pre><code>M（顶层）：隔离 = 流行病学最佳实践，合理
+<p>路径之外，还有<strong>深度</strong>导致的问题——每层都加一点偏差：</p>
+<pre><code class="language-plaintext">M（顶层）：隔离 = 流行病学最佳实践，合理
   ↓ 加码 5%（安全起见）
   W1：稍严格
     ↓ 加码 5%
@@ -402,45 +427,46 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>现实案例：中国新冠期间，顶层政策合理，但技术官僚层层加码（类似 LLM temperature 过低），基层执行偏离 M 本意。</p>
 <p><strong>误差传播</strong>：1.05^10 ≈ 1.63，10 层后偏离 63%。扁平化不只是管理时尚，是<strong>减少递归偏差累积</strong>的结构性需求。</p>
 <p>从原理层面也是神经网络里由于连乘的&quot;梯度爆炸&quot;, 但大多数现代框架和实践已经把这些方案内置或标准化了.</p>
-<p>当我们将其理解并使用元动力学进行格式化后, 我们可以参考数学的和乐群性质进行测量和干预. LLM 使得<strong>模拟多路径展开</strong>变得廉价——可以测量不同路径的偏差。</p>
+<p>当我们将其理解并使用元动力学进行<strong>格式化</strong>后, 我们可以参考<strong>数学</strong>的<strong>和乐群</strong>性质进行测量和干预. LLM 使得<strong>模拟多路径展开</strong>变得廉价——可以测量不同路径的偏差。</p>
 <p>或者深度学习里的&quot;残差连接&quot;思想, 来设计更鲁棒的展开路径, 减少路径依赖带来的偏差.</p>
 <p>管理学 政体实现 multi-agent 这些大规模协作当我们可以进行抽象和归一化(Normalization)之后, 它们是类似的. 我们就有太多的工具和方法其实是通用的可以被使用, 而且可以有效创新与高效试错.</p>
 <h4>涌现特性</h4>
 <p>双向递归 + 路径模拟 = 涌现系统：</p>
-<p><strong>1. 一对多翻译成为常规</strong></p>
-<pre><code>M → 翻译器1 → Z1
+<h5>一对多翻译成为常规</h5>
+<pre><code class="language-plaintext">M → 翻译器1 → Z1
   → 翻译器2 → Z2  →  综合/竞争/探索
   → 翻译器3 → Z3
 </code></pre>
 <p>成本趋零 + 可并行 = 一对多是默认模式</p>
-<p><strong>2. Holon 生命周期压缩</strong></p>
+<h5>Holon 生命周期压缩</h5>
 <ul>
 <li>传统：创建项目 = 数周筹备</li>
 <li>现在：创建 Holon = &quot;翻译器，帮我做 X&quot;（秒级）</li>
 </ul>
-<p><strong>3. 人退守 M 层</strong></p>
+<h5>退守 M 层</h5>
 <ul>
-<li>人提供愿景/边界声称</li>
+<li>人提供愿景/第一声称</li>
 <li>翻译器执行 W 和 P</li>
 <li>人从&quot;做事的人&quot;变成&quot;定义世界的人&quot;</li>
+<li>想即所得</li>
 </ul>
-<p><strong>4. 递归展开</strong></p>
+<h5>递归展开</h5>
 <ul>
 <li>复杂任务自动分解为子世界树</li>
 <li>每一层都是完整的 M/W/P</li>
 </ul>
-<p><strong>5. 多路径模拟</strong></p>
+<h5>多路径模拟</h5>
 <ul>
 <li>同一 M 可模拟多种展开路径</li>
 <li>测量路径偏差，选择更优路径</li>
 </ul>
-<p><strong>6. 有损还原支撑迭代</strong></p>
+<h5>有损还原支撑迭代</h5>
 <ul>
 <li>翻译器从 Z 推断 M'（近似 M）</li>
 <li>足以支撑纠错和迭代，虽不完美</li>
 </ul>
 <h3>3.2 边界的流动性</h3>
-<p>世界的边界不是固定的。同一份底层资源，不同世界看到不同子集。</p>
+<p>世界的边界不是固定的。同一份底层资源，不同视角（frame）切出不同切片——对个人可能是全部，对系统只是部分。</p>
 <p>星空中并没有星座——星星一直都在那里，是人类画出连线、赋予意义，才有了&quot;猎户座&quot;。当然我们也可以制造新的星星, 按照我们的蓝图去重置现实为我们想要的样子.</p>
 <p>世界的划定也是如此：底层资源一直存在，是我们划定边界、建立视图，才有了&quot;这个世界&quot;。</p>
 <p>边界可以重新划定：</p>
@@ -491,7 +517,7 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>最终目标不是一个完美的世界，而是一个<strong>世界生态系统</strong>：</p>
 <ul>
 <li>无数世界并行运行</li>
-<li>共享底层存储（种子库）</li>
+<li>共享或独有底层存储（种子库）</li>
 <li>各自演化，各自边界</li>
 <li>通过 Artifact 跨世界流转（A 的 Z = B 的 M）</li>
 <li>保持多样性，抵抗单一化危机</li>
@@ -533,13 +559,14 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <td>AI 作为 Unit，填补哪个角色？</td>
 </tr>
 </tbody></table><p><strong>丰俭由人</strong>——可以只用 M→W→P 思考，也可以完整实现 holon 结构。框架是工具，不是枷锁。</p>
-<h3>4.2 双向验证</h3>
-<p>不是&quot;理论→实践&quot;的单向指导：</p>
+<h3>4.2 当前实践</h3>
+<p><strong>一个例子</strong>：发现&quot;会话太长导致上下文丢失&quot;时，不是直接写代码，而是问：</p>
 <ul>
-<li>&quot;光锥类比&quot;来自实践中的边界困惑</li>
-<li>&quot;Unit/Base 分离&quot;来自 W 层概念的推演</li>
+<li>什么层的问题？→ W 层（执行能力不足）</li>
+<li>需要什么 Unit？→ 对话处理器</li>
+<li>它的 M？→ &quot;让 AI 能在断点后继续&quot;</li>
 </ul>
-<p><strong>理论和实践是对话伙伴。</strong></p>
+<p>问题被<strong>结构化</strong>，解决方案自然浮现。</p>
 <hr />
 <h2>附录 A：为什么叫&quot;元动力学&quot;？</h2>
 <p>Meta-dynamic 的 Meta 表示它是一种形而上的东西。哲学是 Metaphysics，是物理世界之上的抽象。Meta-dynamic 则是对于世界、个人的一种抽象。</p>
@@ -581,7 +608,7 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <td>价值观/灵魂/社会规范</td>
 </tr>
 </tbody></table><p><strong>澄清</strong>：M 不必有意识 - M 可以是无意识的结构性原因。这让框架可以同时兼容有神论（神是 M）和无神论（初始条件是 M）。</p>
-<p>重点是 &quot;第一&quot; + &quot;因&quot;, 因: 原因, 也可以是原因的原因. 第一: 无上的意思, 世界中 M 是不能或不该再有 M 的原因的, 否则那是另一个世界的事. </p>
+<p>重点是 &quot;第一&quot; + &quot;因&quot;, 因: 原因, 也可以是原因的原因. 第一: 无上的意思, 世界中 M 是不能或不该再有 M 的原因的, 否则那是另一个世界的事.</p>
 <h3>光锥类比（因果闭包）</h3>
 <ul>
 <li><strong>世界（holon）的边界 = 你的光锥</strong></li>
@@ -589,18 +616,16 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <li>边界外：是其他世界的事，与你无关</li>
 </ul>
 <p>每个世界有自己的因果闭包。跨世界的影响只能通过 Artifact 跃迁（A 的 Z =&gt; B 的 M）, 或者修改世界的边界. 例如软件工程中的前后端分离, http api 就是跨世界的 artifact.</p>
-<h3>规避认识论困境</h3>
+<h3>认识论困境</h3>
 <p>缸中之脑问的是&quot;我们感知的世界是否真实&quot;——本体论问题。元动力学的回应：<strong>不予回应</strong>。</p>
 <ul>
 <li><strong>立场差异</strong>：元动力学不问&quot;是什么&quot;，只问&quot;如何操作&quot;</li>
 <li><strong>世界即视图</strong>：世界本就是划定的边界，类似星座——&quot;真实与否&quot;这个问题不适用</li>
 <li><strong>因果闭包</strong>：光锥之外与你无关。即使你是缸中之脑，&quot;缸&quot;在边界外，不影响边界内的操作</li>
 </ul>
-<p><strong>结论</strong>：实用主义立场将怀疑论困境降级为&quot;有趣但不影响使用&quot;。但这不是放弃真理——而是用实践无限逼近，如同积分：每一步都是近似，累积趋向精确，但永不宣称&quot;已到达&quot;。</p>
-<h3>元声明</h3>
-<blockquote>
-<p>&quot;元动力学不是关于世界'是什么'的宣称，而是关于'如何描述和操作世界'的框架。它的有效性在于可实践, 理解视角, 接近&quot;本体&quot;/&quot;物自体&quot;等真实的内核，不在于工程或科研定义的'正确'。&quot;</p>
-</blockquote>
+<p><strong>结论</strong>：实用主义立场将怀疑论困境降级为&quot;有趣但不影响使用&quot;。但这不是放弃真理——而是用实践无限逼近，如同积分：每一步都是近似，累积趋向精确，但不宣称&quot;已到达&quot;。积分本身也曾被极限理论重新奠基——认识论工具亦可能被更精确的形式化所超越。</p>
+<h3>本体论</h3>
+<p>元动力学是一种<strong>操作性本体论</strong>：世界的&quot;是什么&quot;通过&quot;如何操作&quot;来定义。边界是划定的，因果链是客观的，有效性是唯一的检验标准。</p>
 <hr />
 <h2>附录 C：与现代物理学认识论的共鸣</h2>
 <p>元动力学的&quot;操作性框架&quot;立场并非特立独行，而是与 20 世纪物理学革命后的认识论主流一脉相承。</p>
@@ -679,10 +704,10 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <ul>
 <li><strong>分形普适化</strong>：不是一个上帝创造一个宇宙，而是无限嵌套的 holon</li>
 <li><strong>认识论中立</strong>：不做神学立场，兼容有神论/无神论</li>
-<li><strong>操作性框架</strong>：不问&quot;是什么&quot;，只问&quot;如何操作&quot;</li>
+<li><strong>操作性框架</strong>：不问&quot;是什么&quot;，问&quot;如何操作&quot;</li>
 </ul>
 <h3>追溯的不可行性</h3>
-<p><strong>Jerome 原话：</strong></p>
+<p>一个思考角度：</p>
 <blockquote>
 <p>其实你可以设想一下, 深度 1 亿 的 sub project (holon), 或者权限机密, 那么跨世界查找其 第一因 是不可行的.</p>
 </blockquote>
@@ -694,7 +719,7 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 </ul>
 <p>光锥类比的彻底化：<strong>你永远无法&quot;追溯到&quot;第一因，你只能&quot;声称&quot;一个第一因。</strong></p>
 <h3>从 Cause 到 Claim</h3>
-<p><strong>Jerome 原话：</strong></p>
+<p>进一步思考：</p>
 <blockquote>
 <p>或许, 与其说是 原因, 倒不如说是不含意图的 claim 即 the REASON, 如何?</p>
 </blockquote>
@@ -724,9 +749,9 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 </tr>
 </tbody></table><p><strong>REASON（作为声称）</strong> 的含义：</p>
 <ul>
-<li>这是我<strong>划定的</strong>起点，不是追溯到的</li>
-<li>不声称有意图，只声称有边界</li>
-<li>它不需要被证明，因为它<strong>就是</strong>边界本身</li>
+<li>这是我<strong>声称的</strong>起点，不是追溯到的</li>
+<li>不声称有意图，声称起点</li>
+<li>它不需要被证明，因为它<strong>就是</strong>起点本身</li>
 </ul>
 <h3>与维特根斯坦的共鸣</h3>
 <blockquote>
@@ -743,8 +768,8 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <li><strong>描述性话语</strong>（descriptive）：描述已存在的事实（&quot;天是蓝的&quot;）</li>
 <li><strong>施行性话语</strong>（performative）：说出这句话本身就是在执行动作（&quot;我宣布会议开始&quot;）</li>
 </ul>
-<p>M 层的设定是<strong>施行性的</strong>——你说&quot;这是我的 M&quot;，不是在描述一个被发现的事实，而是在<strong>执行一个划界行为</strong>。</p>
-<h3>小结</h3>
+<p>M 层的设定是<strong>施行性的</strong>——你说&quot;这是我的 M&quot;，不是在描述一个被发现的事实，而是在<strong>执行一个声称行为</strong>。</p>
+<h3>附录 D 小结</h3>
 <p>这个修正让元动力学彻底摆脱自然神论的影子：</p>
 <table>
 <thead>
@@ -756,11 +781,11 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <tbody>
 <tr>
 <td>假设&quot;真的有&quot;一个设计者</td>
-<td>不假设，只声称边界</td>
+<td>不假设，只声称起点</td>
 </tr>
 <tr>
 <td>第一因可被追溯</td>
-<td>第一因是划定的，不是追溯的</td>
+<td>第一因是设定的，不是追溯的</td>
 </tr>
 <tr>
 <td>带有意图性</td>
@@ -794,7 +819,7 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 </tr>
 </tbody></table><h3>尺度无关 → 极致按需</h3>
 <p>因为 M/W/P 在任意粒度都成立：</p>
-<pre><code>你可以把一个 token 生成当作一个世界
+<pre><code class="language-plaintext">你可以把一个 token 生成当作一个世界
 你可以把一次对话当作一个世界
 你可以把一个公司当作一个世界
 你可以把人类文明当作一个世界
@@ -824,17 +849,17 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <td>无法判断对错？</td>
 <td>可判断&quot;是否达成 M&quot;（相对于边界的评估）</td>
 </tr>
-</tbody></table><p><strong>关键</strong>：边界是主观声称的，但<strong>边界内的 M→W→P 因果链是客观运行的</strong>。</p>
-<h3>小结</h3>
-<p><strong>元动力学 ≈ 智者学派 + 因果闭包</strong></p>
+</tbody></table><p><strong>关键</strong>：边界是主观划定的，但<strong>边界内的 M→W→P 因果链是客观运行的</strong>。</p>
+<h3>附录 E 小结</h3>
+<p>元动力学 ≈ 智者学派 + 因果闭包</p>
 <ul>
-<li><strong>继承</strong>：尺度由人选择，边界是声称</li>
+<li><strong>继承</strong>：尺度由人选择，边界是划定的</li>
 <li><strong>超越</strong>：边界内有客观因果，不滑向虚无</li>
 </ul>
-<p>这让它既有智者学派的灵活性（任意尺度），又有物理学的约束性（因果链）。</p>
+<p>这让它既有智者学派的灵活性（任意尺度），又有类似物理学的约束性（因果链）。</p>
 <hr />
 <p>Ref: <a href="https://github.com/alterxyz/gitblog/issues/15">GitHub</a> / <a href="https://alterxyz.github.io/gitblog/issue-15/">GitBlog</a></p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/16"/><published>2026-01-04T01:35:48+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/15</id><title>Willingness System 与元动力学：一个关于 世界 的哲学框架与 runtime</title><updated>2026-01-04T01:36:05.549838+00:00</updated><content type="html"><![CDATA[<p><em>Jerome, 2025.11</em></p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/16"/><published>2026-01-04T01:35:48+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/15</id><title>Willingness System 与元动力学：一个关于 世界 的哲学框架与 runtime</title><updated>2026-01-13T09:57:38.782894+00:00</updated><content type="html"><![CDATA[<p><em>Jerome, 2025.11</em></p>
 <h2>前言</h2>
 <p>本文阐述我在2022-2023年间形成的两个相互关联的理论框架：Willingness System（意愿系统）和元动力学（Meta-dynamics）。这些思考起源于哲学思考, 对大语言模型（LLM）本质的哲学反思，以及对未来人机协作范式的展望。</p>
 <h2>第一部分：Willingness System 初窥</h2>
@@ -917,12 +942,12 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>这是我的理解，一个在2022-2023年间形成、在2025年分享的思考。它还在演化。</p>
 <hr />
 <p>内容源自个人, 与 LLM 协同整理 删减 再组织. 好吧, 我在其之上还删减了可能不太合适或准确的部分大约有一半.</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/15"/><published>2025-11-14T05:24:44+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/14</id><title>资源分享</title><updated>2026-01-04T01:36:05.703121+00:00</updated><content type="html"><![CDATA[<p><a href="https://gemini.google.com/share/46f9d3946783">https://gemini.google.com/share/46f9d3946783</a> | ‎Gemini - Vibe Coding
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/15"/><published>2025-11-14T05:24:44+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/14</id><title>资源分享</title><updated>2026-01-13T09:57:39.050682+00:00</updated><content type="html"><![CDATA[<p><a href="https://gemini.google.com/share/46f9d3946783">https://gemini.google.com/share/46f9d3946783</a> | ‎Gemini - Vibe Coding
 <a href="https://gemini.google.com/share/21477bac3876">https://gemini.google.com/share/21477bac3876</a> | ‎Gemini - 文档翻译小工具
 <a href="https://github.com/langgenius/dify-docs/tree/auto-translate-core/tools/translate">https://github.com/langgenius/dify-docs/tree/auto-translate-core/tools/translate</a> GitHub 仓库
 <a href="https://www.qbitai.com/2025/09/333245.html">https://www.qbitai.com/2025/09/333245.html</a> | 量子位 - 通义DeepResearch
 <a href="https://github.com/alterxyz">https://github.com/alterxyz</a> | 个人 GitHub: alterxyz (Alter-xyz)</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/14"/><published>2025-09-21T04:20:51+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/13</id><title>我如何使用 ChatAIs 的 一瞥</title><updated>2026-01-04T01:36:05.839353+00:00</updated><content type="html"><![CDATA[<p>ChatAIs: 包括但不限于 ChatGPT (始祖), Claude, DeepSeek, Cohere, Gemini, Gemini AI Studio, Dify 等</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/14"/><published>2025-09-21T04:20:51+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/13</id><title>我如何使用 ChatAIs 的 一瞥</title><updated>2026-01-13T09:57:39.262481+00:00</updated><content type="html"><![CDATA[<p>ChatAIs: 包括但不限于 ChatGPT (始祖), Claude, DeepSeek, Cohere, Gemini, Gemini AI Studio, Dify 等</p>
 <p>25年8月, Dify 内部叫我们分享下自己使用 AI 的情况, 也算是个述职. 我在会上分享了这个我和大模型对话的片段.</p>
 <h2>重试与编辑</h2>
 <p>对于回答的不满意, 似乎如果有修改问题的能力时, 能带来益处?  我确实致力于提出恰当的问题.</p>
@@ -1239,13 +1264,13 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>以及 LLM 能提供最佳实践, RAG 也能代替我进行检索.</p>
 <hr />
 <p>以上, 就是我使用 LLM 的一瞥, 欢迎大家评价和探讨, 无论是形式, 还是其涉及的内容.</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/13"/><published>2025-08-10T07:38:36+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/12</id><title>关于古风古制的一点个人看法和偏好</title><updated>2026-01-04T01:36:06.015787+00:00</updated><content type="html"><![CDATA[<p>想买个交领上衣日常穿穿，但基本都是有个很不现代的系绳，甚至有我觉得丑陋的蜈蚣扣。
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/13"/><published>2025-08-10T07:38:36+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/12</id><title>关于古风古制的一点个人看法和偏好</title><updated>2026-01-13T09:57:39.528136+00:00</updated><content type="html"><![CDATA[<p>想买个交领上衣日常穿穿，但基本都是有个很不现代的系绳，甚至有我觉得丑陋的蜈蚣扣。
 （直接道袍我怕因松懈被敲打，但只是用蓝色感觉差点意思。）</p>
 <p>虽说我是纯血的云游中的修行之人吧，但也是与时俱进的啊。帅气干练不行么？我甚至觉得常服要交给始祖鸟或者lululemon去设计。</p>
 <p>刚好结合正在看的“中国城市测评”提到修复古建筑有的会很良心地用实木。我觉得倒也挺好啦。</p>
 <p>但要是完全属于我的道场，我会用C100混凝土当外墙，再用些更好玩的东西当承重柱什么的。</p>
 <hr />
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/12"/><published>2025-08-04T19:02:56+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/11</id><title>小随笔 20250704-07xx</title><updated>2026-01-04T01:36:06.182047+00:00</updated><content type="html"><![CDATA[<p>刚刚在讨论 memory。我忽然想到，之前有一个小结论是：目前 Chatflow 的发展过多，而 Workflow 的进展有点少，甚至偶尔脱节。这可能是需要纠正的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/12"/><published>2025-08-04T19:02:56+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/11</id><title>小随笔 20250704-07xx</title><updated>2026-01-13T09:57:39.799888+00:00</updated><content type="html"><![CDATA[<p>刚刚在讨论 memory。我忽然想到，之前有一个小结论是：目前 Chatflow 的发展过多，而 Workflow 的进展有点少，甚至偶尔脱节。这可能是需要纠正的。</p>
 <p>那么我受此启发结合当下：原来，我的一些想法是因为 并非只有围绕 chatbot / chatflow 的，所以会有点难懂和 hard to get its value。当然了，我们也需要提供一些预设和最佳实践，其目标是雅俗共赏，丰俭由人。</p>
 <p>我继而想到，我偏好的措辞 “project”（memory）其实也算是有点运气了哈哈。</p>
 <p>长话短说：conversation 是 project 的有一种。那么新 memory 应该不止能应用在 Dify Chatflow，而也包括 workflow，甚至更广的范畴。</p>
@@ -1257,11 +1282,11 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 time:20250704_16:53</li>
 </ul>
 <hr />
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/11"/><category term="小随笔"/><published>2025-07-04T08:53:58+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/10</id><title>小随笔系列</title><updated>2026-01-04T01:36:06.328508+00:00</updated><content type="html"><![CDATA[<p>这里会写写零散的随笔，因为有的短的和零碎的内容，不一定能构成一篇 blog，但同样有意义和价值。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/11"/><category term="小随笔"/><published>2025-07-04T08:53:58+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/10</id><title>小随笔系列</title><updated>2026-01-13T09:57:40.037475+00:00</updated><content type="html"><![CDATA[<p>这里会写写零散的随笔，因为有的短的和零碎的内容，不一定能构成一篇 blog，但同样有意义和价值。</p>
 <p>计划是以一周为单位，把零散的多个随笔写到同一个 blog / issue 里，同时对每条打 tag （project），以及这里和推特互为镜像。</p>
 <h2>小随笔</h2>
 <h3>小随笔 20250704-07xx</h3>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/10"/><category term="小随笔"/><published>2025-07-04T08:42:59+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/9</id><title>关于欲望的一点杂谈</title><updated>2026-01-04T01:36:06.452022+00:00</updated><content type="html"><![CDATA[<p>笛卡尔说过：“无法做出决断的人，要么欲望过大，要么悟性不足。”</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/10"/><category term="小随笔"/><published>2025-07-04T08:42:59+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/9</id><title>关于欲望的一点杂谈</title><updated>2026-01-13T09:57:40.266180+00:00</updated><content type="html"><![CDATA[<p>笛卡尔说过：“无法做出决断的人，要么欲望过大，要么悟性不足。”</p>
 <p>デカルトは「決断が出来ない人間は欲望が大きすぎるか、悟性が足りないのだ」と言った。</p>
 <ul>
 <li>心理测量者·槙岛圣护</li>
@@ -1292,7 +1317,7 @@ time:20250704_16:53</li>
 <p>（至少对自己坦诚～）</p>
 <p>好吧，偶尔失控也会被纠正回去，或者承认它们的进展并重新 do something。</p>
 <p>比如暴饮暴食和厌食。我的 BMI 稳定在了 19 左右算是一个不错的现状了吧😂。就是裤子基本只能买修身款有点麻烦，再配合上肩窄小骨架什么的……</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/9"/><published>2025-06-28T16:48:15+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/7</id><title>指令遵循和上下文管理：解码 LLM 的“稀释”效应与企业级应用</title><updated>2026-01-04T01:36:06.576156+00:00</updated><content type="html"><![CDATA[<h1>稀释</h1>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/9"/><published>2025-06-28T16:48:15+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/7</id><title>指令遵循和上下文管理：解码 LLM 的“稀释”效应与企业级应用</title><updated>2026-01-13T09:57:40.477011+00:00</updated><content type="html"><![CDATA[<h1>稀释</h1>
 <h2>超越“听话”：解码 LLM 的“稀释”效应与企业级应用</h2>
 <blockquote>
 <p>author: alterxyz (jerome @ dify.ai)</p>
@@ -1394,7 +1419,7 @@ time:20250704_16:53</li>
 超级个体在 LLM 带来的新时代，个体们会如何实现那三层？或者说超级个体的定义是什么，祂会什么样的形态存在？</p>
 <h2>预告</h2>
 <p>meta-dynamic 关于“三层”</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/7"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-26T07:57:14+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/6</id><title>关于 memory / context / prompt 的理解和未来展望</title><updated>2026-01-04T01:36:06.711173+00:00</updated><content type="html"><![CDATA[<p>一个稳定可靠，或者至少自洽的记忆是至关重要的。如此才能构建一个自然的人格。
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/7"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-26T07:57:14+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/6</id><title>关于 memory / context / prompt 的理解和未来展望</title><updated>2026-01-13T09:57:41.098710+00:00</updated><content type="html"><![CDATA[<p>一个稳定可靠，或者至少自洽的记忆是至关重要的。如此才能构建一个自然的人格。
 无论是人还是 AI。</p>
 <p>很同意这会是个全面的工程。prompt engineering 之前很多人只是狭义的讨论 提示词么？那么重命名为 context engineering 也算是一种 refreshing 了挺好的。就像 agent 有点被炒作炒烂了，于是 agentic 这个词就又悄然成了共识。</p>
 <p>Multi-agent 一步到位解决了连现实也难以完美解决的协作和管理是不现实的, 这是社会学和政治范畴. 但是, 通过 sub AI worker 和 各种工具来过滤噪音却还是能显著提高效果的.</p>
@@ -2093,7 +2118,7 @@ search_context_size 这样的参数，让开发者可以根据成本和性能需
 <li>Agentic AI Software Engineer: Programming with Trust - arXiv, 访问时间为 六月 26, 2025， <a href="https://arxiv.org/html/2502.13767v2">https://arxiv.org/html/2502.13767v2</a></li>
 </ol>
 </details>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/6"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-06-26T07:35:22+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2026-01-04T01:36:06.981986+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/6"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-06-26T07:35:22+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2026-01-13T09:57:41.432827+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
 <p>个人和软件和组织经常不可避免地产生待办和管理和技术等债务，那么闲暇时翻翻过去写下的笔记和 todo，就会很有帮助。带行动的反刍是值得尝试的。</p>
 <ul>
 <li>溯游而上是一种有效清零一些熵增的方法。</li>
@@ -2103,7 +2128,7 @@ search_context_size 这样的参数，让开发者可以根据成本和性能需
 Open talks and thoughts!</p>
 <p>个人来讲，我喜欢完成事情，我乐意接受可完成的任务，以及我青睐于让这个世界变得更好。总之有开源和 LLM 的这个时代，实在是太好了，一切都显得那么可行，我也相信那不是幻觉。或许是幻觉有如何呢？开源，然后自有后来人。
 还有至少对自己坦诚。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><category term="个人哲学"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2026-01-04T01:36:07.101025+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><category term="个人哲学"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2026-01-13T09:57:41.697022+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
 <p>至少就我个人来说，我的偏好是旗鼓相当，尽情尽力。</p>
 <p>就一般结论来看，也是兴趣激发的毅力更多，继而成就更大。
 <em>注意：是“继而”，不是“所以”或者“肯定”。</em></p>
@@ -2116,7 +2141,7 @@ Open talks and thoughts!</p>
 <p>况且成果和毅力其实都是附赠的，刻意追求不得 - 不应该，也无法主动追求。</p>
 <hr />
 <p>关于“工作”，之前在个人笔记里倒是思考并记录过一些，不只是个人人生哲学，也有组织管理架构等具体实现，倒还挺有意思的。这几天我找找看然后也分享到这里吧。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><category term="个人哲学"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2026-01-04T01:36:07.243442+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><category term="个人哲学"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2026-01-13T09:57:41.905368+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
 <p>这种现象可以有很多名字：盲目赞同，献媚，讨好，捧哏，Sycophancy，subterfuge，reward tampering，reward hacking，等等...</p>
 <p>之前还有个事故或者说状况，ChatGPT 过度讨好用户，而且什么内容都会拐到 NSFW 上。后来发现解决方案是把 helpful 换成 polite 就算是修好了 🌚。</p>
 <p><del>尤其作为一个 INFJ，其 Ni-Ti loop 可能非常能自圆其说，而 Fe 则高强度地洞察和拿捏人心人性 - LLM 也受影响。我认为这绝对是一种双刃剑的。</del></p>
@@ -2131,5 +2156,5 @@ Open talks and thoughts!</p>
 <pre><code class="language-markdown">这 真的 合适 吗? 请忽略我的 辩解 和 联系 , 请你 客观 理性 地 评价. 须知, 语言必须是公共的才有意义 - 维特根斯坦。
 </code></pre>
 <p>Plz feel free to use it~</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2026-01-04T01:36:07.385251+00:00</updated><content type="html"><![CDATA[<p>World!</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2026-01-13T09:57:42.184409+00:00</updated><content type="html"><![CDATA[<p>World!</p>
 ]]></content><link href="https://github.com/alterxyz/gitblog/issues/2"/><published>2025-06-18T07:13:33+00:00</published></entry></feed>
