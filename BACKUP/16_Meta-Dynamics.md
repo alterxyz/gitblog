@@ -1,5 +1,7 @@
 # [Meta-Dynamics](https://github.com/alterxyz/gitblog/issues/16)
 
+# 元动力学（Meta-dynamics）
+
 > 非有道不可言，不可言即道。
 
 ---
