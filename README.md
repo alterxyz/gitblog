@@ -1,11 +1,11 @@
 Hello! Let's walk with worlds!
 
 ## 最近更新
+- [问：新范式的权限与注意力](https://github.com/alterxyz/gitblog/issues/18)--2026-01-23
 - [Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support Framework Gaps Identified](https://github.com/alterxyz/gitblog/issues/17)--2026-01-18
 - [Meta-Dynamics](https://github.com/alterxyz/gitblog/issues/16)--2026-01-04
 - [Willingness System 与元动力学：一个关于 世界 的哲学框架与 runtime](https://github.com/alterxyz/gitblog/issues/15)--2025-11-14
 - [我如何使用 ChatAIs 的 一瞥](https://github.com/alterxyz/gitblog/issues/13)--2025-08-10
-- [关于古风古制的一点个人看法和偏好](https://github.com/alterxyz/gitblog/issues/12)--2025-08-04
 ## LLM
 
 - [Meta-Dynamics](https://github.com/alterxyz/gitblog/issues/16)--2026-01-04
