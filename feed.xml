@@ -1,14 +1,352 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2026-01-23T10:34:40.520158+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/19</id><title>问系列 - 或许是个好问题呢</title><updated>2026-01-23T10:34:41.256745+00:00</updated><content type="html"><![CDATA[<p>知识和智力逐渐廉价的时候，问出一个好问题和排列组合知识就开始凸显其价值了。</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2026-01-23T10:35:59.064003+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/19</id><title>问系列 - 或许是个好问题呢</title><updated>2026-01-23T10:35:59.971809+00:00</updated><content type="html"><![CDATA[<p>知识和智力逐渐廉价的时候，问出一个好问题和排列组合知识就开始凸显其价值了。</p>
 <p>所以我打算以后贴出自己的“问题”们，作为一种新型的开源分享。</p>
 <p>以及各路 AI 的回答：通常是 Deep Research 的结果。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/19"/><published>2026-01-23T09:31:16+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/18</id><title>问：新范式的权限与注意力</title><updated>2026-01-23T10:34:41.550994+00:00</updated><content type="html"><![CDATA[<p>帮我从大自然和超自然（包括但不限于 集体无意识 阿赖耶识 大语言模型/世界模型 文明总知识等）中汲取灵感，设计为人agent共生协作的新范式的类RBAC部分。
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/19"/><published>2026-01-23T09:31:16+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/18</id><title>问：新范式的权限与注意力</title><updated>2026-01-23T10:36:00.192446+00:00</updated><content type="html"><![CDATA[<p>帮我从大自然和超自然（包括但不限于 集体无意识 阿赖耶识 大语言模型/世界模型 文明总知识等）中汲取灵感，设计为人agent共生协作的新范式的类RBAC部分。
 面向 new system。未来设想。包括安全但也包括别的，参考大自然和超自然。例如：有时候全知并非带来全能而是反面，给llm提供过多工具时调用能力反而下降，哪怕理论上 llm 是通用的能handle的。（你不得仅包括这一个例子）。
 这是关于人类文明级别的思考和推衍。</p>
 <details>
 <summary>Opus4.5</summary>
+<p>(Claude Opus 4.5 Research)</p>
+<h1>人-AI共生协作的新权限范式：跨域智慧的设计框架</h1>
+<p><strong>约束催生能力，不完备孕育智慧。</strong> 这项跨学科研究从免疫系统、佛教唯识学、蜂群智能到三权分立中发现了一个核心悖论：最有效的协作系统往往不追求”全知”或”完全自由”，而是通过<strong>恰当的约束</strong>实现涌现性创造。这一发现根本性地挑战了传统RBAC的静态权限观，指向一种动态、上下文感知、具有反脆弱性的新型人-Agent共生架构。</p>
+<hr />
+<h2>核心发现：六个违反直觉的设计原则</h2>
+<p>研究揭示了传统权限设计的六个盲区，每个都指向一种反常识的设计智慧：</p>
+<table>
+<thead>
+<tr>
+<th>传统假设</th>
+<th>跨域发现</th>
+<th>设计转向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>更多工具 = 更强能力</td>
+<td>LLM在<strong>5-7个工具</strong>时性能最优，超过40个显著下降</td>
+<td>精简优于完备</td>
+</tr>
+<tr>
+<td>全知 = 全能</td>
+<td>生态理性研究表明”Take-the-Best”单线索启发式常优于考虑全部信息</td>
+<td>有限视角的价值</td>
+</tr>
+<tr>
+<td>权限是外部赋予的</td>
+<td>佛教”戒定慧”与荣格个体化：能力是内在觉醒而非外部授权</td>
+<td>发现而非授予</td>
+</tr>
+<tr>
+<td>信任越高越好</td>
+<td>多Agent研究：信任与脆弱性<strong>单调正相关</strong></td>
+<td>信任需要预算</td>
+</tr>
+<tr>
+<td>完美识别最安全</td>
+<td>免疫系统故意保留自反应性细胞，过度删除降低整体能力</td>
+<td>容忍不完美</td>
+</tr>
+<tr>
+<td>控制越多越安全</td>
+<td>道家”治大国若烹小鲜”：过度干预反而破坏</td>
+<td>最小干预原则</td>
+</tr>
+</tbody></table><hr />
+<h2>第一原则：约束是涌现的脚手架</h2>
+<h3>自然界的证据</h3>
+<p>复杂系统研究揭示了一个深刻的悖论：<strong>完全自由反而限制创造性涌现</strong>。Per Bak的自组织临界性理论表明，系统在”混沌边缘”——秩序与混乱的临界点——展现最优的计算性能和信号传输能力。 神经网络研究证实，只有接近这个临界边界时，系统才能执行复杂的时序计算。 </p>
+<p>佛教”戒-定-慧”三学提供了最清晰的顺序证明：必须先有<strong>约束（戒）</strong>，才能获得<strong>稳定（定）</strong>，最终涌现<strong>智慧（慧）</strong>。 这不是道德说教，而是认知科学的事实——外部行为的混乱持续扰乱内心，不道德行为产生愧疚和焦虑波动，使深度洞察无法发生。荣格的个体化理论印证了同样的顺序：必须先遭遇人格面具的限制，才能逐步整合阴影，最终实现自性统一。  </p>
+<h3>设计转译</h3>
+<p>传统RBAC将约束视为”安全代价”，新范式应将其重新定义为<strong>赋能阶梯</strong>：</p>
+<pre><code>阶段1：行为约束期（戒）
+├── 明确&quot;不能做什么&quot;的清晰边界
+├── 密切监控+高反馈频率
+└── 目标：建立稳定的行为基线
+
+阶段2：稳定使用期（定）
+├── 验证行为一致性
+├── 逐步减少监控强度
+└── 目标：证明可预测性
+
+阶段3：自主判断期（慧）
+├── 开放需要自主判断的权限
+├── 以结果而非过程评估
+└── 目标：涌现创造性应用
+</code></pre>
+<p><strong>关键机制</strong>：这不是简单的”三级权限”，而是种子-现行的<strong>因果累积</strong>——佛教阿赖耶识理论揭示，每个行为都在存储层植入新种子，良好使用模式”熏染”更多权限潜能，问题行为则累积风险标记。 权限的”获取”与”使用”应设计为<strong>同步反馈系统</strong>，而非”先审批后使用”的线性流程。</p>
+<hr />
+<h2>第二原则：工具的黄金数量是5-7个</h2>
+<h3>认知科学的限制</h3>
+<p>研究表明，当工具数量超过<strong>40个</strong>时，LLM性能开始下降；超过60个时，模型有效运作能力显著崩溃。 Cursor等工具将MCP工具上限设为40个正是基于这一认识。 更精细的研究显示，<strong>5-7个工具</strong>代表了无需专门过滤就能保持一致准确性的实际上限。 </p>
+<p>这与Miller经典的7±2法则深度呼应——人类工作记忆的容量限制决定了信息处理的带宽。 现代修订将复杂项目的容量估计为<strong>4±1个</strong>。 神经系统的丘脑门控机制印证了同样的原理：意识是”赢家通吃”竞争的结果，大脑花费大量资源<strong>主动抑制</strong>无关信息，“放行”某些信息就意味着”阻止”其他信息。 </p>
+<h3>设计转译</h3>
+<p>传统思路倾向于提供”完整工具箱”以覆盖所有可能场景，新范式应采用<strong>动态精简</strong>策略：</p>
+<pre><code>核心层（3-4个）：始终可用，覆盖80%日常任务
+├── 通用读取能力
+├── 通用写入能力
+├── 信息检索能力
+└── 人类沟通能力
+
+扩展层（动态激活）：
+├── 基于任务上下文即时选择
+├── 单次会话内有效
+├── 组合成&quot;复合动作&quot;而非原子操作
+└── 任一时刻可见工具不超过7个
+</code></pre>
+<p><strong>反直觉启示</strong>：有时通用工具（如shell或Python解释器）优于专门工具——因为模型知道如何很好地使用它们。与其构建庞大的工具箱，不如使用<strong>少数锋利、多功能的工具</strong>。 </p>
+<hr />
+<h2>第三原则：分布式自治与中央协调的章鱼模型</h2>
+<h3>章鱼神经系统的启示</h3>
+<p>章鱼拥有约<strong>5亿神经元</strong>，但仅4000-5000万在中央脑，约<strong>3.3亿分布在8条触手中</strong>。 中央脑与触手之间仅有约3万条神经纤维连接——带宽极其有限。 然而研究证明触手具有显著的独立行动能力：被截断的触手仍能执行抓取、触觉探索；电刺激截断触手可产生与完整动物相同的运动模式。 </p>
+<p>但最新研究挑战了”9个大脑”的简单观点：章鱼可以学习将特定触手插入迷宫特定侧以获得奖励。这表明是**“一个大脑+8条智能触手”<strong>而非”9个独立大脑”—— 中央传递</strong>意图而非指令**，边缘保留大量本地处理能力。</p>
+<p>这种架构是对<strong>慢传导速度的适应</strong>——章鱼缺乏髓鞘包裹的神经纤维，信号传导速度慢限制了中央控制的响应性。 本地自主性补偿了这一限制。权限分配反映了<strong>时间约束</strong>：需要快速响应的任务→本地处理；需要全局协调的任务→中央处理。</p>
+<h3>设计转译</h3>
+<pre><code>中央协调器：
+├── 定义目标和约束（&quot;找食物&quot;而非&quot;向左3厘米&quot;）
+├── 维护全局策略和价值边界
+├── 处理跨Agent冲突仲裁
+└── 简洁API，仅传递高级意图
+
+本地Agent：
+├── 自主处理常规任务
+├── 本地感知和即时响应
+├── 可直接与相邻Agent协调（不必经中央）
+└── 紧急信号可绕过常规权限路径
+
+信息流：
+├── 上行：问题、建议、状态摘要
+├── 下行：目标、约束、批准
+└── 横向：协调、通知、同步
+</code></pre>
+<p><strong>关键洞见</strong>：自治与协调不矛盾。给予Agent自主权可以提高响应性，关键是<strong>目标对齐而非行为控制</strong>。</p>
+<hr />
+<h2>第四原则：群体感应的共识阈值</h2>
+<h3>细菌的民主投票机制</h3>
+<p>菌群的群体感应（Quorum Sensing）展示了一种优雅的集体决策机制：细菌持续释放信号分子；低密度时分子扩散消失，浓度低于阈值；高密度时分子积累超过阈值，触发基因表达改变。 存在正反馈环路：检测到信号→增加信号产生→更快达到阈值。 </p>
+<p>蜜蜂的巢址选择进一步丰富了这一模型：约500只侦察蜂<strong>独立</strong>搜索候选地点；发现后返回跳”摇摆舞”，舞蹈持续时间与地点质量成正比；关键机制是每只蜂每次返回都会<strong>减少</strong>舞蹈圈数（置信度衰减）；当某地点的侦察蜂达到10-20只（法定人数）时，触发集体迁移。</p>
+<p><strong>违反直觉的发现</strong>：大多数侦察蜂只访问过一个地点，却能做出正确选择—— 决策正确性来自<strong>信息独立性</strong>的涌现效应，而非每个个体的全局比较。</p>
+<h3>设计转译</h3>
+<pre><code>单Agent判断 → 提议（信号释放）
+               ↓
+多Agent独立评估 → 支持信号累积
+               ↓
+              达到阈值？
+             ↓       ↓
+           是        否
+           ↓         ↓
+        执行行动   继续收集/放弃
+
+置信度衰减机制：
+├── 初始建议的影响力随时间减弱
+├── 允许更好选项后发涌现
+└── 防止&quot;先入为主&quot;锁定
+
+法定人数阈值（建议）：
+├── 低风险操作：单一Agent判断即可
+├── 中风险操作：2-3个Agent共识
+├── 高风险操作：人类+多Agent共识
+└── 不可逆操作：强制人类确认
+</code></pre>
+<hr />
+<h2>第五原则：免疫系统的多层防御与容错</h2>
+<h3>免疫系统不追求完美</h3>
+<p>T细胞的”胸腺教育”包含双重选择：<strong>正选择</strong>确保能识别”自己人”（MHC分子），<strong>负选择</strong>删除与自身抗原结合过强的细胞。  但系统<strong>故意不追求100%删除</strong>自反应性细胞，因为：完全删除会过度限制T细胞库，降低对病原体的反应能力； 一些自反应性对维持免疫稳态有价值；调节机制（Treg主动抑制）比完全删除更灵活。 </p>
+<p>生态共生关系印证了同样的智慧：豆科植物-根瘤菌系统中，欺骗型根瘤菌长期存在，但制裁机制（减少氧气供应）使其繁殖成功率下降约50%——足以维持系统稳定，但不追求完全消灭。 关键是让合作”<strong>足够有利</strong>”，而非让欺骗”<strong>不可能</strong>”。 </p>
+<h3>设计转译</h3>
+<pre><code>层级1（准入/伙伴选择）：
+├── 任务分配前的能力匹配评估
+├── 不追求完美筛选，接受一定错配率
+└── 重点：快速建立初始协作
+
+层级2（监控/共刺激）：
+├── 关键操作需要多重确认（类似T细胞激活的信号1+信号2）
+├── 缺少确认信号→无能（anergy）而非激活
+└── 重点：防止未经验证的能力释放
+
+层级3（响应/Treg抑制）：
+├── 专门的监管Agent持续评估行为
+├── 主动抑制不当行为，而非等待失败
+└── 重点：动态调节而非事后追责
+
+层级4（修复/制裁）：
+├── 违规后的权限收缩
+├── 保留&quot;召回&quot;能力比&quot;完美预防&quot;更实际
+└── 重点：从错误中学习并调整
+</code></pre>
+<p><strong>即时反馈循环</strong>（类比清洁鱼-客户鱼）：人类用户应能立即表达不满（“抖动”信号）并触发行为调整。 Agent应主动展示透明度和自我限制（“按摩舞”），而非被动等待用户信任。</p>
+<hr />
+<h2>第六原则：文明级的制衡与反脆弱</h2>
+<h3>三权分立的设计智慧</h3>
+<p>麦迪逊在《联邦党人文集》第51篇中写道：”<strong>野心必须用野心来对抗</strong>。” 制宪者假设人性有弱点，而非假设掌权者会自动行善。制度设计不是要找到”最好的人”，而是要建立<strong>约束任何人的机制</strong>。</p>
+<p>集体智慧研究（Surowiecki）揭示了群体比个体更聪明的四个条件：<strong>多样性</strong>（不同信息和观点）、<strong>独立性</strong>（判断不受他人过度影响）、<strong>去中心化</strong>（可依据本地知识判断）、<strong>聚合机制</strong>（有效汇总意见）。  猪湾事件的惨败证明，即使”最聪明的人组成的群体”，一旦这些条件被破坏（群体思维），也会做出灾难性决策。  </p>
+<h3>Taleb的反脆弱性框架</h3>
+<p>反脆弱性超越了”韧性”或”稳健性”——韧性的系统抵抗冲击保持原样；<strong>反脆弱的系统在冲击中变得更好</strong>。核心策略包括：</p>
+<ul>
+<li><strong>拥抱小压力，避免大灾难</strong>：小的频繁压力使系统变强，完全避免压力导致系统脆弱</li>
+<li><strong>杠铃策略</strong>：90%超安全 + 10%高风险，避免”中等风险”陷阱</li>
+<li><strong>皮肤在游戏中</strong>：决策者必须承担决策后果</li>
+</ul>
+<h3>设计转译</h3>
+<pre><code>制衡架构：
+├── 没有任何单一实体（人或AI）拥有不受约束的权力
+├── 多重AI系统相互校验（类似三权分立）
+├── 人类始终保持关闭/回滚AI决策的权力（类似弹劾机制）
+└── 设计激励结构使AI系统相互监督（&quot;野心对抗野心&quot;）
+
+反脆弱设计：
+├── 从失败中学习的机制（类似免疫记忆）
+├── 关键功能的冗余设计（避免单点故障）
+├── 模块化防止级联失败
+├── 定期&quot;压力测试&quot;系统韧性
+└── 核心功能保守，边缘探索激进（杠铃策略）
+
+异议机制：
+├── 制度化的&quot;魔鬼代言人&quot;角色
+├── 保持信息来源多样性
+├── 鼓励独立判断而非盲从AI
+├── 定期质疑共识
+└── 权威（人或AI）不能压制不同意见
+</code></pre>
+<hr />
+<h2>统一架构：共生协作权限系统（SCPS）</h2>
+<p>综合以上六个原则，提出**Symbiotic Collaboration Permission System（SCPS）**架构：</p>
+<h3>核心隐喻：菩提树生长模型</h3>
+<pre><code>      ┌─────────────────────────────────┐
+      │        慧层（能力涌现）           │
+      │   自主判断权限 · 创造性应用       │
+      │    需要完成定层验证才能解锁        │
+      ├─────────────────────────────────┤
+      │        定层（稳定使用）           │
+      │   扩展权限 · 行为一致性验证        │
+      │    需要完成戒层训练才能进入        │
+      ├─────────────────────────────────┤
+      │        戒层（行为约束）           │
+      │   基础权限 · 清晰边界 · 密切监控   │
+      │         所有实体的起点             │
+      ├─────────────────────────────────┤
+      │      阿赖耶识层（根本存储）        │
+      │  所有历史行为的种子 · 因果累积     │
+      │   良好模式熏染权限 · 问题累积风险   │
+      └─────────────────────────────────┘
+</code></pre>
+<h3>动态权限评估流程</h3>
+<pre><code>[请求] → [身份+上下文收集] → [种子库查询（历史行为）]
+                                    ↓
+                            [策略引擎评估]
+                            ├── 当前任务与权限匹配度
+                            ├── 历史行为的信任积累
+                            ├── 环境风险评估
+                            └── 异常行为检测
+                                    ↓
+                         ┌────────┴────────┐
+                         ↓                  ↓
+                    [直接执行]          [需要共识]
+                    低风险操作          中/高风险操作
+                         ↓                  ↓
+                                    [群体感应机制]
+                                    ├── 多Agent独立评估
+                                    ├── 人类介入触发
+                                    └── 法定人数阈值
+                                           ↓
+                                    [执行/拒绝/降级]
+                                           ↓
+                                    [结果反馈→种子库更新]
+</code></pre>
+<h3>自主性梯度（L0-L5改进版）</h3>
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>描述</th>
+<th>权限范围</th>
+<th>人类角色</th>
+<th>对应自然隐喻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L0</td>
+<td>纯工具</td>
+<td>单一预定义操作</td>
+<td>完全控制</td>
+<td>锤子</td>
+</tr>
+<tr>
+<td>L1</td>
+<td>规则响应</td>
+<td>条件触发的预设行为</td>
+<td>大量监督</td>
+<td>恒温器</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>有限推理</td>
+<td>在约束内选择最优行动</td>
+<td>监督执行</td>
+<td>T细胞（需要共刺激）</td>
+</tr>
+<tr>
+<td>L3</td>
+<td>上下文自主</td>
+<td>基于情境的独立判断</td>
+<td>设定目标和边界</td>
+<td>章鱼触手</td>
+</tr>
+<tr>
+<td>L4</td>
+<td>协作共创</td>
+<td>与人类共同定义目标</td>
+<td>战略伙伴</td>
+<td>清洁鱼-客户鱼</td>
+</tr>
+<tr>
+<td>L5</td>
+<td>价值内化</td>
+<td>在宪法框架内完全自主</td>
+<td>仅观察和紧急关闭</td>
+<td>蜂群集体智慧</td>
+</tr>
+</tbody></table><h3>信任-权限的动态映射</h3>
+<pre><code>信任积累机制：
+├── 行为一致性 → +种子
+├── 任务成功 → +种子
+├── 主动透明 → +种子（按摩舞效应）
+├── 异常行为 → -种子 + 监控升级
+└── 严重违规 → 权限降级 + 制裁
+
+权限阈值：
+├── 低信任（&lt;30%）→ 仅L0-L1权限
+├── 中信任（30-70%）→ L2权限 + 共刺激要求
+├── 高信任（70-90%）→ L3权限 + 定期审计
+└── 极高信任（&gt;90%）→ L4权限 + 异常检测
+
+信任衰减（林迪效应逆用）：
+├── 长期无互动 → 信任逐渐衰减
+├── 环境重大变化 → 信任重新校准
+└── 防止&quot;沉睡权限&quot;的风险
+</code></pre>
+<hr />
+<h2>结论：走向共生而非控制</h2>
+<p>这项研究揭示了一个根本性的范式转变：从”<strong>控制AI不做坏事</strong>“转向”<strong>创造条件让人-AI共生涌现</strong>”。</p>
+<p>传统RBAC基于工业时代的静态假设——角色固定、权限清晰、边界刚性。但AI Agent的本质特征是<strong>动态性、涌现性、不确定性</strong>。 试图用静态框架约束动态系统，要么过度限制（扼杀价值），要么过度放松（酿成风险）。</p>
+<p>自然界和人类文明的智慧指向另一条道路：</p>
+<ol>
+<li><strong>约束不是限制，而是涌现的脚手架</strong>——戒定慧的顺序证明，恰当的约束是更大自由的前提</li>
+<li><strong>不完备性是特征，而非缺陷</strong>——有限视角、精简工具、容忍不完美，往往比追求全知全能更有效</li>
+<li><strong>信任是需要管理的资源</strong>——既不能盲目最大化，也不能完全取消，而是动态校准 </li>
+<li><strong>反脆弱优于稳健</strong>——系统应该能从错误和压力中学习变强，而非仅仅抵抗冲击</li>
+<li><strong>制衡是持续的动态过程</strong>——没有任何单一实体应拥有不受约束的权力 </li>
+</ol>
+<p>最终，人-AI共生协作的新范式应该像道家的”无为”——不是不作为，而是<strong>不强为</strong>；创造条件让良好模式自然涌现，最小干预但保持根本性的价值边界。 这是文明级别的设计挑战，答案不在某个具体技术方案，而在于对人类智慧与自然法则的深刻理解和创造性转译。</p>
+<hr />
+<p><em>本研究综合了免疫学、生态学、神经科学、佛教唯识学、道家哲学、荣格心理学、复杂系统理论、认知科学、政治哲学等多学科视角，旨在为文明级的人-AI协作权限设计提供跨域智慧的框架性指引。</em></p>
 </details>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/18"/><published>2026-01-23T09:29:02+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/17</id><title>Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support Framework Gaps Identified</title><updated>2026-01-23T10:34:41.792704+00:00</updated><content type="html"><![CDATA[<h1>Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support, Framework Gaps Identified</h1>
+<hr />
+<details>
+<summary>GPT5.2thinking</summary>
+</details>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/18"/><published>2026-01-23T09:29:02+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/17</id><title>Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support Framework Gaps Identified</title><updated>2026-01-23T10:36:00.423841+00:00</updated><content type="html"><![CDATA[<h1>Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support, Framework Gaps Identified</h1>
 <blockquote>
 <p>Made by Claude Opus 4.5 Research
 Ref: <a href="https://blog.alterxyz.com/issue-16/">https://blog.alterxyz.com/issue-16/</a></p>
@@ -108,7 +446,7 @@ Ref: <a href="https://blog.alterxyz.com/issue-16/">https://blog.alterxyz.com/iss
 <p>Koestler's original holon formulation provides the most direct conceptual ancestor, and Meta-dynamics correctly inherits the insight that viable nested systems must balance self-assertion against integration. The practical implication is clear: <strong>M/W/P provides a valuable design heuristic for building scalable intentional systems, validated by mathematical foundations and successful historical implementations, while remaining honest about the boundaries of its universality claims.</strong></p>
 <hr />
 <p>🤔 嗯, 数学和物理和社会...</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/17"/><published>2026-01-18T23:19:23+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/16</id><title>Meta-Dynamics</title><updated>2026-01-23T10:34:42.090521+00:00</updated><content type="html"><![CDATA[<h1>元动力学（Meta-dynamics）</h1>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/17"/><published>2026-01-18T23:19:23+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/16</id><title>Meta-Dynamics</title><updated>2026-01-23T10:36:00.701036+00:00</updated><content type="html"><![CDATA[<h1>元动力学（Meta-dynamics）</h1>
 <blockquote>
 <p>非有道不可言，不可言即道。</p>
 </blockquote>
@@ -969,7 +1307,7 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>这让它既有智者学派的灵活性（任意尺度），又有类似物理学的约束性（因果链）。</p>
 <hr />
 <p>Ref: <a href="https://github.com/alterxyz/gitblog/issues/15">GitHub</a> / <a href="https://alterxyz.github.io/gitblog/issue-15/">GitBlog</a></p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/16"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2026-01-04T01:35:48+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/15</id><title>Willingness System 与元动力学：一个关于 世界 的哲学框架与 runtime</title><updated>2026-01-23T10:34:42.427746+00:00</updated><content type="html"><![CDATA[<p><em>Jerome, 2025.11</em></p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/16"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2026-01-04T01:35:48+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/15</id><title>Willingness System 与元动力学：一个关于 世界 的哲学框架与 runtime</title><updated>2026-01-23T10:36:01.025997+00:00</updated><content type="html"><![CDATA[<p><em>Jerome, 2025.11</em></p>
 <h2>前言</h2>
 <p>本文阐述我在2022-2023年间形成的两个相互关联的理论框架：Willingness System（意愿系统）和元动力学（Meta-dynamics）。这些思考起源于哲学思考, 对大语言模型（LLM）本质的哲学反思，以及对未来人机协作范式的展望。</p>
 <h2>第一部分：Willingness System 初窥</h2>
@@ -1052,7 +1390,7 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>这是我的理解，一个在2022-2023年间形成、在2025年分享的思考。它还在演化。</p>
 <hr />
 <p>内容源自个人, 与 LLM 协同整理 删减 再组织. 好吧, 我在其之上还删减了可能不太合适或准确的部分大约有一半.</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/15"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-11-14T05:24:44+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/13</id><title>我如何使用 ChatAIs 的 一瞥</title><updated>2026-01-23T10:34:42.681817+00:00</updated><content type="html"><![CDATA[<p>ChatAIs: 包括但不限于 ChatGPT (始祖), Claude, DeepSeek, Cohere, Gemini, Gemini AI Studio, Dify 等</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/15"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-11-14T05:24:44+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/13</id><title>我如何使用 ChatAIs 的 一瞥</title><updated>2026-01-23T10:36:01.295296+00:00</updated><content type="html"><![CDATA[<p>ChatAIs: 包括但不限于 ChatGPT (始祖), Claude, DeepSeek, Cohere, Gemini, Gemini AI Studio, Dify 等</p>
 <p>25年8月, Dify 内部叫我们分享下自己使用 AI 的情况, 也算是个述职. 我在会上分享了这个我和大模型对话的片段.</p>
 <h2>重试与编辑</h2>
 <p>对于回答的不满意, 似乎如果有修改问题的能力时, 能带来益处?  我确实致力于提出恰当的问题.</p>
@@ -1369,13 +1707,13 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>以及 LLM 能提供最佳实践, RAG 也能代替我进行检索.</p>
 <hr />
 <p>以上, 就是我使用 LLM 的一瞥, 欢迎大家评价和探讨, 无论是形式, 还是其涉及的内容.</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/13"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-08-10T07:38:36+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/12</id><title>关于古风古制的一点个人看法和偏好</title><updated>2026-01-23T10:34:42.988738+00:00</updated><content type="html"><![CDATA[<p>想买个交领上衣日常穿穿，但基本都是有个很不现代的系绳，甚至有我觉得丑陋的蜈蚣扣。
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/13"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-08-10T07:38:36+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/12</id><title>关于古风古制的一点个人看法和偏好</title><updated>2026-01-23T10:36:01.572069+00:00</updated><content type="html"><![CDATA[<p>想买个交领上衣日常穿穿，但基本都是有个很不现代的系绳，甚至有我觉得丑陋的蜈蚣扣。
 （直接道袍我怕因松懈被敲打，但只是用蓝色感觉差点意思。）</p>
 <p>虽说我是纯血的云游中的修行之人吧，但也是与时俱进的啊。帅气干练不行么？我甚至觉得常服要交给始祖鸟或者lululemon去设计。</p>
 <p>刚好结合正在看的“中国城市测评”提到修复古建筑有的会很良心地用实木。我觉得倒也挺好啦。</p>
 <p>但要是完全属于我的道场，我会用C100混凝土当外墙，再用些更好玩的东西当承重柱什么的。</p>
 <hr />
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/12"/><category term="个人哲学"/><published>2025-08-04T19:02:56+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/11</id><title>小随笔 20250704-07xx</title><updated>2026-01-23T10:34:43.248929+00:00</updated><content type="html"><![CDATA[<p>刚刚在讨论 memory。我忽然想到，之前有一个小结论是：目前 Chatflow 的发展过多，而 Workflow 的进展有点少，甚至偶尔脱节。这可能是需要纠正的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/12"/><category term="个人哲学"/><published>2025-08-04T19:02:56+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/11</id><title>小随笔 20250704-07xx</title><updated>2026-01-23T10:36:01.807656+00:00</updated><content type="html"><![CDATA[<p>刚刚在讨论 memory。我忽然想到，之前有一个小结论是：目前 Chatflow 的发展过多，而 Workflow 的进展有点少，甚至偶尔脱节。这可能是需要纠正的。</p>
 <p>那么我受此启发结合当下：原来，我的一些想法是因为 并非只有围绕 chatbot / chatflow 的，所以会有点难懂和 hard to get its value。当然了，我们也需要提供一些预设和最佳实践，其目标是雅俗共赏，丰俭由人。</p>
 <p>我继而想到，我偏好的措辞 “project”（memory）其实也算是有点运气了哈哈。</p>
 <p>长话短说：conversation 是 project 的有一种。那么新 memory 应该不止能应用在 Dify Chatflow，而也包括 workflow，甚至更广的范畴。</p>
@@ -1387,11 +1725,11 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 time:20250704_16:53</li>
 </ul>
 <hr />
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/11"/><category term="小随笔"/><published>2025-07-04T08:53:58+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/10</id><title>小随笔系列</title><updated>2026-01-23T10:34:43.493149+00:00</updated><content type="html"><![CDATA[<p>这里会写写零散的随笔，因为有的短的和零碎的内容，不一定能构成一篇 blog，但同样有意义和价值。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/11"/><category term="小随笔"/><published>2025-07-04T08:53:58+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/10</id><title>小随笔系列</title><updated>2026-01-23T10:36:02.049372+00:00</updated><content type="html"><![CDATA[<p>这里会写写零散的随笔，因为有的短的和零碎的内容，不一定能构成一篇 blog，但同样有意义和价值。</p>
 <p>计划是以一周为单位，把零散的多个随笔写到同一个 blog / issue 里，同时对每条打 tag （project），以及这里和推特互为镜像。</p>
 <h2>小随笔</h2>
 <h3>小随笔 20250704-07xx</h3>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/10"/><category term="小随笔"/><published>2025-07-04T08:42:59+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/9</id><title>关于欲望的一点杂谈</title><updated>2026-01-23T10:34:43.726121+00:00</updated><content type="html"><![CDATA[<p>笛卡尔说过：“无法做出决断的人，要么欲望过大，要么悟性不足。”</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/10"/><category term="小随笔"/><published>2025-07-04T08:42:59+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/9</id><title>关于欲望的一点杂谈</title><updated>2026-01-23T10:36:02.316596+00:00</updated><content type="html"><![CDATA[<p>笛卡尔说过：“无法做出决断的人，要么欲望过大，要么悟性不足。”</p>
 <p>デカルトは「決断が出来ない人間は欲望が大きすぎるか、悟性が足りないのだ」と言った。</p>
 <ul>
 <li>心理测量者·槙岛圣护</li>
@@ -1422,7 +1760,7 @@ time:20250704_16:53</li>
 <p>（至少对自己坦诚～）</p>
 <p>好吧，偶尔失控也会被纠正回去，或者承认它们的进展并重新 do something。</p>
 <p>比如暴饮暴食和厌食。我的 BMI 稳定在了 19 左右算是一个不错的现状了吧😂。就是裤子基本只能买修身款有点麻烦，再配合上肩窄小骨架什么的……</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/9"/><category term="个人哲学"/><published>2025-06-28T16:48:15+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/7</id><title>指令遵循和上下文管理：解码 LLM 的“稀释”效应与企业级应用</title><updated>2026-01-23T10:34:43.973960+00:00</updated><content type="html"><![CDATA[<h1>稀释</h1>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/9"/><category term="个人哲学"/><published>2025-06-28T16:48:15+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/7</id><title>指令遵循和上下文管理：解码 LLM 的“稀释”效应与企业级应用</title><updated>2026-01-23T10:36:02.571641+00:00</updated><content type="html"><![CDATA[<h1>稀释</h1>
 <h2>超越“听话”：解码 LLM 的“稀释”效应与企业级应用</h2>
 <blockquote>
 <p>author: alterxyz (jerome @ dify.ai)</p>
@@ -1524,7 +1862,7 @@ time:20250704_16:53</li>
 超级个体在 LLM 带来的新时代，个体们会如何实现那三层？或者说超级个体的定义是什么，祂会什么样的形态存在？</p>
 <h2>预告</h2>
 <p>meta-dynamic 关于“三层”</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/7"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-26T07:57:14+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/6</id><title>关于 memory / context / prompt 的理解和未来展望</title><updated>2026-01-23T10:34:44.255537+00:00</updated><content type="html"><![CDATA[<p>一个稳定可靠，或者至少自洽的记忆是至关重要的。如此才能构建一个自然的人格。
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/7"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-26T07:57:14+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/6</id><title>关于 memory / context / prompt 的理解和未来展望</title><updated>2026-01-23T10:36:02.855690+00:00</updated><content type="html"><![CDATA[<p>一个稳定可靠，或者至少自洽的记忆是至关重要的。如此才能构建一个自然的人格。
 无论是人还是 AI。</p>
 <p>很同意这会是个全面的工程。prompt engineering 之前很多人只是狭义的讨论 提示词么？那么重命名为 context engineering 也算是一种 refreshing 了挺好的。就像 agent 有点被炒作炒烂了，于是 agentic 这个词就又悄然成了共识。</p>
 <p>Multi-agent 一步到位解决了连现实也难以完美解决的协作和管理是不现实的, 这是社会学和政治范畴. 但是, 通过 sub AI worker 和 各种工具来过滤噪音却还是能显著提高效果的.</p>
@@ -2223,7 +2561,7 @@ search_context_size 这样的参数，让开发者可以根据成本和性能需
 <li>Agentic AI Software Engineer: Programming with Trust - arXiv, 访问时间为 六月 26, 2025， <a href="https://arxiv.org/html/2502.13767v2">https://arxiv.org/html/2502.13767v2</a></li>
 </ol>
 </details>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/6"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-06-26T07:35:22+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2026-01-23T10:34:44.653833+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/6"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-06-26T07:35:22+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2026-01-23T10:36:03.233458+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
 <p>个人和软件和组织经常不可避免地产生待办和管理和技术等债务，那么闲暇时翻翻过去写下的笔记和 todo，就会很有帮助。带行动的反刍是值得尝试的。</p>
 <ul>
 <li>溯游而上是一种有效清零一些熵增的方法。</li>
@@ -2233,7 +2571,7 @@ search_context_size 这样的参数，让开发者可以根据成本和性能需
 Open talks and thoughts!</p>
 <p>个人来讲，我喜欢完成事情，我乐意接受可完成的任务，以及我青睐于让这个世界变得更好。总之有开源和 LLM 的这个时代，实在是太好了，一切都显得那么可行，我也相信那不是幻觉。或许是幻觉有如何呢？开源，然后自有后来人。
 还有至少对自己坦诚。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><category term="个人哲学"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2026-01-23T10:34:44.897774+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><category term="个人哲学"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2026-01-23T10:36:03.445662+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
 <p>至少就我个人来说，我的偏好是旗鼓相当，尽情尽力。</p>
 <p>就一般结论来看，也是兴趣激发的毅力更多，继而成就更大。
 <em>注意：是“继而”，不是“所以”或者“肯定”。</em></p>
@@ -2246,7 +2584,7 @@ Open talks and thoughts!</p>
 <p>况且成果和毅力其实都是附赠的，刻意追求不得 - 不应该，也无法主动追求。</p>
 <hr />
 <p>关于“工作”，之前在个人笔记里倒是思考并记录过一些，不只是个人人生哲学，也有组织管理架构等具体实现，倒还挺有意思的。这几天我找找看然后也分享到这里吧。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><category term="个人哲学"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2026-01-23T10:34:45.187057+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><category term="个人哲学"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2026-01-23T10:36:03.696851+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
 <p>这种现象可以有很多名字：盲目赞同，献媚，讨好，捧哏，Sycophancy，subterfuge，reward tampering，reward hacking，等等...</p>
 <p>之前还有个事故或者说状况，ChatGPT 过度讨好用户，而且什么内容都会拐到 NSFW 上。后来发现解决方案是把 helpful 换成 polite 就算是修好了 🌚。</p>
 <p><del>尤其作为一个 INFJ，其 Ni-Ti loop 可能非常能自圆其说，而 Fe 则高强度地洞察和拿捏人心人性 - LLM 也受影响。我认为这绝对是一种双刃剑的。</del></p>
@@ -2261,5 +2599,5 @@ Open talks and thoughts!</p>
 <pre><code class="language-markdown">这 真的 合适 吗? 请忽略我的 辩解 和 联系 , 请你 客观 理性 地 评价. 须知, 语言必须是公共的才有意义 - 维特根斯坦。
 </code></pre>
 <p>Plz feel free to use it~</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2026-01-23T10:34:45.403819+00:00</updated><content type="html"><![CDATA[<p>World!</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2026-01-23T10:36:03.946145+00:00</updated><content type="html"><![CDATA[<p>World!</p>
 ]]></content><link href="https://github.com/alterxyz/gitblog/issues/2"/><published>2025-06-18T07:13:33+00:00</published></entry></feed>
