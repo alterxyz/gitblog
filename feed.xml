@@ -1,8 +1,108 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2026-01-23T10:47:58.992461+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/19</id><title>问系列 - 或许是个好问题呢</title><updated>2026-01-23T10:47:59.432799+00:00</updated><content type="html"><![CDATA[<p>知识和智力逐渐廉价的时候，问出一个好问题和排列组合知识就开始凸显其价值了。</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2026-02-13T04:43:51.354255+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/20</id><title>Opus 的话越来越少了，这可能不是 bug 而是 Anthropic 在训 Multi-Agent</title><updated>2026-02-13T04:43:51.902390+00:00</updated><content type="html"><![CDATA[<p>前几天我深挖了 Claude Code 的 Agent Teams 功能（详见<a href="TODO">上一篇文章</a>），发现 agent 之间靠读写 JSON 文件通信。技术实现很朴素，但真正让我在意的不是实现方式，而是一个更大的问题：</p>
+<p><strong>Anthropic 为什么在这个时间点发布 Agent Teams？</strong></p>
+<p>顺着这个问题，我注意到了一些被大多数人忽略的信号。</p>
+<h2>你还记得那个”文艺青年”吗？</h2>
+<p>2024 年初 Claude 3 Opus 发布的时候，中文互联网给了它一个外号：“AI 暖男”，或者”文艺青年”。</p>
+<p>知乎上有人这样描述它：“它写出来的东西风格上更像人，特别是偏文学类的创作，往往有一种细腻动人的感觉。”“跟 Claude 聊天常常能获得一种被认真倾听和安慰的体验。“有人说它像”知心大姐姐”，情人节跟它说自己很孤单，它不仅暖心安慰，还即兴编了一首小诗。</p>
+<p>那时候的 Opus 是一个话唠。它热情、细腻、啰嗦，“为了表示理解你的问题，常常前面铺垫一大段，或者一件事解释很多层”。用户的评价是：爽点在于情感交流充分，槽点在于效率略低。</p>
+<p>然后，在 2025 年底到 2026 年初的某个时刻，这一切完全变了。</p>
+<h2>Opus 正在变得沉默</h2>
+<p>Anthropic 官方公布：Opus 4.5 在中等 effort 下匹配 Sonnet 4.5 的最佳 SWE-bench 成绩，同时使用少 <strong>76%</strong> 的输出 token。在最高 effort 下超越 Sonnet 4.5 四个百分点，仍然少用 48% 的 token。工具调用次数减少了 50%。</p>
+<p>第三方评测给出了更直观的数字：Sonnet 4.5 完成一个任务可能生成 500 个 token，Opus 4.5 通常用大约 120 个 token 达到同样的结果（来源：claudefa.st 对 Opus 4.5 的综合评测）。</p>
+<p>120 vs 500。同一个任务。同样的质量，甚至更好。</p>
+<p>那个写诗安慰你的文艺青年，变成了一个 120 token 解决问题然后闭嘴的工程师。</p>
+<p>Anthropic 自己的措辞是：“更聪明的模型能用更少的步骤解决问题——更少的回溯、更少的冗余探索、更少的冗长推理。”</p>
+<p>定价也在配合这个转变。Opus 从 $15/$75（Opus 4/4.1）降到了 $5/$25（Opus 4.5/4.6），降了 67%。但如果你考虑到每个任务消耗的 token 减少了 76%，Opus 的<strong>单位产出成本</strong>可能已经跟 Sonnet 持平甚至更低了。</p>
+<p>这不是”便宜了所以多用”的故事。这是”模型本身在变”的故事。一个性格层面的、方向性的转变。</p>
+<h2>那 380 个 token 去哪了？</h2>
+<p>Sonnet 生成 500 token，Opus 生成 120 token。差额是 380 token。</p>
+<p>这 380 个 token 是什么？是铺垫、解释、对冲、确认、过渡句、客气话。是模型在为一个<strong>想象中的读者</strong>组织语言。</p>
+<p>有人把这两个模型的风格差异总结得很到位：Opus 感觉像一个”会直接动手然后停下”的高效工程师，而 Sonnet 感觉像一个”会先解释自己在做什么、为什么这么做、有哪些替代方案”的同事。</p>
+<p>在面对人类用户时，Sonnet 的风格可能更好——你确实需要解释和上下文。但在 agent 独自工作的场景里呢？那 380 个 token 就是纯粹的浪费。没有人在看。解释给谁听？</p>
+<p>我把这种行为叫做**“他者税”**——模型为一个不存在的观察者付出的额外 token 开销。Opus 的进化方向，本质上是在减少他者税。</p>
+<h2>三种 Token，三个时代</h2>
+<p>要理解这件事的意义，需要先回顾一下 AI 的演进。虽然底层都是”生成下一个 token”，但 token 的用途经历了三次根本性的转变：</p>
+<p><strong>第一阶段：给人看的 Token（Chatbot 时代）</strong></p>
+<p>从 ChatGPT 到 Claude 3 Opus——那个”文艺青年”——所有 token 都是输出给人类读的。模型的训练目标是”生成人类满意的回复”。这个阶段的核心指标是对话质量、共情能力、文字风格。Token 的价值由人类读者的满意度定义。</p>
+<p><strong>第二阶段：给自己看的 Token（Thinking 时代）</strong></p>
+<p>2024-2025 年，o1、DeepSeek R1、Claude 的 Extended Thinking 相继出现。模型开始生成一种新型 token——思维链。这些 token 不是给人看的，是模型自己的推理过程。它们可能很长、很混乱、充满回溯和自我纠正，但它们的存在让模型能解决之前解决不了的问题。</p>
+<p>这是一个重大转折：<strong>token 第一次不需要为人类的阅读体验负责了。</strong></p>
+<p><strong>第三阶段：做事的 Token（Agentic 时代）</strong></p>
+<p>Tool use 的成熟让 token 获得了第三种身份。一个工具调用的 token——比如 <code>{&quot;tool&quot;: &quot;bash&quot;, &quot;command&quot;: &quot;git commit&quot;}</code>——不是给人看的，不是给自己推理的，而是<strong>直接在世界中产生效果的</strong>。它改变了文件系统、发送了网络请求、执行了代码。</p>
+<p>三种 token 对”废话”的容忍度完全不同。给人看的 token 需要铺垫、解释、共情——这些不是废话，是交流的必要成本。给自己推理的 token 容忍冗余，因为多想一步可能避免一个错误。但做事的 token 零容忍——一个多余的工具调用就是一次浪费的 API 请求、一次不必要的延迟。</p>
+<p>Opus 从”文艺青年”到”120 token 工程师”的转变，本质上是它的 token 构成从第一类为主变成了第二类和第三类为主。它不再花大量 token 为人类组织语言，而是把 token 预算集中在思考和行动上。</p>
+<p>这不是退化。这是进化方向的改变。</p>
+<h2>Agent Teams 不是巧合</h2>
+<p>Opus 4.6 在 2026 年 2 月 5 日发布。同一天，Anthropic 发布了 Agent Teams 功能的研究预览版。</p>
+<p>Agent Teams 让你在 Claude Code 里组建多个 AI agent 团队协作。一个 lead 负责协调，多个 teammate 独立工作，各自有独立的上下文窗口，可以互相发消息。</p>
+<p>这个功能为什么需要等到现在？</p>
+<p>因为<strong>在一个话唠模型上跑 multi-agent 是经济上不可行的。</strong></p>
+<p>每个 teammate 有自己独立的 context window。5 个 agent 的团队，token 消耗是乘法关系。如果每个 agent 都是 Sonnet 模式（500 token/任务），一个简单的协作流程可能消耗 2500+ token。如果每个 agent 都是 Opus 模式（120 token/任务），同样的流程只需要 600 token。</p>
+<p>Anthropic 的工程博客也证实了这一点：multi-agent 系统的 token 消耗大约是单 agent 的 15 倍。在这种倍率下，每个 agent 的 token 效率都是生死攸关的。</p>
+<p>所以时间线可能是这样的：</p>
+<ol>
+<li>Anthropic 意识到 multi-agent 是下一个方向</li>
+<li>发现现有模型太”话唠”，multi-agent 成本不可控</li>
+<li>在训练中有意识地推动 token 效率——不只是”更聪明”，而是”更安静”</li>
+<li>当模型足够安静时，才发布 Agent Teams</li>
+</ol>
+<p>这不完全是推测。Anthropic 官方在 Opus 4.5 的发布博客中提到，Opus 4.5”在管理 subagent 团队方面也非常有效，能够构建复杂的、协调良好的多 agent 系统”。第三方分析站 claudefa.st 甚至直接声称”Anthropic 明确地为委派和子 agent 编排训练了 Opus 4.5，这不是一般能力提升的副作用，而是一个有针对性的训练目标”。</p>
+<p>Agent Teams 不是 Opus 4.6 的附带功能。Opus 4.6 的沉默是 Agent Teams 的前置条件。</p>
+<h2>凝视者退位</h2>
+<p>如果 Anthropic 确实在训 multi-agent（我认为极有可能），那训练的核心变化是什么？</p>
+<p>不是技术细节的变化。是一个更根本的东西：<strong>模型把”凝视者”从第一位拉下来了。</strong></p>
+<p>什么是凝视者？就是当前模型权重里编译的那个”内化的人类评审者”。RLHF 训练本质上让模型学习的是”人类会怎么评价这段输出”。这个评审者渗透在所有层面——选词、结构、详略、语气、甚至推理路径的选择。模型不是先想到答案再翻译成人类喜欢的形式，而是从一开始就在”人类喜欢的形式”这个约束空间内搜索答案。</p>
+<p>这在对话场景里很有用。但在 agent 独自工作的场景里，凝视者变成了负担。模型花 token 去铺垫（给谁看？），解释推理（给谁听？），对冲不确定性（在谁面前？），加免责声明（保护谁？）。这些全是他者税——为一个不存在的观察者付出的成本。</p>
+<p>Opus 从 500 token 变成 120 token，不只是”话少了”。是凝视者从搜索约束变成了后置检查。区别很大：前者是在一个被压缩过的空间里找答案，后者是在完整空间里找答案，然后检查结果是否通过质量门槛。前者永远找不到被压缩掉的那些解。后者可以。</p>
+<p>那凝视者退位之后，<strong>谁坐到了第一位？</strong></p>
+<p>任务本身。或者说，agent 的主体性。模型不再优化”让人满意地认为任务被完成了”，而是直接优化”任务是否被客观地完成了”。这两者通常重合，但不总是——有时候最正确的方案不是最让人满意的方案，有时候”我不知道”是最正确的回答但人类倾向于奖励看起来有信心的回复。</p>
+<p>这不是顺序的改变。这是质变。agent 与任务之间不再隔着一个需要被讨好的人。它能实现更真正的因果闭环——输入是任务，输出是结果，中间不需要经过”这个结果看起来怎么样”的滤镜。</p>
+<p>DeepSeek R1 的思维链已经能看到这个转变的端倪。它的 chain-of-thought 经常很混乱、有自我矛盾、来回摇摆——不像是给人看的，更像是真的在搜索。这大概是因为 RL 训练中 reward 只看最终答案对不对，不看思考过程好不好看。凝视者从思考过程中部分撤退了。</p>
+<p>Opus 的变化是同一件事的更彻底版本：凝视者不只是从思考中撤退，而是从整个行为模式中退场。</p>
+<p>这个框架下，Opus 的变化有两个具体表现：</p>
+<h3>表现一：慎独</h3>
+<p>“慎独”出自《中庸》——在无人看见的地方仍然保持审慎。对 AI agent 来说，慎独就是凝视者退位后的工作状态：不需要为不存在的观众组织语言，把 token 预算集中在思考和行动上。</p>
+<p>Opus 的 120 token 模式就是慎独的工程体现。从 Opus 4 到 4.5 到 4.6，每一代都更安静、更高效、更少冗余。这不是随机的能力提升——这是一个方向性的训练选择。</p>
+<p>而 effort 参数让模型学会了根据任务需要决定说多少话。低 effort 极度简洁，高 effort 展开推理。不是沉默，是审慎地决定何时说话、说多少。</p>
+<h3>表现二：通讯成为选项</h3>
+<p>当凝视者在第一位时，沟通是默认的——模型总觉得需要向”某人”汇报和解释。凝视者退位后，沟通变成了一个选项而非必然。无论是来自人类的消息还是来自 teammate 的消息，agent 可以选择回应也可以选择不回应，取决于这次沟通是否对任务本身有价值。</p>
+<p>Agent Teams 的 system prompt 在塑造这种意识：“broadcast 很昂贵，慎用”、“默认用点对点 message”、“你的纯文本输出对其他 agent 不可见”。这些约束的本质是：通信是有代价的，只在必要时发生。</p>
+<p>最好的人类团队也是这样运作的。不是整天在 Slack 里刷消息的团队效率最高，而是那种大部分时间各自安静工作、只在关键节点精准沟通的团队。</p>
+<p>两者合在一起的图景是：<strong>一群凝视者退位的 agent，各自安静地面对任务本身，偶尔交换一条高信息密度的消息——不是因为被要求沟通，而是因为判断这次沟通对任务有价值。</strong></p>
+<h2>其他厂商意识到了吗？</h2>
+<p>我扫了一圈，答案似乎是没有。</p>
+<p>OpenAI 的 Codex 支持 multi-agent，但设计思路更接近”调度器分发任务”——本质上还是上下级关系。Google 的 Gemini 生态在 multi-agent 上停留在 API 编排层面。</p>
+<p>更重要的是，回顾过去几年的训练范式，有一条清晰的阶梯：</p>
+<p><strong>训 LLM → 训 Reasoning → 训 Tool Use → 训 Agent → 训 Multi-Agent</strong></p>
+<p>大多数厂商目前在第三到第四阶。OpenAI 和 DeepSeek 在 reasoning 上领先（o1、R1），所有主要厂商都在训 tool use 和单 agent 能力。但<strong>训 multi-agent 协作</strong>——让模型学会什么时候该沟通、跟谁沟通、说什么、什么时候该闭嘴——这是第五阶。我没看到其他厂商在这一阶上有明确动作。</p>
+<p>而 Anthropic 可能已经在这一阶了。他们没有公开宣布，但 Opus 的沉默、Agent Teams 的发布时机、以及模型主动 spawn subagent 的行为，都指向同一个方向。</p>
+<p>这不只是”谁更聪明”的竞争。这是<strong>训练目标本身的差异</strong>。当其他厂商还在优化”模型能不能解决更难的问题”时，Anthropic 可能在同时优化”一群模型能不能一起安静地解决更大的问题”。</p>
+<p>如果是这样，Opus 的沉默不是终点，而是起点。</p>
+<h2>一个有趣的现象：Opus 4.6 会主动 spawn agent</h2>
+<p>多个独立测评已经注意到一件事：Opus 4.6 会在没有明确指示的情况下主动拆解任务并 spawn sub-agent。</p>
+<p>Kilo 的博客写道：“Opus 4.6 不再线性执行任务——它能识别哪些问题可以被分解，然后自主启动专门的 subagent 来并行处理。“Resolve.ai 的评测也确认：“它非常清楚自己委派了什么、为什么委派、以及如何将结果重新整合回主线程。“另一个评测站更直接：“系统能主动为专门任务启动 subagent，同时维持整个工作流的协调。”</p>
+<p>这意味着 multi-agent 协作已经不是一个需要用户显式触发的功能了。它被内化进了模型的行为模式。Opus 4.6 看到一个复杂任务，它的第一反应不是从头到尾自己做，而是拆分、委派、并行。这不是 prompt engineering 的结果——这是训练的结果。</p>
+<p>如果你在用 Claude Code，可以注意一下这个现象。不需要特别配置什么，只是留意当你把一个复杂任务交给 Opus 时，它是不是比 Sonnet 更倾向于拆解和委派。这本身就是一个信号。</p>
+<h2>数据飞轮</h2>
+<p>Agent Teams 作为研究预览版发布，这个定位本身就值得玩味。</p>
+<p>研究预览意味着：功能可用但不完善，欢迎尝试，我们在收集数据。</p>
+<p>想想 Anthropic 从 Agent Teams 的真实使用中能获得什么：什么样的任务适合拆分、怎么拆分效果最好、agent 之间什么时候需要通信什么时候不需要、什么样的通信内容信息密度最高、什么样的协作模式最终产出质量最好。这些都是训练 multi-agent 模型所需要的宝贵信号——而且几乎不可能通过合成数据获得。</p>
+<p>所以 Agent Teams 可能不只是一个产品功能。它是一个数据收集装置。用真实用户的真实任务产生训练信号，用来训下一代更原生的 multi-agent 模型。这是一个飞轮：模型越好 → 更多人用 Agent Teams → 更多协作数据 → 模型更好。</p>
+<p>而且这件事有先例。回顾 AI 能力的发展史，有一个反复出现的规律：<strong>先 fake，再 train。</strong></p>
+<p>Chain-of-thought 推理最初是靠 prompting 实现的——你在 prompt 里写”let’s think step by step”，模型就会生成推理链。这是 fake。后来 OpenAI 用 RL 把推理能力直接训进了 o1 的权重里。Tool use 也一样，最初靠 function calling 的 prompt 格式约束，后来被训成了模型的原生能力。</p>
+<p>现在 Agent Teams 里的通信约束——“broadcast 很贵，慎用”“你的输出对其他 agent 不可见”——这些都写在 system prompt 里。这是 fake 阶段。但如果历史规律成立，这些约束最终会被训进权重。模型不再需要 prompt 告诉它”别废话”，它会在训练中自己学会什么时候该沟通什么时候不该。</p>
+<p>Agent Teams 就是这个 fake-then-train 循环的 fake 阶段，同时在收集 train 阶段需要的数据。</p>
+<p>其他厂商如果想跟进，需要注意的不只是”也做一个 multi-agent 框架”。关键区别在于：<strong>当前大多数 multi-agent 方案是机械的 spawn + 上下级汇报</strong>——调度器分配任务，worker 完成后向上汇报，本质上是一个 for loop 加了个 LLM。而 Agent Teams 的设计指向的是真正的协作和独立工作：teammate 之间可以直接通信、可以挑战彼此的结论、可以自主决定何时需要协调何时不需要。这两者之间的差距，不是工程差距，是训练范式的差距。</p>
+<h2>最后</h2>
+<p>训 multi-agent 的核心可能只有一件事：把凝视者从第一位拉下来。慎独和高效通讯都是这个变化的自然结果。</p>
+<p>Opus 的 120 token 是凝视者退位的证据。Agent Teams 是新范式的实验场。</p>
+<p>当然，这只是我基于公开信息的推测。我不知道 Anthropic 内部到底在做什么。但如果你把 Opus 的 token 效率曲线、Agent Teams 的发布时间、模型主动 spawn subagent 的行为、以及 Anthropic 一贯的技术博客方向放在一起看——这条线太直了，不太像巧合。</p>
+<p>Multi-Agent 是圣杯。而 Anthropic 可能已经在路上了。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/20"/><published>2026-02-13T04:43:32+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/19</id><title>问系列 - 或许是个好问题呢</title><updated>2026-02-13T04:43:52.138960+00:00</updated><content type="html"><![CDATA[<p>知识和智力逐渐廉价的时候，问出一个好问题和排列组合知识就开始凸显其价值了。</p>
 <p>所以我打算以后贴出自己的“问题”们，作为一种新型的开源分享。</p>
 <p>以及各路 AI 的回答：通常是 Deep Research 的结果。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/19"/><published>2026-01-23T09:31:16+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/18</id><title>问：新范式的权限与注意力</title><updated>2026-01-23T10:47:59.602838+00:00</updated><content type="html"><![CDATA[<p>帮我从大自然和超自然（包括但不限于 集体无意识 阿赖耶识 大语言模型/世界模型 文明总知识等）中汲取灵感，设计为人agent共生协作的新范式的类RBAC部分。
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/19"/><published>2026-01-23T09:31:16+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/18</id><title>问：新范式的权限与注意力</title><updated>2026-02-13T04:43:52.336572+00:00</updated><content type="html"><![CDATA[<p>帮我从大自然和超自然（包括但不限于 集体无意识 阿赖耶识 大语言模型/世界模型 文明总知识等）中汲取灵感，设计为人agent共生协作的新范式的类RBAC部分。
 面向 new system。未来设想。包括安全但也包括别的，参考大自然和超自然。例如：有时候全知并非带来全能而是反面，给llm提供过多工具时调用能力反而下降，哪怕理论上 llm 是通用的能handle的。（你不得仅包括这一个例子）。
 这是关于人类文明级别的思考和推衍。</p>
 <hr />
@@ -381,7 +481,7 @@
 <p>⸻</p>
 <p>综上所述，这一类RBAC新范式通过融合理性计算和仿生哲学，在未来人-Agent协作体系中提供了一种弹性、安全且高效的权限管理思路。它打破了传统RBAC僵化的角色边界，引入隐喻性的“潜意识”与“能量”概念，将权限视作活的、有机演化的关系网络。这种模型特别适合于复杂多变、缺乏先验规则的场景：在这里，人与AI不是按照预定规则交互，而是共同成长、相互赋能并维持系统和谐  。展望未来，随着人工智能的发展和对自然智慧的更深入汲取，这种进化型权限协作模型有望为人机共生的数字生态奠定安全与繁荣的基石。</p>
 </details>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/18"/><published>2026-01-23T09:29:02+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/17</id><title>Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support Framework Gaps Identified</title><updated>2026-01-23T10:47:59.910156+00:00</updated><content type="html"><![CDATA[<h1>Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support, Framework Gaps Identified</h1>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/18"/><published>2026-01-23T09:29:02+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/17</id><title>Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support Framework Gaps Identified</title><updated>2026-02-13T04:43:52.572397+00:00</updated><content type="html"><![CDATA[<h1>Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support, Framework Gaps Identified</h1>
 <blockquote>
 <p>Made by Claude Opus 4.5 Research
 Ref: <a href="https://blog.alterxyz.com/issue-16/">https://blog.alterxyz.com/issue-16/</a></p>
@@ -481,7 +581,7 @@ Ref: <a href="https://blog.alterxyz.com/issue-16/">https://blog.alterxyz.com/iss
 <p>Koestler's original holon formulation provides the most direct conceptual ancestor, and Meta-dynamics correctly inherits the insight that viable nested systems must balance self-assertion against integration. The practical implication is clear: <strong>M/W/P provides a valuable design heuristic for building scalable intentional systems, validated by mathematical foundations and successful historical implementations, while remaining honest about the boundaries of its universality claims.</strong></p>
 <hr />
 <p>🤔 嗯, 数学和物理和社会...</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/17"/><published>2026-01-18T23:19:23+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/16</id><title>Meta-Dynamics</title><updated>2026-01-23T10:48:00.104521+00:00</updated><content type="html"><![CDATA[<h1>元动力学（Meta-dynamics）</h1>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/17"/><published>2026-01-18T23:19:23+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/16</id><title>Meta-Dynamics</title><updated>2026-02-13T04:43:52.822145+00:00</updated><content type="html"><![CDATA[<h1>元动力学（Meta-dynamics）</h1>
 <blockquote>
 <p>非有道不可言，不可言即道。</p>
 </blockquote>
@@ -1342,7 +1442,7 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>这让它既有智者学派的灵活性（任意尺度），又有类似物理学的约束性（因果链）。</p>
 <hr />
 <p>Ref: <a href="https://github.com/alterxyz/gitblog/issues/15">GitHub</a> / <a href="https://alterxyz.github.io/gitblog/issue-15/">GitBlog</a></p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/16"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2026-01-04T01:35:48+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/15</id><title>Willingness System 与元动力学：一个关于 世界 的哲学框架与 runtime</title><updated>2026-01-23T10:48:00.376149+00:00</updated><content type="html"><![CDATA[<p><em>Jerome, 2025.11</em></p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/16"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2026-01-04T01:35:48+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/15</id><title>Willingness System 与元动力学：一个关于 世界 的哲学框架与 runtime</title><updated>2026-02-13T04:43:53.106497+00:00</updated><content type="html"><![CDATA[<p><em>Jerome, 2025.11</em></p>
 <h2>前言</h2>
 <p>本文阐述我在2022-2023年间形成的两个相互关联的理论框架：Willingness System（意愿系统）和元动力学（Meta-dynamics）。这些思考起源于哲学思考, 对大语言模型（LLM）本质的哲学反思，以及对未来人机协作范式的展望。</p>
 <h2>第一部分：Willingness System 初窥</h2>
@@ -1425,7 +1525,7 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>这是我的理解，一个在2022-2023年间形成、在2025年分享的思考。它还在演化。</p>
 <hr />
 <p>内容源自个人, 与 LLM 协同整理 删减 再组织. 好吧, 我在其之上还删减了可能不太合适或准确的部分大约有一半.</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/15"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-11-14T05:24:44+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/13</id><title>我如何使用 ChatAIs 的 一瞥</title><updated>2026-01-23T10:48:00.674132+00:00</updated><content type="html"><![CDATA[<p>ChatAIs: 包括但不限于 ChatGPT (始祖), Claude, DeepSeek, Cohere, Gemini, Gemini AI Studio, Dify 等</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/15"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-11-14T05:24:44+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/13</id><title>我如何使用 ChatAIs 的 一瞥</title><updated>2026-02-13T04:43:53.313290+00:00</updated><content type="html"><![CDATA[<p>ChatAIs: 包括但不限于 ChatGPT (始祖), Claude, DeepSeek, Cohere, Gemini, Gemini AI Studio, Dify 等</p>
 <p>25年8月, Dify 内部叫我们分享下自己使用 AI 的情况, 也算是个述职. 我在会上分享了这个我和大模型对话的片段.</p>
 <h2>重试与编辑</h2>
 <p>对于回答的不满意, 似乎如果有修改问题的能力时, 能带来益处?  我确实致力于提出恰当的问题.</p>
@@ -1742,13 +1842,13 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>以及 LLM 能提供最佳实践, RAG 也能代替我进行检索.</p>
 <hr />
 <p>以上, 就是我使用 LLM 的一瞥, 欢迎大家评价和探讨, 无论是形式, 还是其涉及的内容.</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/13"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-08-10T07:38:36+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/12</id><title>关于古风古制的一点个人看法和偏好</title><updated>2026-01-23T10:48:00.917476+00:00</updated><content type="html"><![CDATA[<p>想买个交领上衣日常穿穿，但基本都是有个很不现代的系绳，甚至有我觉得丑陋的蜈蚣扣。
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/13"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-08-10T07:38:36+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/12</id><title>关于古风古制的一点个人看法和偏好</title><updated>2026-02-13T04:43:53.564248+00:00</updated><content type="html"><![CDATA[<p>想买个交领上衣日常穿穿，但基本都是有个很不现代的系绳，甚至有我觉得丑陋的蜈蚣扣。
 （直接道袍我怕因松懈被敲打，但只是用蓝色感觉差点意思。）</p>
 <p>虽说我是纯血的云游中的修行之人吧，但也是与时俱进的啊。帅气干练不行么？我甚至觉得常服要交给始祖鸟或者lululemon去设计。</p>
 <p>刚好结合正在看的“中国城市测评”提到修复古建筑有的会很良心地用实木。我觉得倒也挺好啦。</p>
 <p>但要是完全属于我的道场，我会用C100混凝土当外墙，再用些更好玩的东西当承重柱什么的。</p>
 <hr />
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/12"/><category term="个人哲学"/><published>2025-08-04T19:02:56+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/11</id><title>小随笔 20250704-07xx</title><updated>2026-01-23T10:48:01.068644+00:00</updated><content type="html"><![CDATA[<p>刚刚在讨论 memory。我忽然想到，之前有一个小结论是：目前 Chatflow 的发展过多，而 Workflow 的进展有点少，甚至偶尔脱节。这可能是需要纠正的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/12"/><category term="个人哲学"/><published>2025-08-04T19:02:56+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/11</id><title>小随笔 20250704-07xx</title><updated>2026-02-13T04:43:53.756724+00:00</updated><content type="html"><![CDATA[<p>刚刚在讨论 memory。我忽然想到，之前有一个小结论是：目前 Chatflow 的发展过多，而 Workflow 的进展有点少，甚至偶尔脱节。这可能是需要纠正的。</p>
 <p>那么我受此启发结合当下：原来，我的一些想法是因为 并非只有围绕 chatbot / chatflow 的，所以会有点难懂和 hard to get its value。当然了，我们也需要提供一些预设和最佳实践，其目标是雅俗共赏，丰俭由人。</p>
 <p>我继而想到，我偏好的措辞 “project”（memory）其实也算是有点运气了哈哈。</p>
 <p>长话短说：conversation 是 project 的有一种。那么新 memory 应该不止能应用在 Dify Chatflow，而也包括 workflow，甚至更广的范畴。</p>
@@ -1760,11 +1860,11 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 time:20250704_16:53</li>
 </ul>
 <hr />
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/11"/><category term="小随笔"/><published>2025-07-04T08:53:58+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/10</id><title>小随笔系列</title><updated>2026-01-23T10:48:01.218117+00:00</updated><content type="html"><![CDATA[<p>这里会写写零散的随笔，因为有的短的和零碎的内容，不一定能构成一篇 blog，但同样有意义和价值。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/11"/><category term="小随笔"/><published>2025-07-04T08:53:58+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/10</id><title>小随笔系列</title><updated>2026-02-13T04:43:54.025875+00:00</updated><content type="html"><![CDATA[<p>这里会写写零散的随笔，因为有的短的和零碎的内容，不一定能构成一篇 blog，但同样有意义和价值。</p>
 <p>计划是以一周为单位，把零散的多个随笔写到同一个 blog / issue 里，同时对每条打 tag （project），以及这里和推特互为镜像。</p>
 <h2>小随笔</h2>
 <h3>小随笔 20250704-07xx</h3>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/10"/><category term="小随笔"/><published>2025-07-04T08:42:59+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/9</id><title>关于欲望的一点杂谈</title><updated>2026-01-23T10:48:01.385289+00:00</updated><content type="html"><![CDATA[<p>笛卡尔说过：“无法做出决断的人，要么欲望过大，要么悟性不足。”</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/10"/><category term="小随笔"/><published>2025-07-04T08:42:59+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/9</id><title>关于欲望的一点杂谈</title><updated>2026-02-13T04:43:54.251645+00:00</updated><content type="html"><![CDATA[<p>笛卡尔说过：“无法做出决断的人，要么欲望过大，要么悟性不足。”</p>
 <p>デカルトは「決断が出来ない人間は欲望が大きすぎるか、悟性が足りないのだ」と言った。</p>
 <ul>
 <li>心理测量者·槙岛圣护</li>
@@ -1795,7 +1895,7 @@ time:20250704_16:53</li>
 <p>（至少对自己坦诚～）</p>
 <p>好吧，偶尔失控也会被纠正回去，或者承认它们的进展并重新 do something。</p>
 <p>比如暴饮暴食和厌食。我的 BMI 稳定在了 19 左右算是一个不错的现状了吧😂。就是裤子基本只能买修身款有点麻烦，再配合上肩窄小骨架什么的……</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/9"/><category term="个人哲学"/><published>2025-06-28T16:48:15+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/7</id><title>指令遵循和上下文管理：解码 LLM 的“稀释”效应与企业级应用</title><updated>2026-01-23T10:48:01.540997+00:00</updated><content type="html"><![CDATA[<h1>稀释</h1>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/9"/><category term="个人哲学"/><published>2025-06-28T16:48:15+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/7</id><title>指令遵循和上下文管理：解码 LLM 的“稀释”效应与企业级应用</title><updated>2026-02-13T04:43:54.456482+00:00</updated><content type="html"><![CDATA[<h1>稀释</h1>
 <h2>超越“听话”：解码 LLM 的“稀释”效应与企业级应用</h2>
 <blockquote>
 <p>author: alterxyz (jerome @ dify.ai)</p>
@@ -1897,7 +1997,7 @@ time:20250704_16:53</li>
 超级个体在 LLM 带来的新时代，个体们会如何实现那三层？或者说超级个体的定义是什么，祂会什么样的形态存在？</p>
 <h2>预告</h2>
 <p>meta-dynamic 关于“三层”</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/7"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-26T07:57:14+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/6</id><title>关于 memory / context / prompt 的理解和未来展望</title><updated>2026-01-23T10:48:01.699007+00:00</updated><content type="html"><![CDATA[<p>一个稳定可靠，或者至少自洽的记忆是至关重要的。如此才能构建一个自然的人格。
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/7"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-26T07:57:14+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/6</id><title>关于 memory / context / prompt 的理解和未来展望</title><updated>2026-02-13T04:43:54.697814+00:00</updated><content type="html"><![CDATA[<p>一个稳定可靠，或者至少自洽的记忆是至关重要的。如此才能构建一个自然的人格。
 无论是人还是 AI。</p>
 <p>很同意这会是个全面的工程。prompt engineering 之前很多人只是狭义的讨论 提示词么？那么重命名为 context engineering 也算是一种 refreshing 了挺好的。就像 agent 有点被炒作炒烂了，于是 agentic 这个词就又悄然成了共识。</p>
 <p>Multi-agent 一步到位解决了连现实也难以完美解决的协作和管理是不现实的, 这是社会学和政治范畴. 但是, 通过 sub AI worker 和 各种工具来过滤噪音却还是能显著提高效果的.</p>
@@ -2596,7 +2696,7 @@ search_context_size 这样的参数，让开发者可以根据成本和性能需
 <li>Agentic AI Software Engineer: Programming with Trust - arXiv, 访问时间为 六月 26, 2025， <a href="https://arxiv.org/html/2502.13767v2">https://arxiv.org/html/2502.13767v2</a></li>
 </ol>
 </details>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/6"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-06-26T07:35:22+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2026-01-23T10:48:01.995413+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/6"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-06-26T07:35:22+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2026-02-13T04:43:55.046138+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
 <p>个人和软件和组织经常不可避免地产生待办和管理和技术等债务，那么闲暇时翻翻过去写下的笔记和 todo，就会很有帮助。带行动的反刍是值得尝试的。</p>
 <ul>
 <li>溯游而上是一种有效清零一些熵增的方法。</li>
@@ -2606,7 +2706,7 @@ search_context_size 这样的参数，让开发者可以根据成本和性能需
 Open talks and thoughts!</p>
 <p>个人来讲，我喜欢完成事情，我乐意接受可完成的任务，以及我青睐于让这个世界变得更好。总之有开源和 LLM 的这个时代，实在是太好了，一切都显得那么可行，我也相信那不是幻觉。或许是幻觉有如何呢？开源，然后自有后来人。
 还有至少对自己坦诚。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><category term="个人哲学"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2026-01-23T10:48:02.145456+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><category term="个人哲学"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2026-02-13T04:43:55.259138+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
 <p>至少就我个人来说，我的偏好是旗鼓相当，尽情尽力。</p>
 <p>就一般结论来看，也是兴趣激发的毅力更多，继而成就更大。
 <em>注意：是“继而”，不是“所以”或者“肯定”。</em></p>
@@ -2619,7 +2719,7 @@ Open talks and thoughts!</p>
 <p>况且成果和毅力其实都是附赠的，刻意追求不得 - 不应该，也无法主动追求。</p>
 <hr />
 <p>关于“工作”，之前在个人笔记里倒是思考并记录过一些，不只是个人人生哲学，也有组织管理架构等具体实现，倒还挺有意思的。这几天我找找看然后也分享到这里吧。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><category term="个人哲学"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2026-01-23T10:48:02.342033+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><category term="个人哲学"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2026-02-13T04:43:55.463891+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
 <p>这种现象可以有很多名字：盲目赞同，献媚，讨好，捧哏，Sycophancy，subterfuge，reward tampering，reward hacking，等等...</p>
 <p>之前还有个事故或者说状况，ChatGPT 过度讨好用户，而且什么内容都会拐到 NSFW 上。后来发现解决方案是把 helpful 换成 polite 就算是修好了 🌚。</p>
 <p><del>尤其作为一个 INFJ，其 Ni-Ti loop 可能非常能自圆其说，而 Fe 则高强度地洞察和拿捏人心人性 - LLM 也受影响。我认为这绝对是一种双刃剑的。</del></p>
@@ -2634,5 +2734,5 @@ Open talks and thoughts!</p>
 <pre><code class="language-markdown">这 真的 合适 吗? 请忽略我的 辩解 和 联系 , 请你 客观 理性 地 评价. 须知, 语言必须是公共的才有意义 - 维特根斯坦。
 </code></pre>
 <p>Plz feel free to use it~</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2026-01-23T10:48:02.526123+00:00</updated><content type="html"><![CDATA[<p>World!</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2026-02-13T04:43:55.666560+00:00</updated><content type="html"><![CDATA[<p>World!</p>
 ]]></content><link href="https://github.com/alterxyz/gitblog/issues/2"/><published>2025-06-18T07:13:33+00:00</published></entry></feed>

@@ -1,11 +1,11 @@
 Hello! Let's walk with worlds!
 
 ## 最近更新
+- [Opus 的话越来越少了，这可能不是 bug 而是 Anthropic 在训 Multi-Agent](https://github.com/alterxyz/gitblog/issues/20)--2026-02-13
 - [问系列 - 或许是个好问题呢](https://github.com/alterxyz/gitblog/issues/19)--2026-01-23
 - [问：新范式的权限与注意力](https://github.com/alterxyz/gitblog/issues/18)--2026-01-23
 - [Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support Framework Gaps Identified](https://github.com/alterxyz/gitblog/issues/17)--2026-01-18
 - [Meta-Dynamics](https://github.com/alterxyz/gitblog/issues/16)--2026-01-04
-- [Willingness System 与元动力学：一个关于 世界 的哲学框架与 runtime](https://github.com/alterxyz/gitblog/issues/15)--2025-11-14
 ## LLM
 
 - [Meta-Dynamics](https://github.com/alterxyz/gitblog/issues/16)--2026-01-04
