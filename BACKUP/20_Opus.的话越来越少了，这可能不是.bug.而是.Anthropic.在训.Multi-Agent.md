@@ -1,6 +1,6 @@
 # [Opus 的话越来越少了，这可能不是 bug 而是 Anthropic 在训 Multi-Agent](https://github.com/alterxyz/gitblog/issues/20)
 
-前几天我深挖了 Claude Code 的 Agent Teams 功能（详见[上一篇文章](TODO)），发现 agent 之间靠读写 JSON 文件通信。技术实现很朴素，但真正让我在意的不是实现方式，而是一个更大的问题：
+前几天我深挖了 Claude Code 的 Agent Teams 功能（详见[上一篇文章](https://x.com/alterxyz4/status/2021892207574405386?s=46)），发现 agent 之间靠读写 JSON 文件通信。技术实现很朴素，但真正让我在意的不是实现方式，而是一个更大的问题：
 
 **Anthropic 为什么在这个时间点发布 Agent Teams？**
 
