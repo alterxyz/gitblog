@@ -15,6 +15,13 @@ on:
       - edited
       - deleted
   workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - config.toml
+      - static/**
+      - .github/workflows/generate_site.yml
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -55,6 +62,8 @@ jobs:
           gh release download $ZOLA_VERSION --repo getzola/zola -p '*x86_64-unknown-linux*' --output zola.tar.gz
           tar zxf zola.tar.gz && mv zola /usr/local/bin
           cp config.toml output/config.toml
+          mkdir -p output/static
+          cp -R static/. output/static/
           cd output && zola build --base-url $BASE_URL
       - name: Setup Pages
         uses: actions/configure-pages@v5

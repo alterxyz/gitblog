@@ -12,4 +12,5 @@ even_menu = [
     {url = "$BASE_URL", name = "Home"},
     {url = "$BASE_URL/tags/llm/", name = "LLM"},
     {url = "$BASE_URL/tags/promptengineering/", name = "Prompt Engineering"},
+    {url = "https://artifact.alterxyz.com/", name = "Artifacts"},
 ]
