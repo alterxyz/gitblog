@@ -10,3 +10,10 @@ The navigation menu lives in `config.toml`. Its Artifacts entry points to <https
 Extra static pages live in `static/`; the Pages workflow copies them into the generated site's static directory before building. Pushes to `master` that change `config.toml`, `static/`, or the Pages workflow automatically deploy. Issue edits keep using the existing publishing flow. A manual run of **Deploy static content to Pages** is available for other rebuilds.
 
 The blog and My Artifact are independent projects. Adding an artifact does not require rebuilding or changing the blog.
+
+Local folder-management data is excluded by `.gitignore`. Install the local
+pre-push guard once per clone with `git config core.hooksPath .githooks`.
+It checks Git path metadata in every unpublished commit, including paths added
+and then removed before a push, and rejects local-only history branches.
+The **Check private paths** workflow also checks each pushed or proposed tree.
+Neither check opens private records or key files.

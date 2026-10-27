@@ -9,3 +9,7 @@ regent-managed-folder.md
 .env
 .env.*
 .venv/
+.regent-of-folders/
+office-of-regent-managed-folder/
+*.regent-managed-folder/
+*.folder-readme
