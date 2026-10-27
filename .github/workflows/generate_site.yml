@@ -54,6 +54,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Guard private paths before publishing
+        run: node scripts/check-public-files.mjs --ci-history
+        env:
+          BASE_REV: ${{ github.event.before }}
+          HEAD_REV: ${{ github.sha }}
       - name: Generate markdown
         run: |
           gh release download $ISITE_VERSION --repo kemingy/isite -p '*Linux_x86_64*' --output isite.tar.gz

@@ -14,4 +14,9 @@ jobs:
     timeout-minutes: 2
     steps:
       - uses: actions/checkout@v4
-      - run: node scripts/check-public-files.mjs
+        with:
+          fetch-depth: 0
+      - run: node scripts/check-public-files.mjs --ci-history
+        env:
+          BASE_REV: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_REV: ${{ github.event.pull_request.head.sha || github.sha }}
