@@ -2,3 +2,10 @@ __pycache__
 nohup.out
 .git-credentials
 venv/
+.local/
+regent-consulate/
+regent-managed-folder.md
+.DS_Store
+.env
+.env.*
+.venv/
