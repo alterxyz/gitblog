@@ -44,7 +44,8 @@ commit in the command above.
 - Not ported: the July 2026 move from Zola to Astro (AstroPaper theme, a fork
   of isite, CJK preview images, an RSS check). It changes the site design and
   moves posts from `/issue-N/` to `/posts/issue-N/`, so old links would break.
-  That is the owner's decision.
+  On 2026-11-16 the owner decided to stay on Zola for now. If a new design is
+  wanted later, migrate with redirects from every old `/issue-N/` address.
 
 isite v0.2.4 with Zola v0.20.0 is the pair that upstream ran from 2025-11 to
 2026-07. Newer releases exist; upgrade the two together and check the
