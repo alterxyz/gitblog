@@ -14,3 +14,6 @@ even_menu = [
     {url = "$BASE_URL/tags/promptengineering/", name = "Prompt Engineering"},
     {url = "https://artifact.alterxyz.com/", name = "Artifacts"},
 ]
+[markdown]
+highlight_code = true
+render_emoji = true
