@@ -14,4 +14,7 @@ This repository maintains blog.alterxyz.com through GitHub Pages.
   local-only history branches. Do not bypass it; CI repeats the index check.
 - `upstream` (yihong0618/gitblog) mixes template code with another author's posts.
   Do not merge it or use Sync fork; port code changes by hand as `MAINTENANCE.md` describes.
+- With two remotes, `gh` acts on `upstream` unless a default is set. In a new clone,
+  run `gh repo set-default alterxyz/gitblog` once, or pass `--repo alterxyz/gitblog`.
+  Otherwise `gh run list`, `gh issue`, and `gh pr create` reach the template author's repository.
 - After changing `scripts/check-public-files.mjs`, run `node --test scripts/check-public-files.test.mjs`.
