@@ -20,3 +20,6 @@ jobs:
         env:
           BASE_REV: ${{ github.event.pull_request.base.sha || github.event.before }}
           HEAD_REV: ${{ github.event.pull_request.head.sha || github.sha }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+      - name: Test the private path check
+        run: node --test scripts/check-public-files.test.mjs

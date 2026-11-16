@@ -17,3 +17,6 @@ It checks Git path metadata in every unpublished commit, including paths added
 and then removed before a push, and rejects local-only history branches.
 The **Check private paths** workflow also checks each pushed or proposed tree.
 Neither check opens private records or key files.
+For a new branch or tag, CI checks the commits that the default branch does
+not contain yet. After changing the check, run
+`node --test scripts/check-public-files.test.mjs`; CI runs the same tests.

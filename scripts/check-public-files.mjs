@@ -11,8 +11,9 @@ const inspect = (paths, label) => {
   if (blocked.length) throw new Error(`${label} contains private local paths:\n${blocked.join('\n')}`);
 };
 const inspectCommits = commits => {
-  if (commits.length > 200) throw new Error('More than 200 commits; perform a bounded privacy review before publication.');
-  for (const commit of new Set(commits)) {
+  const unique = [...new Set(commits)];
+  if (unique.length > 200) throw new Error('More than 200 commits; perform a bounded privacy review before publication.');
+  for (const commit of unique) {
     inspect(git('ls-tree', '-r', '--name-only', '-z', commit).split('\0'), commit.slice(0, 12));
   }
 };
@@ -36,13 +37,21 @@ try {
     if (process.argv.includes('--ci-history')) {
       const head = process.env.HEAD_REV;
       const base = process.env.BASE_REV;
+      const defaultBranch = process.env.DEFAULT_BRANCH;
       if (!/^[0-9a-f]{40}$/.test(head ?? '')) throw new Error('Missing or invalid CI head revision.');
       if (base && !/^[0-9a-f]{40}$/.test(base)) throw new Error('Invalid CI base revision.');
-      // Manual runs without a base inspect HEAD; push/PR runs inspect the full
-      // newly introduced range. A new branch has an all-zero base.
-      const args = !base ? ['--max-count=1', head]
-        : ['--max-count=201', head, ...(/^0+$/.test(base) ? [] : [`^${base}`])];
-      inspectCommits(git('rev-list', ...args).trim().split('\n').filter(Boolean));
+      // Runs without a base (manual, issue events) inspect HEAD only. Push and
+      // PR runs inspect the newly introduced range. A new branch or tag has an
+      // all-zero base: inspect what the default branch does not contain yet.
+      let range = ['--max-count=1', head];
+      if (base && /^0+$/.test(base)) {
+        if (!defaultBranch) throw new Error('Missing default branch for a new branch or tag.');
+        range = ['--max-count=201', head, `^refs/remotes/origin/${defaultBranch}`];
+      } else if (base) {
+        range = ['--max-count=201', head, `^${base}`];
+      }
+      // The head commit is always inspected, even when the range is empty.
+      inspectCommits([head, ...git('rev-list', ...range).trim().split('\n').filter(Boolean)]);
       console.log('Public-path check passed for the CI commit range.');
     }
     console.log('Public-path check passed for the Git index.');
