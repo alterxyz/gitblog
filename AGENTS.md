@@ -12,4 +12,6 @@ This repository maintains blog.alterxyz.com through GitHub Pages.
 - In a new clone, install the local pre-push guard with `git config core.hooksPath .githooks`.
   The guard checks every unpublished commit for private folder paths and blocks
   local-only history branches. Do not bypass it; CI repeats the index check.
+- `upstream` (yihong0618/gitblog) mixes template code with another author's posts.
+  Do not merge it or use Sync fork; port code changes by hand as `MAINTENANCE.md` describes.
 - After changing `scripts/check-public-files.mjs`, run `node --test scripts/check-public-files.test.mjs`.

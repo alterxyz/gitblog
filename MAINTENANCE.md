@@ -20,3 +20,32 @@ Neither check opens private records or key files.
 For a new branch or tag, CI checks the commits that the default branch does
 not contain yet. After changing the check, run
 `node --test scripts/check-public-files.test.mjs`; CI runs the same tests.
+
+## Upstream
+
+This repository is a GitHub fork of <https://github.com/yihong0618/gitblog>.
+Upstream `master` mixes the template code with another author's posts
+(`BACKUP/`, `README.md`, `feed.xml`). Do not merge it, rebase onto it, or use
+**Sync fork** on GitHub. Port useful code changes by hand.
+
+To see upstream code changes since the last review:
+
+```sh
+git remote add upstream https://github.com/yihong0618/gitblog.git  # once per clone
+git fetch upstream
+git diff cc28e4c..upstream/master -- . ':!BACKUP' ':!README.md' ':!feed.xml'
+```
+
+Last review: upstream `cc28e4c` (2026-10-26). After a review, replace that
+commit in the command above.
+
+- Ported: isite v0.2.4 (renamed release files), code highlighting and emoji
+  shortcodes in `config.toml`, and explicit read permissions for the Pages job.
+- Not ported: the July 2026 move from Zola to Astro (AstroPaper theme, a fork
+  of isite, CJK preview images, an RSS check). It changes the site design and
+  moves posts from `/issue-N/` to `/posts/issue-N/`, so old links would break.
+  That is the owner's decision.
+
+isite v0.2.4 with Zola v0.20.0 is the pair that upstream ran from 2025-11 to
+2026-07. Newer releases exist; upgrade the two together and check the
+deployed pages afterwards.
