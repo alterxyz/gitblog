@@ -1,4 +1,6 @@
 base_url = "https://alterxyz.github.io/gitblog/"
+title = "alterxyz's Blog"
+description = "Hello! Let's walk with worlds!"
 generate_feeds = true
 feed_filenames = ["rss.xml"]
 theme = "even"
