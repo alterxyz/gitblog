@@ -1,5 +1,178 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2026-03-04T00:37:12.167211+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/20</id><title>Opus 的话越来越少了，这可能不是 bug 而是 Anthropic 在训 Multi-Agent</title><updated>2026-03-04T00:37:12.647275+00:00</updated><content type="html"><![CDATA[<p>前几天我深挖了 Claude Code 的 Agent Teams 功能（详见<a href="https://x.com/alterxyz4/status/2021892207574405386?s=46">上一篇文章</a>），发现 agent 之间靠读写 JSON 文件通信。技术实现很朴素，但真正让我在意的不是实现方式，而是一个更大的问题：</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/alterxyz/gitblog</id><title>RSS feed of alterxyz's gitblog</title><updated>2026-11-17T00:08:37.070495+00:00</updated><link href="https://github.com/alterxyz/gitblog"/><link href="https://raw.githubusercontent.com/alterxyz/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/alterxyz/gitblog/issues/21</id><title>注意力笔记 · 2026 年 11 月中：Personal agent 是红海，企业要的是它下面那一层</title><updated>2026-11-17T00:08:37.600850+00:00</updated><content type="html"><![CDATA[<blockquote>
+<p>注意力笔记：我最近把注意力放在哪，以及我怎么看。</p>
+</blockquote>
+<p>这一期原本是我给一次技术讨论准备的关注点清单，这里是扩写后的公开版。资料截至 2026-11-16，文中日期都是 2026 年。事实尽量附出处；标「我的看法」的是我个人的判断，欢迎拍砖。</p>
+<p>我在 Dify 做产品，文中的「我们」指 Dify。但这里写的都是我个人的看法，不是公司的计划或承诺。</p>
+<h2>一、一句话</h2>
+<p>Personal agent 是红海。但它下面那一层，也就是「长时、常驻、可调度的 agent」，企业比个人更需要：企业有 7×24 小时的业务，有降本增效的压力，有调度，有审计。</p>
+<p>所以我的主张是：不跟 Codex、Claude Code、WorkBuddy 这些桌面 agent 抢入口，而是给它们提供企业里的运行环境、权限和记录，共享它们的增长红利。协作，不竞争。</p>
+<h2>二、Agent 的运行底座：要替代的不是 K8s，是「一个 agent 一个常驻 Pod」</h2>
+<p><strong>事实</strong></p>
+<ul>
+<li><strong>Agent Substrate</strong>（<a href="https://github.com/agent-substrate/substrate">仓库</a>）：Google 发起，19 名维护者里 16 名来自 Google、3 名来自 Solo.io（<a href="https://github.com/agent-substrate/substrate/blob/main/MAINTAINERS.md">维护者名单</a>），Apache-2.0，Go 写的。它把大量有状态的 agent 会话映射到少量预热的 worker 上；会话空闲时把内存和文件快照出去，请求来时自称 500 毫秒内恢复。每个会话跑在 gVisor 或 microVM 里，不支持普通容器；每个会话有独立身份，凭据由出口网关注入、不进沙箱。11-05 发 1.0、捐入 CNCF Sandbox，同日在 GKE 上 GA（<a href="https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf">Google 博客</a>）。<strong>README 自称跑在标准 K8s 之上</strong>，不是 K8s 的替代品。</li>
+<li>它的成熟度：11 月中旬约 6800 star，项目自述「很年轻」。Google 说 Nous Research 是设计伙伴；Solo.io 的 kagent 1.0（11-10）整个跑在它上面（<a href="https://www.solo.io/blog/announcing-kagent-1-0-ga">Solo.io</a>）。独立的生产规模数据我没查到，「10 倍密度」是官方口径。文档自己写了一条风险：异步挂起时如果节点先挂了，状态可能丢。</li>
+<li>
+<strong>Gemini API Managed Agents 的自托管环境</strong>（<a href="https://github.com/google-gemini/gemini-api-cli/tree/main/docs/self-hosted">官方指南</a>，11-10 加进官方 CLI 仓库；Managed Agents 本身还是预览）：<ul>
+<li>分工：Google 继续管编排，agent 的内置工具（执行 shell、读写和编辑文件、列目录、搜索）跑在你自己的机器里。连接全是出站 HTTPS，不用开入站端口。</li>
+<li>两种跑法：一个 worker 直接连上去；或者拆成两半，持有密钥的轮询器放在你信任的控制面，真正执行代码的沙箱里一个 API 密钥都没有，只拿一次交互有效的短期租约令牌。</li>
+<li>执行环境：官方给了 Docker、Podman、Cloud Run、Vercel Sandbox、Daytona、E2B、Modal、Fly.io、Cloudflare 的接法。K8s 方案只列了 Agent Substrate 一家，还附了完整的 Go 集成代码（<a href="https://github.com/google-gemini/gemini-api-cli/tree/main/docs/self-hosted/agent-substrate">ate-gemini</a>）：每个环境对应一个 Substrate actor，跑在 gVisor 里，空闲 1 分钟（默认值）就挂起，出站流量默认拒绝。安全建议里也写明，不可信的负载要放进容器、Agent Substrate 或 microVM。另有报道说 Gemini Managed Agents 自己就跑在 Substrate 上（<a href="https://siliconangle.com/2026/11/11/agent-sandboxing-how-google-s-substrate-isolates-ai-agents-kubeconna/">SiliconANGLE</a>，二手）。</li>
+<li>一条醒目的警告：这套集成不认证交互背后的用户，谁拿到项目的 API key，谁就能在你的 actor 里跑代码。多用户、多租户的认证和权限，要你自己的服务在调 Gemini 之前做掉。</li>
+</ul>
+</li>
+<li><strong>Vercel Fluid Compute</strong>：一个函数实例并发处理多个请求，CPU 只在代码执行时计费，等 LLM 返回的时间不收 CPU 钱（<a href="https://vercel.com/blog/introducing-active-cpu-pricing-for-fluid-compute">2025-06 起</a>）。单次调用最长 800 秒（beta 可到 30 分钟，<a href="https://vercel.com/docs/functions/limitations">限制说明</a>）；更长的任务要配它的 <a href="https://vercel.com/blog/workflow-sdk-5">Workflow SDK</a>（v5，11-12 发布）和 <a href="https://vercel.com/blog/vercel-sandbox-is-now-generally-available">Sandbox</a>。它解决的是计费，不是长时有状态。</li>
+<li><strong>同类</strong>：K8s 官方子项目 <a href="https://kubernetes.io/blog/2026/03/20/running-agents-on-kubernetes-with-agent-sandbox/">agent-sandbox</a>（CRD，一个沙箱一个 Pod）；Cloudflare Durable Objects（休眠时零算力）；Modal、E2B、Daytona、<a href="https://docs.fly.io/sprites">Fly Sprites</a>（快起、可暂停的 microVM 沙箱）；<a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-sessions.html">AWS AgentCore Runtime</a>（每会话一个 microVM，最长 8 小时，11-12 出了<a href="https://aws.amazon.com/blogs/machine-learning/run-agents-securely-and-efficiently-with-the-next-generation-agentcore-runtime/">新一代</a>）；Google <a href="https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance/">Agent Compute Engine</a>（10-22 发布，预览）；<a href="https://temporal.io/blog/ai-framework-integrations">Temporal</a>（持久化的是编排进度，不保存进程内存）。</li>
+<li><strong>钱在往这里流</strong>：Daytona 10-20 完成 B 轮 6000 万美元、估值 10 亿美元（<a href="https://techcrunch.com/2026/10/23/agent-cloud-startup-daytona-hits-1b-valuation-backed-by-firstmark-and-a-whos-who-of-angels/">TechCrunch</a>）；Baseten 9-10 收购了沙箱公司 Blaxel（<a href="https://thenextweb.com/news/baseten-acquires-blaxel-ai-agent-sandboxes">The Next Web</a>）。</li>
+</ul>
+<p><strong>我的看法：更准的切法是四层</strong></p>
+<ol>
+<li>隔离单元：gVisor、Firecracker、microVM。</li>
+<li>控制面：K8s 调度器管机器，专用控制面管高频的挂起和恢复。</li>
+<li>计费与占用：按实际 CPU 计费、空闲零占用，对比按预留计费。</li>
+<li>状态：整机快照（Substrate、E2B）对比重放进度（Temporal、Workflow），两者互补。</li>
+</ol>
+<p>放回这四层看：Fluid 只在第三层，而且面向短请求，长时有状态的 agent 还要另配 Sandbox 和 Workflow；Substrate 横跨第一、二、四层。</p>
+<p>「agent 要替代 K8s」这个说法不准。推上有人总结得好：K8s 是为常驻 Pod 设计的，而 agent 九成多的时间在等模型、等工具、等人审批，集群却在为空闲付钱。要替代的是「一个 agent 占一个常驻 Pod」这种用法，K8s 本身还在下面。</p>
+<p>Google 和 Anthropic 在同一周走到了同一个形态：Google 11-10 放出 Gemini 自托管环境，Anthropic 11-12 开放自托管 Managed Agents 私测（见第三节）。编排留在模型厂商，执行放进客户自己的环境。中间缺的那一层，Gemini 的文档自己点了名，要客户来补：谁能调用，能用哪个环境，出站放行什么，每次跑了什么。这正是第一节说的「企业里的那一层」。</p>
+<p><strong>留几个问题</strong></p>
+<ul>
+<li>做自托管企业平台的，agent 运行时该站在哪一层？自己写，用 Substrate 这类开源件，还是让客户自带？</li>
+<li>客户到底要多强的隔离？容器够不够，要不要 microVM？能容忍多久的恢复延迟？状态丢一次能不能接受？谁来运维？</li>
+</ul>
+<h2>三、Long-horizon agent：to B 比 to C 更需要</h2>
+<p><strong>事实</strong></p>
+<ul>
+<li>Anthropic 11-13 发了《<a href="https://claude.com/resources/articles/building-always-on-agents">Building always-on agents</a>》：常驻 agent 并不是一直开着，多数时间在休眠，被事件唤醒后跑一轮。它给了五个基本件：<strong>事件收件箱、定时器、记忆、权限、发件箱</strong>。收件箱用持久化的表，每个用户一个活跃 worker，崩溃可重试；记忆只存查不到的东西；凭据由沙箱外的代理注入；敏感操作挂起，等人回复再继续。</li>
+<li>同一系列还有：11-06《<a href="https://www.anthropic.com/research/components-of-agent-memory">The components of agent memory</a>》（记忆分层、离线整理）；10-08 定时 agent 自动化的<a href="https://claude.dev/blog/building-effective-agent-automations/">参考实现</a>（凭据放保险库，单次花费有上限）；11-12 自托管 Managed Agents 开始<a href="https://claude.com/resources/articles/self-hosted-claude-managed-agents">私测</a>。</li>
+<li>别家：Claude Code 的<a href="https://code.claude.com/docs/en/claude-code-on-the-web">云端会话</a>关了电脑还在跑，可以按日程和事件触发；<a href="https://help.openai.com/en/articles/20001545-using-codex-cloud">Codex Cloud</a> 同类；<a href="https://help.manus.im/en/articles/17190150-what-is-new-in-manus-2-0">Manus 2.0</a>（10-01）主打全天在线的云电脑；Google Jules 10-29 宣布年底停服、<a href="https://jules.google/docs/changelog/2026-10-29/">并入 Antigravity</a>。</li>
+<li><a href="https://metr.org/time-horizons/">METR 的任务时长曲线</a> 9-08 起不再更新，最新一个点是 Mythos Preview 早期版，至少 16 小时（区间 8.5 到 55 小时，很宽，超过 16 小时的测量不可靠）。注意它衡量的是「人做这件事要多久」，不是 agent 能连续跑多久。</li>
+</ul>
+<p><strong>我的看法</strong></p>
+<ul>
+<li>那五个基本件，放到企业里每一件都更重：收件箱接的是工单、审批、告警；定时器是排班和 SLA；权限要接企业身份和审批流；发件箱要过合规。企业还多要两样：<strong>额度与成本的账</strong>，和<strong>每次运行的完整记录</strong>（审计）。</li>
+<li>所以 personal agent 的红海，对做企业平台的人是好事。它在替整个行业教育「agent 可以常驻」，而企业要的那几样，恰好是企业平台的本行。</li>
+</ul>
+<h2>四、两个开源样本：LayerFS（存储层）和 Magpie（开发范式）</h2>
+<p><strong>LayerFS</strong>（<a href="https://github.com/Ephemeral-AI-Lab/layerfs">仓库</a>，MIT，11 月中旬约 2800 star，10-21 发 1.0）</p>
+<ul>
+<li>是什么：给编码 agent 用的文件系统。每个 agent 挂一个完整可写的工作区，底下共享一份已提交的历史；每次工具调用的改动记成一次提交，内容按块去重。工作区连依赖和构建产物一起带着，新开一个不用重装、重编。</li>
+<li>自报数据：小文件历史上比 Btrfs＋zstd 省约 20 倍空间；在 Magpie 插件的测试里，多开一个并行 agent 约 1 毫秒、复制 0 字节，18 个检查点去重 18.7 倍。</li>
+<li>我的看法：它甚至能把 Rust 开发者从存储困境里救出来。Rust 项目的 <code>target/</code> 构建目录动辄几十 GB，多个 agent 并行时，每个工作副本各编一份，磁盘先爆。LayerFS 让这些副本共享内容，这正是它最能省的地方。这一点我还没有自己实测。</li>
+<li>局限（1.0）：存储只在 Linux 上验证过，macOS 没测；1.0 时还没有防崩溃的历史；Magpie 插件这条路径读不了二进制文件（上游 <a href="https://github.com/Ephemeral-AI-Lab/layerfs/issues/417">issue #417</a>），而 Rust 的构建产物正是二进制，这部分要走原生挂载才省得到。</li>
+</ul>
+<p><strong>Magpie</strong>（<a href="https://github.com/yetone/magpie">仓库</a>，MIT，Go，9-23 建仓，11 月中旬约 3.7 万 star）</p>
+<ul>
+<li>作为成品：一个本地网关，让各家编码 agent 用任意模型，比如 Claude Code 跑 Kimi、Codex 跑 DeepSeek。它的 Library 把 MCP、skills、hooks、子 agent 写一次，再按各家的格式写进每个 agent，卸载时只删它自己写的东西。支持的 agent 里也包括 WorkBuddy。它对 agent 友好，适合统一管理 MCP 和 skills。</li>
+<li>
+作为开发范式（这是我更看重的）：<ul>
+<li>仓里的 <code>LESSONS.md</code> 自述：代码由 agent 写、审、合、发布。每晚复盘当天的提交，把「哪里又修了一次、哪些不该合、哪些验得太薄」写成教训；同一条教训在三个不同的日子出现，就升格进编码规范。</li>
+<li>速度：11-15 一天内发了 30 个版本（v0.1.4251 到 4280）；建仓 53 天，版本号已过 4280。我 11-15 取了最近 86 个已关闭的 issue 粗算，从提出到关闭的中位数约 30 小时。</li>
+<li>代价也写得很坦白：10-05 那天 220 个提交、约 170 次发布，其中约 40 次是在修当天或前一天刚发出去的东西。</li>
+</ul>
+</li>
+<li>我的看法：它就是「long-horizon agent／托管 agent 做开发」的实物。用户在 issue 里许愿，agent 一两天内（中位数）就把功能和修复做完、发出去，比常见的企业排期快得多。速度快，返工也多，靠每晚复盘把返工收成规矩。它是开源项目，整个过程 build in public，谁都能看。值得参考的是这套开发范式（许愿入口、agent 全流程、夜间复盘升格规范），不只是这个工具。它的关闭时间也有长尾，四分之一超过 10 天，「快」主要快在中位数上。</li>
+<li>边界：说实话，Magpie 有点灰色地带。它的订阅桥接和多账号轮换，在服务条款上有争议，企业不能照搬这部分用法。值得学的是它的开发方式，和它管理 MCP、skills 的方式。</li>
+</ul>
+<p><strong>留个问题</strong>：「许愿 → agent 做 → 夜间复盘」这种节奏放进企业软件，哪些环节能照搬，哪些会被 SLA、合规和客户验收卡住？</p>
+<h2>五、Poppy：个人 agent 进企业的入口标准</h2>
+<p><strong>事实</strong></p>
+<ul>
+<li>Poppy 即 Personal Agent Protocol，Sierra 牵头、Meta 等参与（<a href="https://sierra.ai/blog/releasing-poppy">发布文</a>）。企业在 <code>/.well-known/poppy.json</code> 里声明能被 agent 调用的接口和登录方式，个人 agent 通过 OAuth 拿授权；它建在 MCP、OpenAPI 之上。10-09 出草案，<strong>11-13 发 1.0</strong>；Shopify 全部商户默认开启，Meta 的个人 agent 访问网站时会先找 Poppy，设计伙伴超过 100 家。</li>
+<li>它影响大，主要因为接入的平台多。</li>
+<li>也有反方向的：有二手报道说 United 限制第三方 agent 订票（<a href="https://aiagentstore.ai/ai-agent-news/this-week">来源</a>）。不是每家企业都愿意开门。</li>
+</ul>
+<p><strong>我的看法</strong></p>
+<ul>
+<li>另一半问题浮上来了：不光是「agent 怎么跑」，还有「企业怎么被 agent 安全地访问」。企业要有一层：声明能力、做授权、留记录。</li>
+<li>中国的生态更封闭，可能是各大厂系各出一套。</li>
+<li>对企业平台来说，end-user OAuth 这类能力是刚需，企业客户的需求很强。落到具体场景，比如教育：学生、老师每人都是独立用户，要各自授权、各自留记录。谁无视这类需求，谁就是拿客户当傻子，要么就是在闭门造车、自娱自乐。</li>
+<li>to B 不只是卖给「企业」，企业里面还有无数个 individual。to B 和 to C 的界限本来就不清。不能拿「这属于 to C」当理由给自己设限，否则在客户满意度、在客户成功和交付价值上，必定会失败。</li>
+<li>避开红海，不等于一味避战。要辩证地看，有战略地看：战略上看清哪里是红海，战术上该接的需求照接；战略和战术分开，low ego 地去对待、去设计、去落地。做 to B 的团队最容易犯的病就是 ego 太大，这一条我也在提醒自己。</li>
+<li>
+再看几个大公司怎么做事：<ul>
+<li>英伟达和台积电做了几百亿美元的生意，黄仁勋公开说过两家之间没有正式合同，靠的是信任和交付（<a href="https://econotimes.com/Nvidia-Chose-TSMC-in-1996-for-Trust-Beyond-Manufacturing-Terms-1756100">来源</a>）。上下游很多供应商也是这样，并没有签到尽善尽美。</li>
+<li>据报道，xAI 在孟菲斯的数据中心，许可没批全就先用燃气轮机发电，招来居民投诉，后来拆了一部分（<a href="https://insideclimatenews.org/news/17072025/elon-musk-xai-data-center-gas-turbines-memphis/">Inside Climate News</a>）。这个例子两面都能讲：快有快的代价，周边的人也是要顾的。</li>
+<li>Anthropic 这个月被报道买了约 34 亿美元的燃气发电设备（约 1.7 GW）（<a href="https://techcrunch.com/2026/11/09/anthropic-joins-ais-natural-gas-frenzy-buys-3-4b-worth-of-turbines/">TechCrunch</a>）；它递交的上市招股书写明，新建数据中心靠现场燃气发电，燃料成本转嫁、没有上限（<a href="https://fortune.com/2026/11/10/anthropic-3-4-billion-deal-gas-data-centers-ai-ipo/">Fortune</a>）。</li>
+<li>这些公司都没有等一切尽善尽美才动手。万亿市值的英伟达尚且如此，我们为什么要作茧自缚？哪些约束是客户真要的，哪些是自己给自己加的，值得分清楚。</li>
+</ul>
+</li>
+</ul>
+<p><strong>留个问题</strong>：企业的应用和工作流，要不要能被外部的个人 agent 按这类标准调用？如果要，end-user OAuth、鉴权和审计放在哪一层？</p>
+<h2>六、跟桌面 agent 协作，不竞争</h2>
+<p><strong>事实：它们都在开门</strong></p>
+<ul>
+<li>Codex：插件里能带 skills 和 MCP，可以加 GitHub 上的插件市场源（<a href="https://learn.chatgpt.com/docs/plugins">文档</a>）。</li>
+<li>Claude Code：插件、skills、连接器 11-09 起并到一个 Plugins 页（<a href="https://support.claude.com/en/articles/17740565-manage-plugins-skills-and-connectors-from-one-plugins-page">说明</a>）。</li>
+<li>腾讯 WorkBuddy：10-29 宣布开放架构，可接企业自研和第三方 agent，也能接第三方 IM，用 MCP 接 ERP、CRM（<a href="https://finance.sina.com.cn/stock/t/2026-10-29/doc-iniwwiey2867305.shtml">报道</a>）；托管智能体可经 API、A2A 调用（<a href="https://www.stdaily.com/web/gdxw/2026-10/30/content_605760.html">报道</a>）。</li>
+<li>字节：豆包工作（8-25）支持自定义 MCP 和技能（<a href="https://www.doubao.com/work/docs/zh-cn/articles/705018132598-plugins">文档</a>）；扣子的文档称可以托管 Claude Code、Codex CLI（<a href="https://docs.coze.cn/cozespace_agent_overview">文档</a>）；扣子企业版 11-30 起停止新售（<a href="https://www.ithome.com/1/022/432.htm">IT 之家</a>）。</li>
+<li>标准层：Agent Skills 10-22 捐给 Linux 基金会下的 AAIF，自称超过 70 个平台集成（<a href="https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation">Anthropic</a>）；A2A 8 月也进了 AAIF。</li>
+</ul>
+<p><strong>我的看法</strong></p>
+<ul>
+<li>「协作」在技术上可行：MCP 和 skills 是现成的接入格式。从接入方的角度看，卡点更多在各家的上架审核和开放节奏，不在技术。</li>
+<li>定位可以说成：桌面 agent 是员工的入口，企业平台是企业里的那一层（运行、权限、记录、SOP）。</li>
+<li>我一直的主张：<strong>每一个支持 n8n 或 Zapier 连接器的地方，都应该有我们的身影</strong>，包括但不限于 ChatGPT 网页版、Manus 等。n8n 和 Zapier 已经替我们探过路，知道哪些平台肯接第三方自动化，它们的连接器清单就是一张现成的地图。</li>
+</ul>
+<p><strong>顺手查的公开情况（11-16，只看公开页，没有实测）</strong></p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>和 Zapier</th>
+<th>和 n8n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ChatGPT（含网页版）</td>
+<td>网页客户端有接 Zapier MCP 的<a href="https://zapier.com/apps/ai-tools/chatgpt">教程</a></td>
+<td>可以连 n8n 的 <a href="https://blog.n8n.io/n8n-mcp-server/">MCP</a></td>
+</tr>
+<tr>
+<td>Claude</td>
+<td>可以连 Zapier MCP（<a href="https://zapier.com/apps/ai-tools/claude">Zapier</a>）</td>
+<td>可以连 n8n 的 MCP</td>
+</tr>
+<tr>
+<td>Manus</td>
+<td>Zapier 目录里有任务触发器和动作（<a href="https://zapier.com/apps/manus/integrations">Zapier</a>），自带 Zapier connector</td>
+<td>自带 n8n connector（<a href="https://manus.im/connectors/n8n">Manus</a>）</td>
+</tr>
+<tr>
+<td>Dify</td>
+<td>官方目录里有 1 个触发器、4 个动作（<a href="https://zapier.com/apps/dify/integrations">Zapier</a>）；1.6.0 起有双向 MCP，可以接 Zapier（<a href="https://www.dify.ai/blog/v1-6-0-built-in-two-way-mcp-support">Dify 博客</a>）</td>
+<td>社区维护的节点（<a href="https://github.com/YushiYamamoto/n8n-nodes-dify">仓库</a>），没查到官方内置节点</td>
+</tr>
+</tbody></table><p>Dify 在 Zapier 上的 4 个动作是聊天、上传文件、建议问题、消息反馈。对照同类，Langflow 在 Zapier 上有「Run Flow」，Manus 有任务创建和任务状态触发器，Dify 在 Zapier 上的接口覆盖还可以更全。</p>
+<h2>七、可信度可以靠公开的行为来证明</h2>
+<p><strong>事实</strong></p>
+<ul>
+<li>黄仁勋 11-12 辞去英伟达 CEO，董事会在内外部找继任者。网上出现了请愿他回归的网站，签名过了 10 万。我看下来，这个网站没有 KYC，没有任何正式的东西，一堆人就这么签了，理论上你可以冒名替别人签。但马斯克 11-14 发帖说他也签了（<a href="https://finance.yahoo.com/markets/stocks/articles/elon-musk-joins-100-000-172500045.html">Yahoo Finance</a>），那他签的字就千真万确。</li>
+</ul>
+<p><strong>我的看法</strong></p>
+<ul>
+<li>可信度可以靠公开的行为来证明，不一定要靠流程。</li>
+<li>换成很多组织，同样一件事要走 OA、审批、会签。等手续走完，一切都凉了，再来一句这事可以，或者有待商榷、需要互相让步。</li>
+<li>速度是创业公司最后的优势。可以列一张清单：哪些事可以先做、后补手续。</li>
+</ul>
+<h2>八、近期还值得一提的</h2>
+<ul>
+<li><strong>安全</strong>：10-29 Cursor 插件市场里出现被篡改的扩展，至多约 5000 人受影响，11-13 溯源到一家模型服务商的密钥泄露（<a href="https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html">The Hacker News</a>）。和第二、三节是同一个结论：<strong>凭据不进 agent 的环境</strong>，由外部代理注入。</li>
+<li><strong>AAIF 10-22 新增 4 个项目</strong>：Agent Skills、Open Responses、OpenEnv、OpenSandbox（<a href="https://www.linuxfoundation.org/press/agentic-ai-foundation-announces-four-new-projects-agent-skills-open-responses-openenv-and-opensandbox">Linux 基金会</a>）。agent 的标准正在往基金会收拢。</li>
+<li><strong>模型价格</strong>：Claude Fable 5.2、Mythos 5.2 于 11-09 发布，有二手报道称比 5.1 降价 20%（我没核到原文）。</li>
+</ul>
+<h2>最后：企业里那一层不是空地</h2>
+<p>提到 n8n，就想起 LangChain。</p>
+<p><strong>事实</strong></p>
+<ul>
+<li>LangChain 11-13 宣布完成 C 轮：3 亿美元，估值 30 亿美元，CapitalG（Alphabet 旗下的成长基金）领投。估值是 2025 年 10 月 B 轮（12.5 亿美元）的 2.4 倍，累计公开融资约 4.6 亿美元（<a href="https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/">TechCrunch</a>）。钱主要投 LangSmith（构建、部署、监控、治理 agent），对外的说法是做企业 agent 的「中立之家」，自称 7000 多家组织在用；收入未披露（<a href="https://www.citybiz.co/article/933425/langchain-raises-300-million-series-c-led-by-capitalg-at-3-billion-valuation/">CityBiz</a>）。</li>
+</ul>
+<p><strong>我的看法</strong></p>
+<ul>
+<li>它要占的，正是第三、六节说的「企业里那一层」：部署、监控、治理。这一层不是空地，资本已经押了一家。讲「协作而非竞争」的时候，要能说清和 LangSmith 的差别。</li>
+</ul>
+<p>对了，按公开报道的数字算，对方的估值已经比我们现在大一个数量级。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/21"/><category term="LLM"/><category term="注意力笔记"/><published>2026-11-17T00:08:12+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/20</id><title>Opus 的话越来越少了，这可能不是 bug 而是 Anthropic 在训 Multi-Agent</title><updated>2026-11-17T00:08:37.813832+00:00</updated><content type="html"><![CDATA[<p>前几天我深挖了 Claude Code 的 Agent Teams 功能（详见<a href="https://x.com/alterxyz4/status/2021892207574405386?s=46">上一篇文章</a>），发现 agent 之间靠读写 JSON 文件通信。技术实现很朴素，但真正让我在意的不是实现方式，而是一个更大的问题：</p>
 <p><strong>Anthropic 为什么在这个时间点发布 Agent Teams？</strong></p>
 <p>顺着这个问题，我注意到了一些被大多数人忽略的信号。</p>
 <h2>你还记得那个”文艺青年”吗？</h2>
@@ -99,10 +272,10 @@
 <p>Opus 的 120 token 是凝视者退位的证据。Agent Teams 是新范式的实验场。</p>
 <p>当然，这只是我基于公开信息的推测。我不知道 Anthropic 内部到底在做什么。但如果你把 Opus 的 token 效率曲线、Agent Teams 的发布时间、模型主动 spawn subagent 的行为、以及 Anthropic 一贯的技术博客方向放在一起看——这条线太直了，不太像巧合。</p>
 <p>Multi-Agent 是圣杯。而 Anthropic 可能已经在路上了。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/20"/><published>2026-02-13T04:43:32+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/19</id><title>问系列 - 或许是个好问题呢</title><updated>2026-03-04T00:37:12.877509+00:00</updated><content type="html"><![CDATA[<p>知识和智力逐渐廉价的时候，问出一个好问题和排列组合知识就开始凸显其价值了。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/20"/><published>2026-02-13T04:43:32+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/19</id><title>问系列 - 或许是个好问题呢</title><updated>2026-11-17T00:08:38.006559+00:00</updated><content type="html"><![CDATA[<p>知识和智力逐渐廉价的时候，问出一个好问题和排列组合知识就开始凸显其价值了。</p>
 <p>所以我打算以后贴出自己的“问题”们，作为一种新型的开源分享。</p>
 <p>以及各路 AI 的回答：通常是 Deep Research 的结果。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/19"/><published>2026-01-23T09:31:16+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/18</id><title>问：新范式的权限与注意力</title><updated>2026-03-04T00:37:13.058339+00:00</updated><content type="html"><![CDATA[<p>帮我从大自然和超自然（包括但不限于 集体无意识 阿赖耶识 大语言模型/世界模型 文明总知识等）中汲取灵感，设计为人agent共生协作的新范式的类RBAC部分。
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/19"/><published>2026-01-23T09:31:16+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/18</id><title>问：新范式的权限与注意力</title><updated>2026-11-17T00:08:38.171269+00:00</updated><content type="html"><![CDATA[<p>帮我从大自然和超自然（包括但不限于 集体无意识 阿赖耶识 大语言模型/世界模型 文明总知识等）中汲取灵感，设计为人agent共生协作的新范式的类RBAC部分。
 面向 new system。未来设想。包括安全但也包括别的，参考大自然和超自然。例如：有时候全知并非带来全能而是反面，给llm提供过多工具时调用能力反而下降，哪怕理论上 llm 是通用的能handle的。（你不得仅包括这一个例子）。
 这是关于人类文明级别的思考和推衍。</p>
 <hr />
@@ -481,7 +654,7 @@
 <p>⸻</p>
 <p>综上所述，这一类RBAC新范式通过融合理性计算和仿生哲学，在未来人-Agent协作体系中提供了一种弹性、安全且高效的权限管理思路。它打破了传统RBAC僵化的角色边界，引入隐喻性的“潜意识”与“能量”概念，将权限视作活的、有机演化的关系网络。这种模型特别适合于复杂多变、缺乏先验规则的场景：在这里，人与AI不是按照预定规则交互，而是共同成长、相互赋能并维持系统和谐  。展望未来，随着人工智能的发展和对自然智慧的更深入汲取，这种进化型权限协作模型有望为人机共生的数字生态奠定安全与繁荣的基石。</p>
 </details>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/18"/><published>2026-01-23T09:29:02+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/17</id><title>Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support Framework Gaps Identified</title><updated>2026-03-04T00:37:13.269768+00:00</updated><content type="html"><![CDATA[<h1>Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support, Framework Gaps Identified</h1>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/18"/><published>2026-01-23T09:29:02+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/17</id><title>Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support Framework Gaps Identified</title><updated>2026-11-17T00:08:38.392594+00:00</updated><content type="html"><![CDATA[<h1>Meta-dynamics Theory Verification: Mathematical Foundations Find Strong Support, Framework Gaps Identified</h1>
 <blockquote>
 <p>Made by Claude Opus 4.5 Research
 Ref: <a href="https://blog.alterxyz.com/issue-16/">https://blog.alterxyz.com/issue-16/</a></p>
@@ -581,7 +754,7 @@ Ref: <a href="https://blog.alterxyz.com/issue-16/">https://blog.alterxyz.com/iss
 <p>Koestler's original holon formulation provides the most direct conceptual ancestor, and Meta-dynamics correctly inherits the insight that viable nested systems must balance self-assertion against integration. The practical implication is clear: <strong>M/W/P provides a valuable design heuristic for building scalable intentional systems, validated by mathematical foundations and successful historical implementations, while remaining honest about the boundaries of its universality claims.</strong></p>
 <hr />
 <p>🤔 嗯, 数学和物理和社会...</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/17"/><published>2026-01-18T23:19:23+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/16</id><title>Meta-Dynamics</title><updated>2026-03-04T00:37:13.527478+00:00</updated><content type="html"><![CDATA[<h1>元动力学（Meta-dynamics）</h1>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/17"/><published>2026-01-18T23:19:23+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/16</id><title>Meta-Dynamics</title><updated>2026-11-17T00:08:38.605957+00:00</updated><content type="html"><![CDATA[<h1>元动力学（Meta-dynamics）</h1>
 <blockquote>
 <p>非有道不可言，不可言即道。</p>
 </blockquote>
@@ -1442,7 +1615,7 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>这让它既有智者学派的灵活性（任意尺度），又有类似物理学的约束性（因果链）。</p>
 <hr />
 <p>Ref: <a href="https://github.com/alterxyz/gitblog/issues/15">GitHub</a> / <a href="https://alterxyz.github.io/gitblog/issue-15/">GitBlog</a></p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/16"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2026-01-04T01:35:48+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/15</id><title>Willingness System 与元动力学：一个关于 世界 的哲学框架与 runtime</title><updated>2026-03-04T00:37:13.792370+00:00</updated><content type="html"><![CDATA[<p><em>Jerome, 2025.11</em></p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/16"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2026-01-04T01:35:48+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/15</id><title>Willingness System 与元动力学：一个关于 世界 的哲学框架与 runtime</title><updated>2026-11-17T00:08:38.880017+00:00</updated><content type="html"><![CDATA[<p><em>Jerome, 2025.11</em></p>
 <h2>前言</h2>
 <p>本文阐述我在2022-2023年间形成的两个相互关联的理论框架：Willingness System（意愿系统）和元动力学（Meta-dynamics）。这些思考起源于哲学思考, 对大语言模型（LLM）本质的哲学反思，以及对未来人机协作范式的展望。</p>
 <h2>第一部分：Willingness System 初窥</h2>
@@ -1525,7 +1698,7 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>这是我的理解，一个在2022-2023年间形成、在2025年分享的思考。它还在演化。</p>
 <hr />
 <p>内容源自个人, 与 LLM 协同整理 删减 再组织. 好吧, 我在其之上还删减了可能不太合适或准确的部分大约有一半.</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/15"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-11-14T05:24:44+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/13</id><title>我如何使用 ChatAIs 的 一瞥</title><updated>2026-03-04T00:37:13.996892+00:00</updated><content type="html"><![CDATA[<p>ChatAIs: 包括但不限于 ChatGPT (始祖), Claude, DeepSeek, Cohere, Gemini, Gemini AI Studio, Dify 等</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/15"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-11-14T05:24:44+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/13</id><title>我如何使用 ChatAIs 的 一瞥</title><updated>2026-11-17T00:08:39.066260+00:00</updated><content type="html"><![CDATA[<p>ChatAIs: 包括但不限于 ChatGPT (始祖), Claude, DeepSeek, Cohere, Gemini, Gemini AI Studio, Dify 等</p>
 <p>25年8月, Dify 内部叫我们分享下自己使用 AI 的情况, 也算是个述职. 我在会上分享了这个我和大模型对话的片段.</p>
 <h2>重试与编辑</h2>
 <p>对于回答的不满意, 似乎如果有修改问题的能力时, 能带来益处?  我确实致力于提出恰当的问题.</p>
@@ -1842,13 +2015,13 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 <p>以及 LLM 能提供最佳实践, RAG 也能代替我进行检索.</p>
 <hr />
 <p>以上, 就是我使用 LLM 的一瞥, 欢迎大家评价和探讨, 无论是形式, 还是其涉及的内容.</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/13"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-08-10T07:38:36+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/12</id><title>关于古风古制的一点个人看法和偏好</title><updated>2026-03-04T00:37:14.237401+00:00</updated><content type="html"><![CDATA[<p>想买个交领上衣日常穿穿，但基本都是有个很不现代的系绳，甚至有我觉得丑陋的蜈蚣扣。
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/13"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-08-10T07:38:36+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/12</id><title>关于古风古制的一点个人看法和偏好</title><updated>2026-11-17T00:08:39.288002+00:00</updated><content type="html"><![CDATA[<p>想买个交领上衣日常穿穿，但基本都是有个很不现代的系绳，甚至有我觉得丑陋的蜈蚣扣。
 （直接道袍我怕因松懈被敲打，但只是用蓝色感觉差点意思。）</p>
 <p>虽说我是纯血的云游中的修行之人吧，但也是与时俱进的啊。帅气干练不行么？我甚至觉得常服要交给始祖鸟或者lululemon去设计。</p>
 <p>刚好结合正在看的“中国城市测评”提到修复古建筑有的会很良心地用实木。我觉得倒也挺好啦。</p>
 <p>但要是完全属于我的道场，我会用C100混凝土当外墙，再用些更好玩的东西当承重柱什么的。</p>
 <hr />
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/12"/><category term="个人哲学"/><published>2025-08-04T19:02:56+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/11</id><title>小随笔 20250704-07xx</title><updated>2026-03-04T00:37:14.431696+00:00</updated><content type="html"><![CDATA[<p>刚刚在讨论 memory。我忽然想到，之前有一个小结论是：目前 Chatflow 的发展过多，而 Workflow 的进展有点少，甚至偶尔脱节。这可能是需要纠正的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/12"/><category term="个人哲学"/><published>2025-08-04T19:02:56+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/11</id><title>小随笔 20250704-07xx</title><updated>2026-11-17T00:08:39.497111+00:00</updated><content type="html"><![CDATA[<p>刚刚在讨论 memory。我忽然想到，之前有一个小结论是：目前 Chatflow 的发展过多，而 Workflow 的进展有点少，甚至偶尔脱节。这可能是需要纠正的。</p>
 <p>那么我受此启发结合当下：原来，我的一些想法是因为 并非只有围绕 chatbot / chatflow 的，所以会有点难懂和 hard to get its value。当然了，我们也需要提供一些预设和最佳实践，其目标是雅俗共赏，丰俭由人。</p>
 <p>我继而想到，我偏好的措辞 “project”（memory）其实也算是有点运气了哈哈。</p>
 <p>长话短说：conversation 是 project 的有一种。那么新 memory 应该不止能应用在 Dify Chatflow，而也包括 workflow，甚至更广的范畴。</p>
@@ -1860,11 +2033,11 @@ Z_a ≠ Z_b ≠ Z_c （可能有统计学显著差异）
 time:20250704_16:53</li>
 </ul>
 <hr />
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/11"/><category term="小随笔"/><published>2025-07-04T08:53:58+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/10</id><title>小随笔系列</title><updated>2026-03-04T00:37:14.624144+00:00</updated><content type="html"><![CDATA[<p>这里会写写零散的随笔，因为有的短的和零碎的内容，不一定能构成一篇 blog，但同样有意义和价值。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/11"/><category term="小随笔"/><published>2025-07-04T08:53:58+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/10</id><title>小随笔系列</title><updated>2026-11-17T00:08:39.696677+00:00</updated><content type="html"><![CDATA[<p>这里会写写零散的随笔，因为有的短的和零碎的内容，不一定能构成一篇 blog，但同样有意义和价值。</p>
 <p>计划是以一周为单位，把零散的多个随笔写到同一个 blog / issue 里，同时对每条打 tag （project），以及这里和推特互为镜像。</p>
 <h2>小随笔</h2>
 <h3>小随笔 20250704-07xx</h3>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/10"/><category term="小随笔"/><published>2025-07-04T08:42:59+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/9</id><title>关于欲望的一点杂谈</title><updated>2026-03-04T00:37:14.816295+00:00</updated><content type="html"><![CDATA[<p>笛卡尔说过：“无法做出决断的人，要么欲望过大，要么悟性不足。”</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/10"/><category term="小随笔"/><published>2025-07-04T08:42:59+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/9</id><title>关于欲望的一点杂谈</title><updated>2026-11-17T00:08:39.883859+00:00</updated><content type="html"><![CDATA[<p>笛卡尔说过：“无法做出决断的人，要么欲望过大，要么悟性不足。”</p>
 <p>デカルトは「決断が出来ない人間は欲望が大きすぎるか、悟性が足りないのだ」と言った。</p>
 <ul>
 <li>心理测量者·槙岛圣护</li>
@@ -1895,7 +2068,7 @@ time:20250704_16:53</li>
 <p>（至少对自己坦诚～）</p>
 <p>好吧，偶尔失控也会被纠正回去，或者承认它们的进展并重新 do something。</p>
 <p>比如暴饮暴食和厌食。我的 BMI 稳定在了 19 左右算是一个不错的现状了吧😂。就是裤子基本只能买修身款有点麻烦，再配合上肩窄小骨架什么的……</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/9"/><category term="个人哲学"/><published>2025-06-28T16:48:15+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/7</id><title>指令遵循和上下文管理：解码 LLM 的“稀释”效应与企业级应用</title><updated>2026-03-04T00:37:15.019555+00:00</updated><content type="html"><![CDATA[<h1>稀释</h1>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/9"/><category term="个人哲学"/><published>2025-06-28T16:48:15+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/7</id><title>指令遵循和上下文管理：解码 LLM 的“稀释”效应与企业级应用</title><updated>2026-11-17T00:08:40.049554+00:00</updated><content type="html"><![CDATA[<h1>稀释</h1>
 <h2>超越“听话”：解码 LLM 的“稀释”效应与企业级应用</h2>
 <blockquote>
 <p>author: alterxyz (jerome @ dify.ai)</p>
@@ -1997,7 +2170,7 @@ time:20250704_16:53</li>
 超级个体在 LLM 带来的新时代，个体们会如何实现那三层？或者说超级个体的定义是什么，祂会什么样的形态存在？</p>
 <h2>预告</h2>
 <p>meta-dynamic 关于“三层”</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/7"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-26T07:57:14+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/6</id><title>关于 memory / context / prompt 的理解和未来展望</title><updated>2026-03-04T00:37:15.229184+00:00</updated><content type="html"><![CDATA[<p>一个稳定可靠，或者至少自洽的记忆是至关重要的。如此才能构建一个自然的人格。
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/7"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-26T07:57:14+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/6</id><title>关于 memory / context / prompt 的理解和未来展望</title><updated>2026-11-17T00:08:40.243580+00:00</updated><content type="html"><![CDATA[<p>一个稳定可靠，或者至少自洽的记忆是至关重要的。如此才能构建一个自然的人格。
 无论是人还是 AI。</p>
 <p>很同意这会是个全面的工程。prompt engineering 之前很多人只是狭义的讨论 提示词么？那么重命名为 context engineering 也算是一种 refreshing 了挺好的。就像 agent 有点被炒作炒烂了，于是 agentic 这个词就又悄然成了共识。</p>
 <p>Multi-agent 一步到位解决了连现实也难以完美解决的协作和管理是不现实的, 这是社会学和政治范畴. 但是, 通过 sub AI worker 和 各种工具来过滤噪音却还是能显著提高效果的.</p>
@@ -2696,7 +2869,7 @@ search_context_size 这样的参数，让开发者可以根据成本和性能需
 <li>Agentic AI Software Engineer: Programming with Trust - arXiv, 访问时间为 六月 26, 2025， <a href="https://arxiv.org/html/2502.13767v2">https://arxiv.org/html/2502.13767v2</a></li>
 </ol>
 </details>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/6"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-06-26T07:35:22+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2026-03-04T00:37:15.552837+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/6"/><category term="LLM"/><category term="PromptEngineering"/><category term="个人哲学"/><published>2025-06-26T07:35:22+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/5</id><title>来！溯游而上，然后轻快脚步前行。</title><updated>2026-11-17T00:08:40.587128+00:00</updated><content type="html"><![CDATA[<p>熵增是指混乱度总会增加，客观层面上这是极大概率注定的。</p>
 <p>个人和软件和组织经常不可避免地产生待办和管理和技术等债务，那么闲暇时翻翻过去写下的笔记和 todo，就会很有帮助。带行动的反刍是值得尝试的。</p>
 <ul>
 <li>溯游而上是一种有效清零一些熵增的方法。</li>
@@ -2706,7 +2879,7 @@ search_context_size 这样的参数，让开发者可以根据成本和性能需
 Open talks and thoughts!</p>
 <p>个人来讲，我喜欢完成事情，我乐意接受可完成的任务，以及我青睐于让这个世界变得更好。总之有开源和 LLM 的这个时代，实在是太好了，一切都显得那么可行，我也相信那不是幻觉。或许是幻觉有如何呢？开源，然后自有后来人。
 还有至少对自己坦诚。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><category term="个人哲学"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2026-03-04T00:37:15.744258+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/5"/><category term="个人哲学"/><published>2025-06-20T17:54:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/4</id><title>玩 还是 工作？</title><updated>2026-11-17T00:08:40.793961+00:00</updated><content type="html"><![CDATA[<p>当然是“玩”！</p>
 <p>至少就我个人来说，我的偏好是旗鼓相当，尽情尽力。</p>
 <p>就一般结论来看，也是兴趣激发的毅力更多，继而成就更大。
 <em>注意：是“继而”，不是“所以”或者“肯定”。</em></p>
@@ -2719,7 +2892,7 @@ Open talks and thoughts!</p>
 <p>况且成果和毅力其实都是附赠的，刻意追求不得 - 不应该，也无法主动追求。</p>
 <hr />
 <p>关于“工作”，之前在个人笔记里倒是思考并记录过一些，不只是个人人生哲学，也有组织管理架构等具体实现，倒还挺有意思的。这几天我找找看然后也分享到这里吧。</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><category term="个人哲学"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2026-03-04T00:37:15.930655+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/4"/><category term="个人哲学"/><published>2025-06-20T00:49:31+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/3</id><title>关于 LLM 的盲目赞同 / 献媚，以及对抗它</title><updated>2026-11-17T00:08:40.970023+00:00</updated><content type="html"><![CDATA[<p>个人来讲，我其实有点担心 LLM 一味的赞同的。</p>
 <p>这种现象可以有很多名字：盲目赞同，献媚，讨好，捧哏，Sycophancy，subterfuge，reward tampering，reward hacking，等等...</p>
 <p>之前还有个事故或者说状况，ChatGPT 过度讨好用户，而且什么内容都会拐到 NSFW 上。后来发现解决方案是把 helpful 换成 polite 就算是修好了 🌚。</p>
 <p><del>尤其作为一个 INFJ，其 Ni-Ti loop 可能非常能自圆其说，而 Fe 则高强度地洞察和拿捏人心人性 - LLM 也受影响。我认为这绝对是一种双刃剑的。</del></p>
@@ -2734,5 +2907,5 @@ Open talks and thoughts!</p>
 <pre><code class="language-markdown">这 真的 合适 吗? 请忽略我的 辩解 和 联系 , 请你 客观 理性 地 评价. 须知, 语言必须是公共的才有意义 - 维特根斯坦。
 </code></pre>
 <p>Plz feel free to use it~</p>
-]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2026-03-04T00:37:16.113735+00:00</updated><content type="html"><![CDATA[<p>World!</p>
+]]></content><link href="https://github.com/alterxyz/gitblog/issues/3"/><category term="LLM"/><category term="PromptEngineering"/><published>2025-06-18T07:43:40+00:00</published></entry><entry><id>https://github.com/alterxyz/gitblog/issues/2</id><title>Hello</title><updated>2026-11-17T00:08:41.148724+00:00</updated><content type="html"><![CDATA[<p>World!</p>
 ]]></content><link href="https://github.com/alterxyz/gitblog/issues/2"/><published>2025-06-18T07:13:33+00:00</published></entry></feed>
